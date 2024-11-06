@@ -1,16 +1,21 @@
 import React from 'react';
 import Home from './contents/Home';
-import { Router, Routes, Route, Link } from "react-router-dom";
+import About from './contents/About';
+import { Routes, Route, Link } from "react-router-dom";
+import { Utilicon, Btn } from './ui/commonui';
 
 export default function App() {
   return (
     <div>
       <nav>
         <ul style={{display:'flex'}}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/"><Utilicon fontcolor="red" bgcolor="yellow" icon="\f64f">Home</Utilicon></Link></li>
+          <li><Link to="/about"><Utilicon fontcolor="blue" bgcolor="lightblue" icon="\f7cc">About</Utilicon></Link></li>
+          <li><Link to="/contact"><Utilicon fontcolor="white" bgcolor="black" icon="\F417">Contact</Utilicon></Link></li>
         </ul>
+        <Btn>
+          <a href="https://github.com/zzohae" target='_blank' rel="noreferrer">Github</a>
+        </Btn>
       </nav>
     <div className="content">
 
@@ -22,9 +27,7 @@ export default function App() {
             </Home>
           } />
           <Route path="/about" element={
-            <Home   bgcolor="gray" textcolor="white" vh="100vh" childcolor="red">
-              자식이라고 합니다. 여기구역은 children이라는 변수로 지정되어 있어요
-            </Home>
+            <About></About>
           } />
           <Route path="/contact" element={
             <Home   bgcolor="yellow" textcolor="black" vh="100vh" childcolor="black">
