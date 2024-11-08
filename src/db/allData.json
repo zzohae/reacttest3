@@ -1,0 +1,127 @@
+{
+  "navdata": {
+    "category" : {
+      "linkto" : "products",
+      "title" : "카테고리",
+      "submenu": [
+        {
+          "linkto": "meal_kit",
+          "title": "밀키트"
+        },
+        {
+          "linkto": "side_dishes",
+          "title": "반찬류·양념류"
+        },
+        {
+          "linkto": "vegetables",
+          "title": "야채·채소"
+        },
+        {
+          "linkto": "fruits",
+          "title": "과일"
+        },
+        {
+          "linkto": "meat",
+          "title": "정육"
+        },
+        {
+          "linkto": "dried_seafood",
+          "title": "건어물"
+        },
+        {
+          "linkto": "dried_fruits",
+          "title": "건과류"
+        },
+        {
+          "linkto": "nuts",
+          "title": "견과류"
+        }
+      ]
+    },
+    "promotionmenu" : [
+      {
+        "linkto" : "whatsnew",
+        "title" : "신상품",
+        "submenu": []
+      },
+      {
+        "linkto" : "notice",
+        "title" : "소식",
+        "submenu": [
+          {
+            "linkto": "",
+            "title": "공지사항"
+          },
+          {
+            "linkto": "online_event",
+            "title": "온라인 이벤트"
+          },
+          {
+            "linkto": "offline_event",
+            "title": "지역 행사"
+          }
+        ]
+      },
+      {
+        "linkto" : "aboutus",
+        "title" : "청량리종합시장",
+        "submenu": [
+          {
+            "linkto": "",
+            "title": "시장 소개"
+          },
+          {
+            "linkto": "store_info",
+            "title": "매장 소개"
+          }
+        ]
+      },
+      {
+        "linkto" : "ecoupon",
+        "title" : "e-쿠폰",
+        "submenu": []
+      }
+    ]
+  },
+  "delivery": {
+    "linkto" : "delivery",
+    "title" : "배달서비스",
+    "submenu": [
+      {
+        "linkto": "",
+        "title": "우리시장 빠른배송"
+      },
+      {
+        "linkto": "baedal",
+        "title": "먹거리 배달"
+      }
+    ]
+  },
+  "bannerData" : [
+    { "src" : "https://i-web.kr/green08/images/main_banner_1.jpg", "alt" : "베스트 리뷰 이벤트" },
+    { "src" : "https://i-web.kr/green08/images/main_banner_2.jpg", "alt" : "카카오톡 선물하기" },
+    { "src" : "https://i-web.kr/green08/images/main_banner_3.jpg", "alt" : "캠핑 푸드 빅 세일" },
+    { "src" : "https://i-web.kr/green08/images/main_banner_4.jpg", "alt" : "라이브커머스 초특가" },
+    { "src" : "https://i-web.kr/green08/images/main_banner_5.jpg", "alt" : "밀키트 주간 구독" },
+    { "src" : "https://i-web.kr/green08/images/main_banner_6.jpg", "alt" : "해외 배송비 무료" },
+    { "src" : "https://i-web.kr/green08/images/main_banner_7.jpg", "alt" : "SNS 레시피 이벤트" }
+  ],
+  "mainPagetitle" : [
+    {
+      "linkto": "",
+      "title": "MD's Pick!"
+    },
+    {
+      "linkto": "",
+      "title": "지금 많이 찾는 BEST"
+    },
+    {
+      "linkto": "",
+      "title": "Live Commerce"
+    },
+    {
+      "linkto": "",
+      "title": "구매자분들의 솔직 리뷰✨"
+    }
+  ]
+}

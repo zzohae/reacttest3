@@ -21,16 +21,25 @@ export const Utilicon = styled.button`
 
 
 export const Btn = styled.button`
-  background-color: ${(props) => props.bgcolor || '#4CAF50'};
-  color: ${(props) => props.fontcolor || 'white'};
-  padding: 10px 20px;
-  border: 3px solid red;
-  border-radius: 50px;
-  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: ${(props) => (props.version === 'v2' ? '4px' : '0')};
+  background-color: #214AEE;
+  color: #fff;
+  padding: 10px 30px;
+  height: 45px;
+  border: 3px solid;
+  border-color: ${(props) => (props.version === 'v2' ? '#FFEA7D' : '#214AEE')};
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.5s;
 
   &:hover {
-    background-color: ${(props) =>
-      props.bgcolor ? '#45a049' : '#388e3c'};
+    background-color: ${(props) => (props.version === 'v2' ? '#FFEA7D' : '#fff')};
+    color: #214AEE;
+    font-weight: 700;
   }
 `

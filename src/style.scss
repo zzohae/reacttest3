@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Pretendard', sans-serif;
+}
+
+html, body {
+  height: 100vh
+}
+
+div, .container {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+ol, ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.top-ad {
+  background-color: #214aee;
+  padding: 5px 0;
+  div {
+    padding: 0 5px;
+    gap: 50px;
+  }
+  button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+header {
+  z-index: 1;
+  background-color: #fff;
+  .hdtop {
+    height: 100px;
+    input {
+      border: none;
+      width: 100%;
+      &:focus, &:focus-visible {
+        outline: none;
+      }
+    }
+    .util {
+      gap: 15px;
+      button {
+        background-color: transparent;
+        border: none;
+      }
+    }
+  }
+  .mainmenu {
+    height: 65px;
+    font-weight: 500;
+    button {
+      width: 250px;
+      text-align: left;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 65px;
+      color: #214aee;
+      border: none;
+      background-color: transparent;
+    }
+    .hovermenu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      overflow: hidden;
+      max-height: 0;
+      z-index: 100;
+      transition: 0.5s;
+      background-color: rgba(246, 246, 246, 0.8);
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+      color: #333;
+      li {
+        padding: 1rem calc(.5rem + 30px);
+        transition: 0.3s;
+        &:first-child {
+          color: #214aee;
+          flex-direction: column;
+          &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: .25rem;
+          }
+        }
+        &:nth-child(2) {
+          color: #214aee;
+        }
+        &:last-child {
+          flex-direction: column;
+          &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: .25rem;
+          }
+        }
+        &:hover {
+          background-color: rgba(255, 255, 255, 1);
+          backdrop-filter: unset;
+        }
+      }
+    }
+    &:hover {
+      .hovermenu {
+        max-height: 500px;
+      }
+    }
+  }
+  .allmenu {
+    height: 65px;
+    gap: 80px;
+    .menu {
+      color: #888;
+      font-size: 20px;
+      font-weight: 500;
+      transition: .5s;
+      &:hover {
+        color: #214aee;
+      }
+    }
+  }
+  .delivery svg path {
+    transition: 0.5s;
+  }
+  .delivery:hover svg path {
+    stroke: #214aee;
+    animation-name: boorung;
+    animation-duration: .4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+}
+.swiper-slide {
+  width: 1920px;
+}
+@keyframes boorung {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2px);
+  }
+}
