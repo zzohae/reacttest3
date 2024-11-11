@@ -41,7 +41,7 @@
     "promotionmenu" : [
       {
         "linkto" : "whatsnew",
-        "title" : "신상품",
+        "title" : "신규상품",
         "submenu": []
       },
       {

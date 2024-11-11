@@ -9,9 +9,12 @@ html, body {
   height: 100vh
 }
 
-div, .container {
+.container {
   padding: 0;
   margin: 0;
+}
+.mycontainer {
+  padding: 50px 0 0;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -20,6 +23,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 ol, ul, li {
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+dl, dt, dd {
   margin: 0;
   padding: 0;
 }
@@ -43,11 +51,9 @@ svg {
 
 .top-ad {
   background-color: #214aee;
-  padding: 5px 0;
-  div {
-    padding: 0 5px;
+  padding: 5px;
     gap: 50px;
-  }
+
   button {
     width: 30px;
     height: 30px;
@@ -83,7 +89,7 @@ header {
     height: 65px;
     font-weight: 500;
     button {
-      width: 250px;
+      width: 165px;
       text-align: left;
       font-size: 20px;
       font-weight: 500;
@@ -105,7 +111,6 @@ header {
       backdrop-filter: blur(5px);
       color: #333;
       li {
-        padding: 1rem calc(.5rem + 30px);
         transition: 0.3s;
         &:first-child {
           color: #214aee;
@@ -133,12 +138,18 @@ header {
           background-color: rgba(255, 255, 255, 1);
           backdrop-filter: unset;
         }
+        a {
+          padding: 1rem calc(.5rem + 30px);
+        }
       }
     }
     &:hover {
       .hovermenu {
         max-height: 500px;
       }
+    }
+    .hovermenu.open {
+      max-height: 500px;
     }
   }
   .allmenu {
@@ -175,4 +186,71 @@ header {
   100% {
     transform: translateY(-2px);
   }
+}
+.productwrap {
+  gap: 20px;
+}
+.product {
+  width: -webkit-fill-available;
+  width: fill-available;
+}
+.prodimg {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 10px;
+  background-color: orange;
+}
+.prodInfo {
+  .productName {
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    order: 1;
+  }
+  .seller {
+    color: #888;
+    font-size: 14px;
+    font-weight: 500;
+    order: 0;
+  }
+  .price {
+    order: 2;
+    strong {
+      color: #FF4A11;
+      font-size: 18px;
+      font-weight: 700;
+      margin-right: 6px;
+    }
+    .origin {
+      color: #AAA;
+      font-size: 14px;
+      font-weight: 400;
+      text-decoration: line-through;
+      margin-right: 8px;
+    }
+    em {
+      font-style: normal;
+      color: #333;
+      font-size: 18px;
+      font-weight: 700;
+      span {
+        font-weight: 500;
+      }
+    }
+  }
+  p {
+    color: #888;
+    font-size: 14px;
+    font-weight: 400;
+    order: 3;
+  }
+}
+.goCart {
+  border: none;
+  width: 50px;
+  height: 50px;
+  padding: 2px 5px 0px 2px;
+  border-radius: 30px;
+  background: rgba(210, 210, 210, 0.30);
 }
