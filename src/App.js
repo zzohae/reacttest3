@@ -3,6 +3,7 @@ import Home from './contents/Home';
 import Allproducts from './Allproducts';
 import Hd from './layout/Hd';
 import { Routes, Route } from "react-router-dom";
+import Notfound from './Notfound';
 
 export default function App() {
   return (
@@ -11,7 +12,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/products' element={<Allproducts></Allproducts>}></Route>
-        <Route path='*' element={<p>서비스 준비중입니다.</p>}></Route>
+        <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
 
     </div>

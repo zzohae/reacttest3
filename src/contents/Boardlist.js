@@ -10,7 +10,7 @@ export default function Boardlist({datakey}) {
         datakey.map( (v, i)=>{
           return(
             <div key={i} className='container mycontainer'>
-              <Movetool textColor='#214aee'>{v.title}</Movetool>
+              <Movetool textColor='#214aee' h2size='34px'>{v.title}</Movetool>
               { i === 1 && <Board></Board> }
             </div>
           )
