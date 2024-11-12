@@ -88,7 +88,7 @@ header {
   .mainmenu {
     height: 65px;
     font-weight: 500;
-    button {
+    .category {
       width: 165px;
       text-align: left;
       font-size: 20px;
@@ -190,16 +190,12 @@ header {
 .productwrap {
   gap: 20px;
 }
-.product {
-  width: -webkit-fill-available;
-  width: fill-available;
-}
 .prodimg {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
   margin-bottom: 10px;
-  background-color: orange;
+  // background-color: orange;
 }
 .prodInfo {
   .productName {
@@ -226,8 +222,8 @@ header {
       color: #AAA;
       font-size: 14px;
       font-weight: 400;
-      text-decoration: line-through;
       margin-right: 8px;
+      text-decoration: line-through;
     }
     em {
       font-style: normal;
@@ -253,4 +249,15 @@ header {
   padding: 2px 5px 0px 2px;
   border-radius: 30px;
   background: rgba(210, 210, 210, 0.30);
+}
+
+.categorytitle {
+  color:  #214AEE;
+  font-size: 34px;
+  font-weight: 700;
+  margin: 50px 0;
+  text-align: center;
+}
+.prodListone {
+  margin-bottom: 100px;
 }

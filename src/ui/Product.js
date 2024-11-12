@@ -1,18 +1,27 @@
 import React from 'react'
 
-export default function Product() {
+export default function Product({img, name, store, discount, originprice, currentbuy}) {
+  const formatNum = (num) => {
+    return num.toLocaleString();
+  };
+
 const goCart = ()=>{
   alert('상품을 장바구니에 담았습니다.')
 }
+
+const discountedPrice = originprice - (originprice * (discount / 100));
+originprice = parseInt(originprice);
+currentbuy = parseInt(currentbuy);
+
   return (
     <div className='product'>
-      <div className='prodimg'></div>
+      <img className='prodimg' src={img} alt="{name}" />
       <div className='d-flex justify-content-between align-items-end'>
         <dl className='prodInfo d-flex flex-column align-items-start'>
-          <dt className='productName'>상품 이름(0kg)</dt>
-          <dd className='seller'>유통사</dd>
-          <dd className='price'><strong>할인율</strong><span className='origin'>원래가격</span><em>39900<span>원</span></em></dd>
-          <p>구매중</p>
+          <dt className='productName'>{name}</dt>
+          <dd className='seller'>{store}</dd>
+          <dd className='price'><strong>{discount}%</strong><span className='origin'>{formatNum(originprice)}원</span><em>{formatNum(discountedPrice)}<span>원</span></em></dd>
+          <p>{formatNum(currentbuy)}명 구매중</p>
         </dl>
         <button className=' goCart d-flex justify-content-center align-items-center' onClick={goCart}>
         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
