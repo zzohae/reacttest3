@@ -7,7 +7,6 @@ export default function Productwrap() {
     <div className="container">
       <div className="row">
         {products.map((product) => (
-          <div className="prodListone col-6 col-md-4 col-lg-3">
             <Product
               img={product.img}
               name={product.name}
@@ -16,7 +15,6 @@ export default function Productwrap() {
               originprice={product.originprice}
               currentbuy={product.currentbuy}
             />
-          </div>
         ))}
       </div>
     </div>

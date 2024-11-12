@@ -14,7 +14,7 @@ originprice = parseInt(originprice);
 currentbuy = parseInt(currentbuy);
 
   return (
-    <div className='product'>
+    <div className='product col-6 col-md-4 col-lg-3'>
       <img className='prodimg' src={img} alt="{name}" />
       <div className='d-flex justify-content-between align-items-end'>
         <dl className='prodInfo d-flex flex-column align-items-start'>
@@ -24,11 +24,29 @@ currentbuy = parseInt(currentbuy);
           <p>{formatNum(currentbuy)}명 구매중</p>
         </dl>
         <button className=' goCart d-flex justify-content-center align-items-center' onClick={goCart}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
-          <path d="M9.72763 24.2214C10.3301 24.2214 10.8185 23.7429 10.8185 23.1527C10.8185 22.5625 10.3301 22.084 9.72763 22.084C9.12514 22.084 8.63672 22.5625 8.63672 23.1527C8.63672 23.7429 9.12514 24.2214 9.72763 24.2214Z" stroke="#D2D2D2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M21.7276 24.2214C22.3301 24.2214 22.8185 23.7429 22.8185 23.1527C22.8185 22.5625 22.3301 22.084 21.7276 22.084C21.1251 22.084 20.6367 22.5625 20.6367 23.1527C20.6367 23.7429 21.1251 24.2214 21.7276 24.2214Z" stroke="#D2D2D2" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M1 1.77881H5.36364L8.28727 16.0886C8.38703 16.5806 8.66026 17.0226 9.05914 17.3372C9.45802 17.6517 9.95713 17.8188 10.4691 17.8092H21.0727C21.5847 17.8188 22.0838 17.6517 22.4827 17.3372C22.8816 17.0226 23.1548 16.5806 23.2545 16.0886L25 7.12228H6.45455" stroke="#D2D2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <svg width="27" height="25" viewBox="0 0 27 25" fill="none">
+    <path
+      d="M10.6026 23.0105C11.1706 23.0105 11.631 22.5595 11.631 22.0031C11.631 21.4467 11.1706 20.9956 10.6026 20.9956C10.0347 20.9956 9.57422 21.4467 9.57422 22.0031C9.57422 22.5595 10.0347 23.0105 10.6026 23.0105Z"
+      stroke="#D2D2D2"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M21.9151 23.0105C22.4831 23.0105 22.9435 22.5595 22.9435 22.0031C22.9435 21.4467 22.4831 20.9956 21.9151 20.9956C21.3472 20.9956 20.8867 21.4467 20.8867 22.0031C20.8867 22.5595 21.3472 23.0105 21.9151 23.0105Z"
+      stroke="#D2D2D2"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M2.375 1.854H6.48862L9.24474 15.3439C9.33878 15.8078 9.59636 16.2244 9.97238 16.5209C10.3484 16.8175 10.8189 16.975 11.3016 16.9659H21.2976C21.7803 16.975 22.2508 16.8175 22.6268 16.5209C23.0028 16.2244 23.2604 15.8078 23.3545 15.3439L24.9999 6.89132H7.51702"
+      stroke="#D2D2D2"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
         </button>
       </div>
     </div>
