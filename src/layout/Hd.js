@@ -30,7 +30,7 @@ export default function Hd() {
                     allData.navdata.category.submenu.map((v, i) => {
                       return(
                         <li className='menu d-flex' key={i}>
-                            <Link to={v.linkto} className='d-block'>{v.title}</Link>
+                            <Link to={`/products/${v.linkto}`} className='d-block'>{v.title}</Link>
                         </li>
                       )
                     })

@@ -5,8 +5,16 @@
   font-family: 'Inter', 'Pretendard', sans-serif;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 html, body {
-  height: 100vh
+  height: 100vh;
+}
+
+body {
+  
 }
 
 .container {
@@ -70,6 +78,7 @@ svg {
 header {
   z-index: 1;
   background-color: #fff;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
   .hdtop {
     height: 100px;
     input {
@@ -279,10 +288,28 @@ header {
     text-align: center;
     width: 50%;
     height: 100%;
+    padding-left: 80px;
     color: #333;
     font-size: 26px;
     img {
       width: 100%;
+    }
+  }
+}
+.mytab {
+  width: 100%;
+  border-bottom: 1px solid #214AEE;
+  gap: 5px;
+  li a {
+    display: inline-block;
+    padding: 0 1rem;
+    background-color: #eee;
+    border-radius: 30px;
+    height: 45px;
+    line-height: 45px;
+    &.active {
+      background-color: #214AEE;
+      color: #fff;
     }
   }
 }

@@ -5,11 +5,11 @@
       "title" : "카테고리",
       "submenu": [
         {
-          "linkto": "meal_kit",
+          "linkto": "Mk",
           "title": "밀키트"
         },
         {
-          "linkto": "side_dishes",
+          "linkto": "side",
           "title": "반찬류·양념류"
         },
         {

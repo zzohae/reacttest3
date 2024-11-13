@@ -9,13 +9,11 @@ export default function Best() {
     <>
       {bestProducts.map((product, index) => (
         <Product
-          key={index}
           img={product.img}
-          name={product.name}
+          prodName={product.prodName}
           store={product.store}
-          discount={product.discount}
           originprice={product.originprice}
-          currentbuy={product.currentbuy}
+          saleprice={product.saleprice}
         />
       ))}
   </>

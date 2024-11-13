@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-export default function Product({img, name, store, discount, originprice, currentbuy}) {
+export default function Product({prdId, img, prodName, store, originprice, saleprice}) {
   const formatNum = (num) => {
     return num.toLocaleString();
   };
@@ -9,19 +10,21 @@ const goCart = ()=>{
   alert('상품을 장바구니에 담았습니다.')
 }
 
-const discountedPrice = originprice - (originprice * (discount / 100));
 originprice = parseInt(originprice);
-currentbuy = parseInt(currentbuy);
+saleprice = parseInt(saleprice);
+const discount = (originprice - saleprice)/100;
 
   return (
     <div className='product col-6 col-md-4 col-lg-3'>
-      <img className='prodimg' src={img} alt="{name}" />
+      <Link to={`/products/detail/${prdId}`}>
+      <img className='prodimg' src={img} alt={prodName} />
+      </Link>
       <div className='d-flex justify-content-between align-items-end'>
         <dl className='prodInfo d-flex flex-column align-items-start'>
-          <dt className='productName'>{name}</dt>
+          <dt className='productName'>{prodName}</dt>
           <dd className='seller'>{store}</dd>
-          <dd className='price'><strong>{discount}%</strong><span className='origin'>{formatNum(originprice)}원</span><em>{formatNum(discountedPrice)}<span>원</span></em></dd>
-          <p>{formatNum(currentbuy)}명 구매중</p>
+          <dd className='price'><strong>{discount}%</strong><span className='origin'>{formatNum(originprice)}원</span><em>{formatNum(saleprice)}<span>원</span></em></dd>
+          <p>000명 구매중</p>
         </dl>
         <button className=' goCart d-flex justify-content-center align-items-center' onClick={goCart}>
         <svg width="27" height="25" viewBox="0 0 27 25" fill="none">
