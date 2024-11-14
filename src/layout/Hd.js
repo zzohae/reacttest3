@@ -1,7 +1,6 @@
 import React from 'react'
 import allData from '../db/allData.json'
 import { Link } from 'react-router-dom'
-import Topad from '../contents/Topad'
 import { ReactComponent as Logo } from '../svg/logo_wide.svg';
 import Searchbox from '../ui/Searchbox';
 import { ReactComponent as Delivericon } from '../svg/truck.svg'
@@ -13,15 +12,14 @@ export default function Hd() {
 
 
   return (
-    <header className='d-flex flex-column align-items-center fixed-top'>
-      <Topad></Topad>
+    <header className='d-flex align-items-center'>
       <div className="hdtop container d-flex justify-content-between align-items-center">
         <h1 className='order-1 order-lg-0'><a href="/"><Logo width='150' height='53.708'></Logo></a></h1>
         <Searchbox className='order-0 order-lg-1'></Searchbox>
         <Util className='order-2'></Util>
         <Menuline width='28' height='28' className='d-block d-lg-none order-3'></Menuline>
       </div>
-      <div className="container">
+      <div className="hdbtm container">
         <nav className="gnb d-none d-lg-flex justify-content-between align-items-center">
             <div className='mainmenu position-relative'>
               <Link to={allData.navdata.category.linkto} className='category d-flex justify-content-start align-items-center'><Menuline width='20' height='14' className='me-2'></Menuline>{allData.navdata.category.title}</Link>
@@ -37,7 +35,7 @@ export default function Hd() {
                   }
                 </ul>
             </div>
-            <ul className=' allmenu d-flex justify-content-start align-items-center'>
+            <ul className=' allmenu d-flex'>
             {
               allData.navdata.promotionmenu.map((v, i)=>{
                   return(

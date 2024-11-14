@@ -26,18 +26,17 @@ export default function Category() {
             )?.title || "전체 상품"}
           </h2>
           <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
-            <li>
-              <Link to="/products" className={cn ? "" : "active"}>
+            <li className={`d-flex justify-content-center align-items-center ${cn ? "" : "active"}`}>
+              <Link to="/products">
                 전체 상품
               </Link>
             </li>
             {allcategory.navdata["category"]["submenu"].map((v, i) => {
               return (
-                <li className="d-flex">
+                <li className={`d-flex justify-content-center align-items-center ${cn === `${v.linkto}` ? 'active' : ''}`}>
                   <Link
                     to={`/products/${v.linkto}`}
                     key={i}
-                    className={cn === `${v.linkto}` ? "active" : ""}
                   >
                     {v.title}
                   </Link>

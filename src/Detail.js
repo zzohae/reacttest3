@@ -27,7 +27,7 @@ export default function Detail() {
               <ul className="detailInfo">
                 <li>{targetProduct.store}</li>
                 <li>{targetProduct.prodName}</li>
-                <li><strong>{discount}%</strong><span className='origin'>{formatNum(targetProduct.originprice)}원</span><em className='saleprice d-block d-md-inline d-lg-block d-xl-inline'>{formatNum(targetProduct.saleprice)}<span>원</span></em></li>
+                <li><strong className="dcPercent detail">{discount}%</strong><span className='origin detail'>{formatNum(targetProduct.originprice)}원</span><em className='saleprice detail d-block d-md-inline d-lg-block d-xl-inline'>{formatNum(targetProduct.saleprice)}<span>원</span></em></li>
               </ul>
             </div>
           </div>
