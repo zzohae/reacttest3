@@ -19,13 +19,13 @@ export default function Category() {
   return (
     <div className="d-flex flex-column align-items-center">
       <div className="container">
-        <div className="row w-100">
+        <div className=" ">
           <h2 className="categorytitle">
             {allcategory?.navdata?.category?.submenu?.find(
               (v) => v.linkto === cn
             )?.title || "전체 상품"}
           </h2>
-          <ul className="d-flex mytab mb-4 pb-3">
+          <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
             <li>
               <Link to="/products" className={cn ? "" : "active"}>
                 전체 상품
@@ -33,7 +33,7 @@ export default function Category() {
             </li>
             {allcategory.navdata["category"]["submenu"].map((v, i) => {
               return (
-                <li>
+                <li className="d-flex">
                   <Link
                     to={`/products/${v.linkto}`}
                     key={i}
@@ -45,11 +45,13 @@ export default function Category() {
               );
             })}
           </ul>
+          <p className="totalQuan">총 {filteredProducts.length}건</p>
+          </div>
           <div className="row align-items-center">
             {filteredProducts.map((v, i) => {
               return (
                 <Product
-                  key={v.id}
+                  prdId={v.id}
                   img={v.img}
                   prodName={v.prodName}
                   store={v.store}
@@ -59,7 +61,7 @@ export default function Category() {
               );
             })}
           </div>
-        </div>
+        
       </div>
     </div>
   );

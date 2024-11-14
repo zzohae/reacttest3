@@ -15,7 +15,7 @@ saleprice = parseInt(saleprice);
 const discount = (originprice - saleprice)/100;
 
   return (
-    <div className='product col-6 col-md-4 col-lg-3'>
+    <div className='product col-6 col-lg-4 col-xl-3'>
       <Link to={`/products/detail/${prdId}`}>
       <img className='prodimg' src={img} alt={prodName} />
       </Link>
@@ -23,7 +23,7 @@ const discount = (originprice - saleprice)/100;
         <dl className='prodInfo d-flex flex-column align-items-start'>
           <dt className='productName'>{prodName}</dt>
           <dd className='seller'>{store}</dd>
-          <dd className='price'><strong>{discount}%</strong><span className='origin'>{formatNum(originprice)}원</span><em>{formatNum(saleprice)}<span>원</span></em></dd>
+          <dd className='price'><strong>{discount}%</strong><span className='origin'>{formatNum(originprice)}원</span><em className='saleprice d-block d-md-inline d-lg-block d-xl-inline'>{formatNum(saleprice)}<span>원</span></em></dd>
           <p>000명 구매중</p>
         </dl>
         <button className=' goCart d-flex justify-content-center align-items-center' onClick={goCart}>

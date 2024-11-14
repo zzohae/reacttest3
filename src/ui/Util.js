@@ -48,7 +48,7 @@ const Util = () => {
   };
 
   return (
-    <div className="util d-flex align-items-center justify-content-end">
+    <div className="util d-none d-lg-flex align-items-center justify-content-end">
       <Button
         icon=<Alert />
         badgeCount={alertCount}

@@ -4,7 +4,7 @@ export default function Topad() {
   const [ closeAd, clickfun ] = useState(false);
 
   return (
-    <div className={`top-ad w-100 d-flex justify-content-center align-items-center ${ closeAd && 'd-none'}`}>
+    <div className={`top-ad w-100 d-none d-lg-flex justify-content-center align-items-center ${ closeAd && 'd-none'}`}>
       <p className='fs-18 text-center text-white'>광고~~~~~~~~~</p>
       <button onClick={()=>{ clickfun( !closeAd ) }}>
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">

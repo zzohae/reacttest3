@@ -14,7 +14,10 @@ html, body {
 }
 
 body {
-  
+  padding-top: 205px;
+  @media (max-width: 991px){
+    padding-top: 60px;
+  }
 }
 
 .container {
@@ -79,6 +82,12 @@ header {
   z-index: 1;
   background-color: #fff;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  @media (max-width: 991px){
+    height: 60px;
+    svg{
+      height: 30px;
+    }
+  }
   .hdtop {
     height: 100px;
     input {
@@ -222,28 +231,6 @@ header {
   }
   .price {
     order: 2;
-    strong {
-      color: #FF4A11;
-      font-size: 18px;
-      font-weight: 700;
-      margin-right: 6px;
-    }
-    .origin {
-      color: #AAA;
-      font-size: 14px;
-      font-weight: 400;
-      margin-right: 8px;
-      text-decoration: line-through;
-    }
-    em {
-      font-style: normal;
-      color: #333;
-      font-size: 18px;
-      font-weight: 700;
-      span {
-        font-weight: 500;
-      }
-    }
   }
   p {
     color: #888;
@@ -254,8 +241,9 @@ header {
 }
 .goCart {
   border: none;
-  width: 50px;
-  height: 50px;
+  width: 3.125rem;
+  max-width: 50px;
+  height: 3.125rem;
   padding: 2px 5px 0px 2px;
   border-radius: 30px;
   background: rgba(210, 210, 210, 0.30);
@@ -297,19 +285,81 @@ header {
   }
 }
 .mytab {
-  width: 100%;
-  border-bottom: 1px solid #214AEE;
-  gap: 5px;
+  // width: 100%;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #214AEE;
+  gap: 10px;
   li a {
+    min-width: 85px;
+    text-align: center;
     display: inline-block;
-    padding: 0 1rem;
-    background-color: #eee;
+    padding: 0 1.25rem;
+    background-color: #fff;
+    border: 2px solid #ccc;
     border-radius: 30px;
-    height: 45px;
-    line-height: 45px;
+    height: 40px;
+    line-height: 38px;
+    font-weight: 500;
     &.active {
       background-color: #214AEE;
+      border-color: #214AEE;
       color: #fff;
     }
+  }
+}
+.tempimg {
+  width: 500px;
+  height: 500px;
+  background-color: #bd822a;
+}
+.totalQuan {
+  height: 40px;
+  margin-bottom: 30px;
+  color: #888;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.detailInfo {
+  li:nth-child(1) {
+    color: #AAA;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  li:nth-child(2) {
+    color: #333;
+    font-size: 26px;
+    font-weight: 700;
+  }
+}
+
+strong {
+  color: #FF4A11;
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: .25rem;
+  &.detail {
+    font-size: 26px;
+  }
+}
+.origin {
+  color: #AAA;
+  font-size: 14px;
+  font-weight: 400;
+  margin-right: .25rem;
+  text-decoration: line-through;
+  &.detail {
+    font-size: 22px;
+  }
+}
+.saleprice {
+  font-style: normal;
+  color: #333;
+  font-size: 18px;
+  font-weight: 700;
+  word-break: keep-all;
+  span {
+    font-weight: 500;
   }
 }
