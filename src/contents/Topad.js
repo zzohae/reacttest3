@@ -1,17 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react';
 
 export default function Topad() {
-  const [ closeAd, clickfun ] = useState(false);
 
   return (
-    <div className={`top-ad fixed-top w-100 d-none d-lg-flex justify-content-center align-items-center ${ closeAd && 'd-lg-none'}`}>
-      <p className='fs-18 text-center text-white'>광고~~~~~~~~~</p>
-      <button onClick={()=>{ clickfun( !closeAd ) }}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-          <path d="M22.5 7.5L7.5 22.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M7.5 7.5L22.5 22.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </button>
+    <div className='top-ad'>
+      <p className="fs-18 text-center text-white">광고~~~~~~~~~</p>
     </div>
-  )
+  );
 }

@@ -13,12 +13,6 @@ html, body {
   height: 100vh;
 }
 
-body {
-  padding-top: 40px;
-  @media (max-width: 991px){
-    padding-top: 60px;
-  }
-}
 
 .container {
   padding: 0;
@@ -63,15 +57,15 @@ svg {
 }
 
 .top-ad {
+  width: 100%;
   background-color: #214aee;
   padding: 5px;
-    gap: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  button {
-    width: 30px;
-    height: 30px;
-    border: none;
-    background-color: transparent;
+  @media (max-width: 991px) {
+    display: none;
   }
   p {
     margin: 0;
@@ -79,16 +73,52 @@ svg {
 }
 .scrolled {
   header {
-    height: 65px;
+    min-height: 65px;
     flex-direction: row-reverse;
     justify-content: space-between;
+    @media (max-width: 992px) {
+      flex-direction: row;
+      justify-content: center;
+      height: 60px;
+      min-height: unset;
+    }
     .hdtop {
       padding-right: calc((100vw - 1320px) / 2);
       width: 42%;
+      height: 65px;
+      @media (max-width: 992px) {
+        padding-right: 0;
+        width: 100%;
+        height: 60px;
+      }
       h1 {
         position: absolute;
         left: 0;
-        top: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        width: calc((100% - 1320px) / 2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 992px) {
+          position: unset;
+          transform: unset;
+          width: unset;
+        }
+        svg {
+          display: none;
+          @media (max-width: 992px) {
+            display: block;
+          }
+        }
+        img {
+          display: block;
+          margin: 0 auto;
+          @media (max-width: 992px) {
+            display: none;
+          }
+        }
       }
       .search-box {
         width: 234px;
@@ -97,6 +127,9 @@ svg {
     .hdbtm {
       padding-left: calc((100vw - 1320px) / 2);
       width: 50%;
+      @media (max-width: 992px) {
+        display: none;
+      }
       .mainmenu {
         .category {
           width: auto;
@@ -112,18 +145,27 @@ svg {
           word-break: keep-all;
         }
       }
-      .delivery {
+      .delivwrap {
         position: absolute;
-        top: 0;
+        top: 50%;
+        transform: translateY(-50%);
         right: 0;
+        width: calc((100% - 1320px) / 2);
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
+
     }
   }
 }
 header {
+  transition: height .5s ease-in-out;
   flex-direction: column;
   position: sticky;
-  top: 40px;
+  top: 0;
+  width: 100%;
   z-index: 1000;
   background-color: #fff;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
@@ -132,6 +174,11 @@ header {
     svg{
       height: 30px;
     }
+  }
+  img {
+    display: none;
+    width: 61px;
+    height: 53px;
   }
   .hdtop {
     height: 100px;
@@ -168,6 +215,7 @@ header {
       }
       .hovermenu {
         position: absolute;
+        width: max-content;
         top: calc(100% + 10px);
         left: 0;
         overflow: hidden;
@@ -250,6 +298,9 @@ header {
 }
 .swiper-slide {
   width: 1920px;
+  img {
+    width: 100%;
+  }
 }
 @keyframes boorung {
   0% {
@@ -290,15 +341,6 @@ header {
     font-weight: 400;
     order: 3;
   }
-}
-.goCart {
-  border: none;
-  width: 3.125rem;
-  max-width: 50px;
-  height: 3.125rem;
-  padding: 2px 5px 0px 2px;
-  border-radius: 30px;
-  background: rgba(210, 210, 210, 0.30);
 }
 
 .categorytitle {
