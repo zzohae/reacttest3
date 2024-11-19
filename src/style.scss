@@ -76,6 +76,15 @@ svg {
     min-height: 65px;
     flex-direction: row-reverse;
     justify-content: space-between;
+    @media (max-width: 1799px) {
+      justify-content: center;
+      gap: 60px;
+    }
+    @media (max-width: 1699px) {
+      flex-direction: unset;
+      justify-content: space-between;
+      padding: 0 150px;
+    }
     @media (max-width: 992px) {
       flex-direction: row;
       justify-content: center;
@@ -86,6 +95,14 @@ svg {
       padding-right: calc((100vw - 1320px) / 2);
       width: 42%;
       height: 65px;
+      @media (max-width: 1799px) {
+        width: auto;
+        gap: 50px;
+      }
+      @media (max-width: 1699px) {
+        padding-right: 0;
+        width: inherit;
+      }
       @media (max-width: 992px) {
         padding-right: 0;
         width: 100%;
@@ -96,53 +113,66 @@ svg {
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        text-align: center;
         width: calc((100% - 1320px) / 2);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
+        @media (max-width: 1699px) {
+          position: unset;
+          transform: none;
+          width: auto;
+        }
+
         @media (max-width: 992px) {
           position: unset;
           transform: unset;
           width: unset;
         }
         svg {
-          display: none;
+          height: 44px;
           @media (max-width: 992px) {
             display: block;
           }
         }
-        img {
-          display: block;
-          margin: 0 auto;
-          @media (max-width: 992px) {
-            display: none;
-          }
+      }
+      .mobileallmenu {
+        @media (max-width: 1699px) {
+          display: block !important;
         }
       }
       .search-box {
         width: 234px;
+        @media (max-width: 1699px) {
+          width: 500px;
+          max-width: 500px;
+        }
       }
     }
     .hdbtm {
       padding-left: calc((100vw - 1320px) / 2);
       width: 50%;
+      @media (max-width: 1699px) {
+        display: none;
+      }
       @media (max-width: 992px) {
         display: none;
       }
       .mainmenu {
         .category {
           width: auto;
+          word-break: keep-all;
         }
       }
       .allmenu {
         width: 480px;
+        display: flex;
         justify-content: space-between;
         align-items: center;
         flex-shrink: 0;
         gap: unset;
         .menu {
           word-break: keep-all;
+        }
+        @media (max-width: 1699px) {
+          display: none;
         }
       }
       .delivwrap {
@@ -155,6 +185,12 @@ svg {
         display: flex;
         justify-content: center;
         align-items: center;
+        @media (max-width: 1799px) {
+          justify-content: flex-start;
+        }
+        @media (max-width: 1699px) {
+          display: none;
+        }
       }
 
     }
@@ -174,11 +210,6 @@ header {
     svg{
       height: 30px;
     }
-  }
-  img {
-    display: none;
-    width: 61px;
-    height: 53px;
   }
   .hdtop {
     height: 100px;
@@ -271,6 +302,7 @@ header {
     .allmenu {
       height: 65px;
       gap: 80px;
+      display: flex;
       justify-content: flex-start;
       align-items: center;
       flex-shrink: 0;
