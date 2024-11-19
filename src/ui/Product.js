@@ -15,7 +15,7 @@ const goCart = ()=>{
 
 originprice = parseInt(originprice);
 saleprice = parseInt(saleprice);
-const discount = parseInt((originprice - saleprice)/originprice*100);
+const discount = parseInt((originprice - saleprice) / originprice * 100);
 
   return (
     <div className={`product ${rowclass} position-relative`}>

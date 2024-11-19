@@ -5,7 +5,7 @@
       "store": "밀키트가게1",
       "storeProdId": "a001",
       "prodName": "밀키트1",
-      "quantity": "1인분",
+      "volume": "1인분",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "mealKit_a001",
@@ -14,7 +14,7 @@
       "promobadge": ["best", "new"],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "T"
+      "detailpage" : ""
   },
   {
       "id": 2,
@@ -22,7 +22,7 @@
       "store": "밀키트가게1",
       "storeProdId": "a002",
       "prodName": "밀키트2",
-      "quantity": "2인분",
+      "volume": "2인분",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "mealKit_a002",
@@ -31,7 +31,7 @@
       "promobadge": ["best", "new"],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "T"
+      "detailpage" : ""
   },
   {
       "id": 3,
@@ -39,7 +39,7 @@
       "store": "밀키트가게1",
       "storeProdId": "a003",
       "prodName": "밀키트3",
-      "quantity": "2~3인분",
+      "volume": "2~3인분",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "mealKit_a003",
@@ -48,7 +48,7 @@
       "promobadge": ["best", "new"],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "T"
+      "detailpage" : ""
   },
   {
       "id": 4,
@@ -56,7 +56,7 @@
       "store": "밀키트가게2",
       "storeProdId": "b001",
       "prodName": "밀키트4",
-      "quantity": "1인분",
+      "volume": "1인분",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "mealKit_b001",
@@ -65,7 +65,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 5,
@@ -73,7 +73,7 @@
       "store": "밀키트가게2",
       "storeProdId": "b002",
       "prodName": "밀키트5",
-      "quantity": "3인분",
+      "volume": "3인분",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "mealKit_b002",
@@ -82,7 +82,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 6,
@@ -90,7 +90,7 @@
       "store": "밀키트가게3",
       "storeProdId": "c001",
       "prodName": "밀키트6",
-      "quantity": "4인분",
+      "volume": "4인분",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "mealKit_c001",
@@ -99,7 +99,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 7,
@@ -107,7 +107,7 @@
       "store": "밀키트가게4",
       "storeProdId": "d001",
       "prodName": "밀키트7",
-      "quantity": "1인분",
+      "volume": "1인분",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "mealKit_d001",
@@ -116,7 +116,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 8,
@@ -124,7 +124,7 @@
       "store": "반찬가게1",
       "storeProdId": "e001",
       "prodName": "반찬1",
-      "quantity": "200g",
+      "volume": "200g",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "side_e001",
@@ -133,7 +133,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "T"
+      "detailpage" : ""
   },
   {
       "id": 9,
@@ -141,7 +141,7 @@
       "store": "반찬가게1",
       "storeProdId": "e002",
       "prodName": "반찬2",
-      "quantity": "200g",
+      "volume": "200g",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "side_e002",
@@ -150,7 +150,7 @@
       "promobadge": ["new"],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 10,
@@ -158,7 +158,7 @@
       "store": "반찬가게2",
       "storeProdId": "f001",
       "prodName": "반찬3",
-      "quantity": "200g",
+      "volume": "200g",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "side_f001",
@@ -167,7 +167,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 11,
@@ -175,7 +175,7 @@
       "store": "반찬가게2",
       "storeProdId": "f002",
       "prodName": "반찬4",
-      "quantity": "200g",
+      "volume": "200g",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "side_f002",
@@ -184,7 +184,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 12,
@@ -192,7 +192,7 @@
       "store": "반찬가게2",
       "storeProdId": "f003",
       "prodName": "반찬5",
-      "quantity": "200g",
+      "volume": "200g",
       "sellUnit": "1팩",
       "simpleExp": "간단한 설명…",
       "img": "side_f003",
@@ -201,7 +201,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 13,
@@ -209,7 +209,7 @@
       "store": "야채가게1",
       "storeProdId": "g001",
       "prodName": "야채1",
-      "quantity": "500g",
+      "volume": "500g",
       "sellUnit": "1봉",
       "simpleExp": "간단한 설명…",
       "img": "vegetables_g001",
@@ -218,7 +218,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 14,
@@ -226,7 +226,7 @@
       "store": "야채가게2",
       "storeProdId": "h001",
       "prodName": "야채2",
-      "quantity": "1kg",
+      "volume": "1kg",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "vegetables_h001",
@@ -235,7 +235,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 15,
@@ -243,7 +243,7 @@
       "store": "야채가게3",
       "storeProdId": "i001",
       "prodName": "야채3",
-      "quantity": "800g",
+      "volume": "800g",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "vegetables_i001",
@@ -252,7 +252,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 16,
@@ -260,7 +260,7 @@
       "store": "야채가게3",
       "storeProdId": "i002",
       "prodName": "야채4",
-      "quantity": "500g",
+      "volume": "500g",
       "sellUnit": "1봉",
       "simpleExp": "간단한 설명…",
       "img": "vegetables_i002",
@@ -269,7 +269,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 17,
@@ -277,7 +277,7 @@
       "store": "야채가게3",
       "storeProdId": "i003",
       "prodName": "야채5",
-      "quantity": "200g",
+      "volume": "200g",
       "sellUnit": "1개",
       "simpleExp": "간단한 설명…",
       "img": "vegetables_i003",
@@ -286,7 +286,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 18,
@@ -294,7 +294,7 @@
       "store": "과일가게1",
       "storeProdId": "j001",
       "prodName": "과일1",
-      "quantity": "1kg",
+      "volume": "1kg",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_j001",
@@ -303,7 +303,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 19,
@@ -311,7 +311,7 @@
       "store": "과일가게1",
       "storeProdId": "j002",
       "prodName": "과일2",
-      "quantity": "1kg",
+      "volume": "1kg",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_j002",
@@ -320,7 +320,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 20,
@@ -328,7 +328,7 @@
       "store": "과일가게1",
       "storeProdId": "j003",
       "prodName": "과일3",
-      "quantity": "500g",
+      "volume": "500g",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_j003",
@@ -337,7 +337,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 21,
@@ -345,7 +345,7 @@
       "store": "과일가게1",
       "storeProdId": "j004",
       "prodName": "과일4",
-      "quantity": "500g",
+      "volume": "500g",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_j004",
@@ -354,7 +354,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 22,
@@ -362,7 +362,7 @@
       "store": "과일가게1",
       "storeProdId": "j005",
       "prodName": "과일5",
-      "quantity": "500g",
+      "volume": "500g",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_j005",
@@ -371,7 +371,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 23,
@@ -379,7 +379,7 @@
       "store": "과일가게1",
       "storeProdId": "j006",
       "prodName": "과일6",
-      "quantity": "1kg",
+      "volume": "1kg",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_j006",
@@ -388,7 +388,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 24,
@@ -396,7 +396,7 @@
       "store": "과일가게2",
       "storeProdId": "k001",
       "prodName": "과일7",
-      "quantity": "1kg",
+      "volume": "1kg",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_k001",
@@ -405,7 +405,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 25,
@@ -413,7 +413,7 @@
       "store": "과일가게2",
       "storeProdId": "k002",
       "prodName": "과일8",
-      "quantity": "1kg",
+      "volume": "1kg",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_k002",
@@ -422,7 +422,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 26,
@@ -430,7 +430,7 @@
       "store": "과일가게2",
       "storeProdId": "k003",
       "prodName": "과일9",
-      "quantity": "1kg",
+      "volume": "1kg",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_k003",
@@ -439,7 +439,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 27,
@@ -447,7 +447,7 @@
       "store": "과일가게2",
       "storeProdId": "k004",
       "prodName": "과일10",
-      "quantity": "1kg",
+      "volume": "1kg",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_k004",
@@ -456,7 +456,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 28,
@@ -464,7 +464,7 @@
       "store": "과일가게2",
       "storeProdId": "k005",
       "prodName": "과일11",
-      "quantity": "500g",
+      "volume": "500g",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_k005",
@@ -473,7 +473,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 29,
@@ -481,7 +481,7 @@
       "store": "과일가게2",
       "storeProdId": "k006",
       "prodName": "과일12",
-      "quantity": "500g",
+      "volume": "500g",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_k006",
@@ -490,7 +490,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 30,
@@ -498,7 +498,7 @@
       "store": "과일가게2",
       "storeProdId": "k007",
       "prodName": "과일13",
-      "quantity": "500g",
+      "volume": "500g",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_k007",
@@ -507,7 +507,7 @@
       "promobadge": [""],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   },
   {
       "id": 31,
@@ -515,7 +515,7 @@
       "store": "과일가게2",
       "storeProdId": "k008",
       "prodName": "과일14",
-      "quantity": "500g",
+      "volume": "500g",
       "sellUnit": "1박스",
       "simpleExp": "간단한 설명…",
       "img": "fruits_k008",
@@ -524,6 +524,6 @@
       "promobadge": ["new"],
       "madefrom": "국내산",
       "stock": 50,
-      "showpick": "F"
+      "detailpage" : ""
   }
 ]
