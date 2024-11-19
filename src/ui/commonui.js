@@ -25,21 +25,32 @@ export const Btn = styled.button`
   justify-content: center;
   align-items: center;
   gap: ${(props) => (props.version === 'v2' ? '4px' : '0')};
-  background-color: #214AEE;
-  color: #fff;
+  background-color: ${(props) => props.bgColor || '#214AEE'};
+  color: ${(props) => (props.bgColor === '#fff' ? '#214AEE' : '#fff')};
   padding: 10px 30px;
-  height: 45px;
+  height: 40px;
   border: 3px solid;
-  border-color: ${(props) => (props.version === 'v2' ? '#FFEA7D' : '#214AEE')};
+  border-color: ${(props) =>
+    props.version === 'v2'
+      ? '#FFEA7D'
+      : props.version === 'v3'
+      ? '#fff'
+      : '#214AEE'};
   border-radius: 30px;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
   cursor: pointer;
   transition: 0.5s;
+  white-space: nowrap;
 
   &:hover {
-    background-color: ${(props) => (props.version === 'v2' ? '#FFEA7D' : '#fff')};
-    color: #214AEE;
+    background-color: ${(props) =>
+      props.bgColor === '#fff'
+        ? '#214AEE'
+        : props.version === 'v2'
+        ? '#FFEA7D'
+        : '#fff'}; /* 조건부 색상 */
+    color: ${(props) => (props.bgColor === '#fff' ? '#fff' : '#214AEE')};
     font-weight: 700;
   }
-`
+`;

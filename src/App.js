@@ -5,7 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import Notfound from './Notfound';
 import Category from './Category';
 import Detail from './Detail';
-import Topad from './contents/Topad'
+import Topad from './contents/Topad';
+import Ft from './layout/Ft';
 
 export default function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -35,7 +36,7 @@ export default function App() {
         <Route path="/products/detail/:id?" element={<Detail></Detail>} />
         <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
-
+      <Ft></Ft>
     </div>
   )
 }

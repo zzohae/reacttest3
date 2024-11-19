@@ -123,5 +123,23 @@
       "linkto": "",
       "title": "구매자분들의 솔직 리뷰✨"
     }
-  ]
-}
+  ],
+    "companyInfo": [
+      { "label": "회사명", "value": "청량리종합시장 상인 협동조합" },
+      { "label": "대표자", "value": "조해현" },
+      { "label": "소재지", "value": "서울시 동대문구 홍릉로1길 68-3" },
+      { "label": "이메일", "value": "cnm365@naver.com" }
+    ],
+    "agent": [
+      { "label": "평일", "value": "09:00~18:00" },
+      { "label": "점심", "value": "12:00~13:00" },
+      { "label": "휴무", "value": "토/일/공휴일" }
+    ],
+    "support": [
+      { "label": "입금계좌 안내", "linkto": "/aboutus" },
+      { "label": "배송 안내", "linkto": "/aboutus" },
+      { "label": "구매 안전 서비스", "linkto": "/aboutus" },
+      { "label": "자주 묻는 질문", "linkto": "/aboutus" }
+    ]
+  }
+  
