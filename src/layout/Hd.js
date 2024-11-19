@@ -17,7 +17,7 @@ export default function Hd() {
         <h1 className='order-1 order-lg-0'><a href="/"><Logo width='150' height='53.708'></Logo></a></h1>
         <Searchbox className='order-0 order-lg-1'></Searchbox>
         <Util className='order-2'></Util>
-        <Menuline width='28' height='28' className='d-block d-lg-none order-3'></Menuline>
+        <Menuline width='28' height='28' className='mobileallmenu d-block d-lg-none order-3'></Menuline>
       </div>
       <div className="hdbtm container">
         <nav className="gnb d-none d-lg-flex justify-content-between align-items-center">
@@ -35,7 +35,7 @@ export default function Hd() {
                   }
                 </ul>
             </div>
-            <ul className=' allmenu d-flex'>
+            <ul className=' allmenu'>
             {
               allData.navdata.promotionmenu.map((v, i)=>{
                   return(
@@ -46,10 +46,12 @@ export default function Hd() {
               })
             }
           </ul>
+          <div className='delivwrap'>
           <Btn version='v2' className='delivery'>
             <Delivericon width='24' height='24'></Delivericon>
             {allData.delivery.title}
           </Btn>
+          </div>
         </nav> 
       </div>
     </header>

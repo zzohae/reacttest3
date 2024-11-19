@@ -1,25 +1,5 @@
 import styled from 'styled-components';
 
-export const Utilicon = styled.button`
-  background-color: ${(props) => props.bgcolor || '#4CAF50'};
-  color: ${(props) => props.fontcolor || 'white'};
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  font-family: 'bootstrap-icons';
-
-  &:hover {
-    background-color: ${(props) => props.hoverBgColor || '#45a049'};
-  }
-  &::before {
-  content: "${(props) => props.icon || '\\f417'}";
-    margin-right: 5px; 
-  }
-`;
-
-
 export const Btn = styled.button`
   display: flex;
   justify-content: center;
@@ -36,12 +16,14 @@ export const Btn = styled.button`
       : props.version === 'v3'
       ? '#fff'
       : '#214AEE'};
+  transition-property: color, border-color, background-color;
+  word-break: keep-all;
+  white-space: nowrap;
   border-radius: 30px;
   font-size: 1.125rem;
   font-weight: 600;
   cursor: pointer;
   transition: 0.5s;
-  white-space: nowrap;
 
   &:hover {
     background-color: ${(props) =>
@@ -53,4 +35,18 @@ export const Btn = styled.button`
     color: ${(props) => (props.bgColor === '#fff' ? '#fff' : '#214AEE')};
     font-weight: 700;
   }
-`;
+`
+
+export const InCartBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 3.125rem;
+  max-width: 50px;
+  height: 3.125rem;
+  padding: 2px 5px 0px 2px;
+  border-radius: 30px;
+  background: rgba(210, 210, 210, 0.30);
+  color: ${(props) => props.strokeColor || '#214AEE'};
+`

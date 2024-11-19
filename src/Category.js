@@ -50,6 +50,7 @@ export default function Category() {
             {filteredProducts.map((v, i) => {
               return (
                 <Product
+                rowclass='col-6 col-lg-4 col-xl-3'
                   prdId={v.id}
                   img={v.img}
                   prodName={v.prodName}

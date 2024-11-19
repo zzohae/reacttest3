@@ -10,20 +10,17 @@ import Ft from './layout/Ft';
 
 export default function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
     const updateScroll = () => {
-        setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-    }
-    useEffect(() => {
-      const updateScroll = () => {
-          setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-      };
-  
-      window.addEventListener('scroll', updateScroll);
-  
-      // 클린업: 컴포넌트가 언마운트될 때 이벤트 리스너 제거
-      return () => {
-          window.removeEventListener('scroll', updateScroll);
-      };
+      setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+    };
+
+    window.addEventListener('scroll', updateScroll);
+
+    return () => {
+      window.removeEventListener('scroll', updateScroll);
+    };
   }, []);
   
   return (
