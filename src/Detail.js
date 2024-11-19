@@ -8,7 +8,7 @@ export default function Detail() {
   const formatNum = (num) => {
     return num.toLocaleString();
   };
-  const targetProduct = productData?.find((product) => product.id === id)
+  const targetProduct = productData?.find((product) => product.id == id)
 
   targetProduct.originprice = parseInt(targetProduct.originprice);
   targetProduct.saleprice = parseInt(targetProduct.saleprice);

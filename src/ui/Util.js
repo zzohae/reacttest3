@@ -9,7 +9,7 @@ const Button = ({ icon, badgeCount, onClick, isLoggedIn, label }) => (
   <button className="icon" onClick={onClick} style={{ position: 'relative' }}>
     {icon}
     {badgeCount > 0 && (
-      <span className="badge" style={{ position: 'absolute', top: 0, right: 0, backgroundColor: 'red', color: 'white', borderRadius: '50%', padding: '0.2em 0.6em' }}>
+      <span className="badge" style={{ position: 'absolute', top: 0, right: 0, backgroundColor: 'red', color: 'white', borderRadius: '50px', padding: '0.2em 0.6em' }}>
         {badgeCount}
       </span>
     )}
