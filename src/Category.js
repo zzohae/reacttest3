@@ -11,7 +11,7 @@ export default function Category() {
   useEffect(() => {
     setFilteredProducts(
       cn
-        ? productData.filter((product) => product.category === cn)
+        ? productData.filter((product) => product.category == cn)
         : productData
     );
   }, [cn]);

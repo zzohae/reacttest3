@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { InCartBtn } from './commonui';
+import { ProductTag } from './commonui';
 import Utilicon from './svg';
 
-export default function Product({rowclass, prdId, img, prodName, store, originprice, saleprice}) {
+export default function Product({rowclass, prdId, img, prodName, store, originprice, saleprice, promobadge }) {
   const formatNum = (num) => {
     return num.toLocaleString();
   };
@@ -17,8 +18,13 @@ saleprice = parseInt(saleprice);
 const discount = parseInt((originprice - saleprice) / originprice * 100);
 
   return (
-    <div className={`product ${rowclass}`}>
+    <div className={`product ${rowclass} position-relative`}>
       <Link to={`/products/detail/${prdId}`}>
+      <div className='position-absolute d-flex mt-2'>
+      {promobadge && promobadge.map((badge, index) => (
+        <ProductTag key={index} type={badge} />
+      ))}
+      </div>
       <img className='prodimg' src={img} alt={prodName} />
       </Link>
       <div className='d-flex justify-content-between align-items-end'>

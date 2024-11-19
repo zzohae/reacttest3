@@ -27,7 +27,8 @@ export default function Ft() {
               </div>
 
               <div className='col-6 col-md-4 col-lg-2 mb-4'>
-                <h3 className='fs-h3'>고객센터<br />02-962-7100</h3>
+                <h3 className='fs-h3'>고객센터</h3>
+                <h4 className="fs-h4">02-962-7100</h4>
                 <dl>
                   {ftData.agent.map((v, i) => (
                     <div className="ftinfo" key={i}>
@@ -42,7 +43,7 @@ export default function Ft() {
                 <h3 className='fs-h3'>고객 지원</h3> 
                   <ul>
                     {ftData.support.map((v, i) => (
-                      <li key={i} className='fs-h6'>
+                      <li key={i} className='fs-h5'>
                       <Link to={v.linkto}>{v.label} <Linksvg /></Link>
                       </li>
                     ))}

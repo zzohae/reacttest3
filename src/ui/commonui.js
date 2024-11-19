@@ -50,3 +50,25 @@ export const InCartBtn = styled.button`
   background: rgba(210, 210, 210, 0.30);
   color: ${(props) => props.svgcolor || '#214AEE'};
 `
+
+
+export const TagStyle = styled.div`
+  margin-left: 0.5rem;
+  left: ${(props) => (props.index || 0) * 60}px; /* 태그 간 간격 조정 */
+  padding: 0.3rem 0.6rem;
+  background-color: ${(props) =>
+    props.type === 'hot'
+      ? '#FF4500'
+      : props.type === 'best'
+      ? '#214AEE'
+      : '#FFEA7D'}; // NEW 배경색
+  color: ${(props) => (props.type === 'new' ? '#214AEE' : 'white')};
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 5px;
+`;
+
+export const ProductTag = ({ type, index }) => {
+  return <TagStyle type={type} index={index}>{type.toUpperCase()}</TagStyle>;
+};
+
