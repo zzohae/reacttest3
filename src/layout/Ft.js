@@ -52,8 +52,8 @@ export default function Ft() {
             
             <div className='col-6 col-sm-auto mb-4'>
               <div className='d-flex gap-3 mb-3'>
-                <a href="https://www.figma.com/design/hODaA3aqcUvTjZta1lzVWf/%5BKDT%5D-%ED%94%8C%EB%9E%AB%ED%8F%BC%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80?node-id=0-1&m=dev" target='_blank'><Figma /></a>
-                <a href="https://github.com/zzohae/CRA_cheonglyang_team.git" target='_blank'><Git /></a>
+                <a href="https://www.figma.com/design/hODaA3aqcUvTjZta1lzVWf/%5BKDT%5D-%ED%94%8C%EB%9E%AB%ED%8F%BC%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80?node-id=0-1&m=dev" target='_blank' rel='noreferrer'><Figma /></a>
+                <a href="https://github.com/zzohae/CRA_cheonglyang_team.git" target='_blank' rel='noreferrer'><Git /></a>
                 <a href="##"><Insta /></a>
               </div>
 

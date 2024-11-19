@@ -22,7 +22,7 @@ export default function Category() {
         <div className=" ">
           <h2 className="categorytitle">
             {allcategory?.navdata?.category?.submenu?.find(
-              (v) => v.linkto === cn
+              (v, i) => v.linkto === cn
             )?.title || "전체 상품"}
           </h2>
           <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
@@ -47,12 +47,12 @@ export default function Category() {
           <p className="totalQuan">총 {filteredProducts.length}건</p>
           </div>
           <div className="row align-items-center">
-            {filteredProducts.map((v, i) => {
+            {filteredProducts.map((v) => {
               return (
                 <Product
                 rowclass='col-6 col-lg-4 col-xl-3'
                   prdId={v.id}
-                  img={v.img}
+                  img={`/assets/img/product/${v.img}.jpg`}
                   prodName={v.prodName}
                   store={v.store}
                   originprice={v.originprice}

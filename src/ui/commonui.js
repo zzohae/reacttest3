@@ -48,5 +48,5 @@ export const InCartBtn = styled.button`
   padding: 2px 5px 0px 2px;
   border-radius: 30px;
   background: rgba(210, 210, 210, 0.30);
-  color: ${(props) => props.strokeColor || '#214AEE'};
+  color: ${(props) => props.svgcolor || '#214AEE'};
 `

@@ -5,7 +5,7 @@
       "title" : "카테고리",
       "submenu": [
         {
-          "linkto": "Mk",
+          "linkto": "mealKit",
           "title": "밀키트"
         },
         {

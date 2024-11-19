@@ -1,6 +1,6 @@
 import React from 'react'
 import Movetool from '../ui/Mtitle'
-import Board from './Board'
+import Best from '../layout/Best'
 
 
 export default function Boardlist({datakey}) {
@@ -11,7 +11,7 @@ export default function Boardlist({datakey}) {
           return(
             <div key={i} className='container mycontainer'>
               <Movetool textColor='#214aee' h2size='34px'>{v.title}</Movetool>
-              { i === 1 && <Board></Board> }
+              { i === 1 && <Best></Best> }
             </div>
           )
         } )
