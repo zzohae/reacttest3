@@ -4,25 +4,34 @@ export const Btn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: ${(props) => (props.version === 'v2' ? '4px' : '0')};
-  background-color: ${(props) => props.version==='v1' ? '#ffffff' : '#214AEE'};
-  color: ${(props) => (props.version === 'v1' ? '#214AEE' : '#fff')};
+  gap: ${(props) =>
+    (props.version === 'v2' ? '4px' : '0')};
+  background-color: ${(props) =>
+    props.version==='v1' ? '#ffffff' : '#214AEE'};
+  color: ${(props) =>
+    (props.version === 'v1' ? '#214AEE' : '#fff')};
   padding: 0 30px;
-  height: ${(props) => (props.version === 'v2' ? '45px' : '40px')};
+  height: ${(props) =>
+    props.page === 'detail' ? '60px' : props.version === 'v2' ? '45px' : '40px'};
   border: 3px solid;
-  border-color: ${(props) => props.version === 'v2' ? '#FFEA7D' : props.version === 'v3' ? '#fff' : '#214AEE'};
+  border-color: ${(props) =>
+    props.version === 'v2' ? '#FFEA7D' : props.version === 'v3' ? '#fff' : '#214AEE'};
   transition-property: color, border-color, background-color;
   word-break: keep-all;
   white-space: nowrap;
-  border-radius: 30px;
+  border-radius: ${(props) =>
+    (props.page === 'detail' ? '5px' : '30px')};
   font-size: 1.125rem;
-  font-weight: ${(props) => props.version === 'v2' ? '700' : '500'};
+  font-weight: ${(props) =>
+    props.version === 'v2' ? '700' : '500'};
   cursor: pointer;
   transition: 0.5s;
 
   &:hover {
-    background-color: ${(props) => props.version === 'v2' ? '#FFEA7D' : props.version === 'v3' ? '#fff' : '#214AEE'};
-    color: ${(props) => (props.version === 'v1' ? '#fff' : '#214AEE')};
+    background-color: ${(props) =>
+      props.version === 'v2' ? '#FFEA7D' : props.version === 'v3' ? '#fff' : '#214AEE'};
+    color: ${(props) =>
+      (props.version === 'v1' ? '#fff' : '#214AEE')};
     font-weight: 700;
   }
 `

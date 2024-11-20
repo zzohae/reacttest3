@@ -65,7 +65,7 @@ export default function Ft() {
 
         <div className='fttop container  d-flex justify-content-between align-items-end'>
               <p className="copyright opacity-50">ⓒ 2022 청량리종합시장상인연동조합. ALL RIGHTS RESERVED.</p>
-              <Btn version='v3' className='sitemap d-none d-lg-flex justify-content-center'>상품 문의하기</Btn>
+              <Btn version='v3' className='sitemap d-none d-lg-flex'>상품 문의하기</Btn>
         </div>
 
       </div>
