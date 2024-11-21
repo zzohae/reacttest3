@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import productData from "./db/products.json";
+import productData from "./db/product.json";
 import Product from "./ui/Product";
 import allcategory from "./db/allData.json";
 
@@ -11,7 +11,7 @@ export default function Category() {
   useEffect(() => {
     setFilteredProducts(
       cn
-        ? productData.filter((product) => product.category == cn)
+        ? productData.filter((product) => product.category === cn)
         : productData
     );
   }, [cn]);
@@ -50,13 +50,14 @@ export default function Category() {
             {filteredProducts.map((v) => {
               return (
                 <Product
-                rowclass='col-6 col-lg-4 col-xl-3'
+                  rowclass='col-6 col-lg-4 col-xl-3'
                   prdId={v.id}
                   img={`/assets/img/product/${v.img}.jpg`}
                   prodName={v.prodName}
                   store={v.store}
                   originprice={v.originprice}
                   saleprice={v.saleprice}
+                  promobadge={v.promobadge}
                 />
               );
             })}

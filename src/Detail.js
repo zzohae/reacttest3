@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from "react-router-dom";
-import productData from "./db/products.json";
+import productData from "./db/product.json";
+import reviewData from "./db/reviews.json"
 import QuantityCounter from "./QuantityCounter";
 import { Btn } from "./ui/commonui";
-import products from './db/products.json';
 import Product from './ui/Product';
 import Bestreview from './Bestreview';
 
@@ -12,12 +12,26 @@ export default function Detail() {
     return num.toLocaleString();
   };
   const { id } = useParams();
-  const targetProduct = productData?.find((product) => product.id == id)
+  const targetProduct = productData?.find((product) => product.id === id)
 
   targetProduct.originprice = parseInt(targetProduct.originprice);
   targetProduct.saleprice = parseInt(targetProduct.saleprice);
   const discount = parseInt((targetProduct.originprice - targetProduct.saleprice) / targetProduct.originprice * 100);
 
+  const relatedProducts = productData.slice(0, 5);
+  
+  const [targetReviews, setTargetReviews] = useState([]);
+  const [bestReviews, setBestReviews] = useState([]);
+
+  useEffect(() => {
+    setTargetReviews(reviewData.filter((pid) => pid.productID === id));
+  
+    const sortedReviews = reviewData
+      .filter((pid) => pid.productID === id)
+      .sort((a, b) => b.likes - a.likes);
+  
+    setBestReviews(sortedReviews.slice(0, 3));
+  }, [id, reviewData]);
 
   const [activeTab, setActiveTab] = useState('detail');
   const [isExpanded, setIsExpanded] = useState(false);
@@ -51,8 +65,6 @@ export default function Detail() {
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
-  
-  const relatedProducts = products.slice(0, 5);
 
   return (
     <div className="d-flex flex-column align-items-center">
@@ -136,10 +148,10 @@ export default function Detail() {
                     className="d-flex"
                     style={{ gap: "28px", objectFit: "cover" }}
                   >
-                    <Btn version="v1" page="detail" className="border-lighter">
+                    <Btn version="v1" data-page="detail" className="border-lighter">
                       장바구니
                     </Btn>
-                    <Btn version="v3" page="detail" className="border-none">
+                    <Btn version="v3" data-page="detail" className="border-none">
                       구매하기
                     </Btn>
                   </div>
@@ -149,10 +161,11 @@ export default function Detail() {
           </div>
           <div
             className="d-flex col-12 justify-content-between gap-2"
-            style={{ paddingTop: "60px", overflowX: "scroll" }}
+            style={{ paddingTop: "60px", overflowX: "overlay" }}
           >
             {relatedProducts.map((p, index) => (
               <Product
+                key={index}
                 rowclass=""
                 prdId={p.id}
                 promobadge={p.promobadge}
@@ -227,7 +240,7 @@ export default function Detail() {
               </li>
             </ul>
 
-            <div className="content row text-center">
+            <div className="content row">
               <div
                 id="detail"
                 className="section detailsect mt-4 col-12"
@@ -285,19 +298,30 @@ export default function Detail() {
               <div
                 id="review"
                 className="section mt-4 col-12"
-                style={{ height: "1000px", paddingTop: "50px" }}
+                style={{ height: "auto", paddingTop: "160px" }}
               >
                 <h3>상품 후기</h3>
-                <div className='d-flex align-items-center' style={{gap:'20px'}}>
-                  <Bestreview></Bestreview>
-                  <Bestreview></Bestreview>
-                  <Bestreview></Bestreview>
+                <div className='d-flex align-items-center flex-column flex-md-row' style={{gap:'20px'}}>
+                  {
+                    bestReviews.map((r,i)=>{
+
+                      return(
+                        <Bestreview
+                          key={i}
+                          star={r.rating}
+                          userID={`${r.userID.slice(0, 3)}****`}
+                          reviewContent={r.reviewContent}
+                          createdAt={r.createdAt}
+                        ></Bestreview>
+                      )
+                    })
+                  }
                 </div>
               </div>
               <div
                 id="question"
                 className="section mt-4 col-12"
-                style={{ height: "1000px", paddingTop: "50px" }}
+                style={{ height: "1000px", paddingTop: "160px" }}
               >
                 <h3>상품 문의</h3>
                 <p>상품 문의 내용...</p>
@@ -305,10 +329,28 @@ export default function Detail() {
               <div
                 id="purchase"
                 className="section mt-4 col-12"
-                style={{ height: "1000px", paddingTop: "50px" }}
+                style={{ height: "1000px", paddingTop: "160px" }}
               >
-                <h3>구매 안내</h3>
-                <p>구매 안내 내용...</p>
+                <h3>배송 정보</h3>
+                <table className="table table-bordered">
+                  <tbody>
+                    <tr>
+                      <th scope="row">배송 방법</th>
+                      <td>신선/냉장/냉동</td>
+                      <th scope="row">배송 지역</th>
+                      <td>전국 지역 (단, 일부 산간벽지 및 도서 지역은 추가 요금이 발생할 수 있습니다.)</td>
+                    </tr>
+                    <tr>
+                      <th className="text-center">배송 안내</th>
+                      <td colSpan="3">
+                        <ul>
+                          <li>산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가 있습니다.</li>
+                          <li>고객님께서 주문하신 상품은 입금 확인 후 배송해 드립니다. (다만, 상품종류에 따라서 상품의 배송이 다소 지연될 수 있습니다.)</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>

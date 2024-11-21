@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Product from './ui/Product'
-import products from './db/products.json'
+import products from './db/product.json'
 import allcategory from './db/allData.json'
 
 export default function Allproducts() {
@@ -23,14 +23,15 @@ export default function Allproducts() {
             }
           </ul>
         <div className="row align-items-center">
-          {products.map((product) => (
+          {products.map((v) => (
               <Product
-                prdId={product.id}
-                img={product.img}
-                prodName={product.prodName}
-                store={product.store}
-                originprice={product.originprice}
-                saleprice={product.saleprice}
+                prdId={v.id}
+                img={v.img}
+                prodName={v.prodName}
+                store={v.store}
+                originprice={v.originprice}
+                saleprice={v.saleprice}
+                promobadge={v.promobadge}
               />
           ))}
         </div>

@@ -1,18 +1,22 @@
 import React from 'react'
+import { Starwrap } from './ui/commonui'
 
-export default function Bestreview() {
+export default function Bestreview({star, userID, reviewContent, createdAt}) {
   return (
     <div className='bestReviewcont'>
       <div className='contTop'>
-        <p className='d-inline'>별이다섯개</p>
+        {/* <p className='d-inline'>{star}</p> */}
+        <Starwrap rating={star}></Starwrap>
         <p className='bestreviewbadge'>BEST</p>
       </div>
       <div className='contBot'>
-        <div><img src="https://via.placeholder.com/170x170" alt="" /></div>
-        <ul>
-          <li>아이디</li>
-          <li>정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용정말긴리뷰내용</li>
-          <li>날짜</li>
+        <div className='col-12 col-xl-6'>
+        <img src="https://via.placeholder.com/170x170" alt=""  />
+        </div>
+        <ul className='col-12 col-xl-6'>
+          <li>{userID}</li>
+          <li>{reviewContent}</li>
+          <li>{createdAt}</li>
         </ul>
       </div>
     </div>

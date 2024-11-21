@@ -1,22 +1,23 @@
 import React from 'react';
 import Product from '../ui/Product';
-import products from '../db/products.json';
+import products from '../db/product.json';
 
 export default function Best() {
   const bestProducts = products.slice(0, 3);
 
   return (
     <div className='row d-flex align-items-start justify-content-center'>
-      {bestProducts.map((product, index) => (
+      {bestProducts.map((v, index) => (
         <Product
-        rowclass='col-8 col-md-4 '
-          prdId={product.id}
-          promobadge={product.promobadge}
-          img={`/assets/img/product/${product.img}.jpg`}
-          prodName={product.prodName}
-          store={product.store}
-          originprice={product.originprice}
-          saleprice={product.saleprice}
+          key={index}
+          rowclass='col-8 col-md-4 '
+          prdId={v.id}
+          promobadge={v.promobadge}
+          img={`/assets/img/product/${v.img}.jpg`}
+          prodName={v.prodName}
+          store={v.store}
+          originprice={v.originprice}
+          saleprice={v.saleprice}
         />
       ))}
   </div>
