@@ -690,6 +690,11 @@ footer{
       align-content: flex-start;
       flex-wrap: wrap;
       align-self: stretch;
+      img{
+        width: 170px;
+        height: 170px;
+        background-color: #d2d2d2;
+      }
       ul {
         text-align: left;
         // width: 50%;

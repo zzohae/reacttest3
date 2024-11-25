@@ -148,10 +148,10 @@ export default function Detail() {
                     className="d-flex"
                     style={{ gap: "28px", objectFit: "cover" }}
                   >
-                    <Btn version="v1" data-page="detail" className="border-lighter">
+                    <Btn version="v1" page="detail" className="border-lighter">
                       장바구니
                     </Btn>
-                    <Btn version="v3" data-page="detail" className="border-none">
+                    <Btn version="v3" page="detail" className="border-none">
                       구매하기
                     </Btn>
                   </div>
@@ -332,25 +332,25 @@ export default function Detail() {
                 style={{ height: "1000px", paddingTop: "160px" }}
               >
                 <h3>배송 정보</h3>
-                <table className="table table-bordered">
-                  <tbody>
-                    <tr>
-                      <th scope="row">배송 방법</th>
-                      <td>신선/냉장/냉동</td>
-                      <th scope="row">배송 지역</th>
-                      <td>전국 지역 (단, 일부 산간벽지 및 도서 지역은 추가 요금이 발생할 수 있습니다.)</td>
-                    </tr>
-                    <tr>
-                      <th className="text-center">배송 안내</th>
-                      <td colSpan="3">
-                        <ul>
-                          <li>산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가 있습니다.</li>
-                          <li>고객님께서 주문하신 상품은 입금 확인 후 배송해 드립니다. (다만, 상품종류에 따라서 상품의 배송이 다소 지연될 수 있습니다.)</li>
-                        </ul>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <dl className='d-flex flex-wrap'>
+                  <div className="d-flex col-12 col-lg-6">
+                    <dt className="text-center col-4">배송 방법</dt>
+                    <dd className="w-100">신선/냉장/냉동</dd>
+                  </div>
+                  <div className="d-flex col-12 col-lg-6">
+                    <dt className="text-center col-4">배송 지역</dt>
+                    <dd className="w-100">전국 지역 (단, 일부 산간벽지 및 도서 지역은 추가 요금이 발생할 수 있습니다.)</dd>
+                  </div>
+                  <div className='d-flex col-12'>
+                    <dt className="text-center col-4 col-lg-2">배송 안내</dt>
+                    <dd className='w-100'>
+                      <ul>
+                        <li>산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가 있습니다.</li>
+                        <li>고객님께서 주문하신 상품은 입금 확인 후 배송해 드립니다. (다만, 상품종류에 따라서 상품의 배송이 다소 지연될 수 있습니다.)</li>
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </div>
           </div>

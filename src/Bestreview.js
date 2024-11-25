@@ -5,7 +5,6 @@ export default function Bestreview({star, userID, reviewContent, createdAt}) {
   return (
     <div className='bestReviewcont'>
       <div className='contTop'>
-        {/* <p className='d-inline'>{star}</p> */}
         <Starwrap rating={star}></Starwrap>
         <p className='bestreviewbadge'>BEST</p>
       </div>

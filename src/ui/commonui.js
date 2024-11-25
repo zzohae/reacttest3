@@ -72,7 +72,9 @@ const starSvg = `
 </svg>
 `;
 
-export const Starwrap = styled.div`
+export const Starwrap = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'rating'
+})`
     width: ${(props) => props.rating * 22}px;
     height: 16px;
     background: url('data:image/svg+xml;charset=UTF-8,${encodeURIComponent(starSvg)}');
