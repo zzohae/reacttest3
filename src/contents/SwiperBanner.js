@@ -1,18 +1,24 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import { Autoplay } from 'swiper/modules';
+import 'swiper/swiper-bundle.css';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function SwiperBanner({ datakey, viewslides }) {
   return (
     <Swiper
-      modules={[Autoplay]}
+      modules={[Autoplay, Pagination, Navigation]}
       spaceBetween={0}
       slidesPerView={viewslides}
+      loop={true}
       autoplay={{
         delay: 3000,
         disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + datakey[index].alt + '</span>';
+        },
       }}
     >
       {
