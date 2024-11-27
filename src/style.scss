@@ -741,6 +741,9 @@ footer{
   border-radius: 1.25rem;
   overflow: hidden;
   backdrop-filter: blur(10px);
+  @media (max-width: 991px) {
+    display: none !important;
+  }
 }
 
 .swiper-pagination-bullet {
@@ -756,6 +759,9 @@ footer{
   font-weight: 300;
   line-height: 42px;
   user-select: none;
+  @media (max-width: 1149px) {
+    width: 120px;
+  }
 }
 
 .swiper-pagination-bullet-active {
