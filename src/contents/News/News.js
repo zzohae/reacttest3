@@ -1,28 +1,27 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import OnlineEvent from './Event';  // default export로 불러오는 컴포넌트
-import Notice from './Notice';      // default export로 불러오는 컴포넌트
-import LocalEvent from './LocalEvent'; // default export로 불러오는 컴포넌트
+import OnlineEvent from './Event';
+import Notice from './Notice';
+import LocalEvent from './LocalEvent';
 import allcategory from '../../db/allData.json';
 
 export default function News() {
-  const { en } = useParams();  // URL 파라미터에서 'en' 값을 추출
+  const { en } = useParams();
 
   const submenu = allcategory.navdata.promotionmenu.find(
     (menu) => menu.linkto === "news"
   ).submenu;
 
-  // en 값에 맞는 컴포넌트를 반환하는 함수
   const getComponent = (en) => {
     switch (en) {
       case 'notice':
-        return <Notice />;
+        return <Notice></Notice>;
       case 'online_event':
-        return <OnlineEvent />;
+        return <OnlineEvent></OnlineEvent>;
       case 'offline_event':
-        return <LocalEvent />;
+        return <LocalEvent></LocalEvent>;
       default:
-        return <Notice />;
+        return <Notice></Notice>;
     }
   };
 
@@ -36,7 +35,7 @@ export default function News() {
         ))}
       </ul>
       <div className="content">
-        {getComponent(en)}  {/* en 값에 맞는 컴포넌트를 렌더링 */}
+        {getComponent(en)}
       </div>
     </div>
   );
