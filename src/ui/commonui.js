@@ -64,6 +64,7 @@ export const TagStyle = styled.div`
   font-size: 0.75rem;
   font-weight: bold;
   border-radius: 5px;
+  line-height: normal;
 `;
 
 const starSvg = `

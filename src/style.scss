@@ -556,15 +556,11 @@ footer{
       }
     }
   }
-  
-  
-
   @media (max-width: 991px){
       h1{
         order: 4;
       }
   }
-  
   a.linkIcon{
     transition: 0.3s ease-out;
 
@@ -574,18 +570,14 @@ footer{
   }
 }
 
-
 .logo-white{
   fill: #fff !important;
 }
-
 .ftinfo{
   display: flex;
   align-items: center;
   gap: 1.25rem;
 }
-
-
 .ftinfo-bold{
   font-weight: bold;
 }
