@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { InCartBtn } from './commonui';
 import { TagStyle } from './commonui';
 import Utilicon from './svg';
-import { Prev } from 'react-bootstrap/esm/PageItem';
 
 export default function Product({rowclass, prdId, img, prodName, store, originprice, saleprice, incartNum, setIncartNum, promobadge = [] }) {
   const formatNum = (num) => {
