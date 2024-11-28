@@ -45,11 +45,11 @@
         "submenu": []
       },
       {
-        "linkto" : "notice",
+        "linkto" : "news",
         "title" : "소식",
         "submenu": [
           {
-            "linkto": "",
+            "linkto": "notice",
             "title": "공지사항"
           },
           {

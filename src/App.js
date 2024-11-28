@@ -6,6 +6,7 @@ import Notfound from './Notfound';
 import Category from './Category';
 import Detail from './Detail';
 import Topad from './contents/Topad';
+import News from './contents/News/News';
 import Ft from './layout/Ft';
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path="/products/:cn?" element={<Category cn=''></Category>} />
         <Route path="/products/detail/:id?" element={<Detail></Detail>} />
+        <Route path="/news/:en" element={<News en='' />} />
         <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
       <Ft></Ft>
