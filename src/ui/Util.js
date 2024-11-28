@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as AlertIcon } from '../svg/util/noti.svg';
+import { ReactComponent as AlertIcon } from '../svg/util/alert.svg';
 import { ReactComponent as CartIcon } from '../svg/util/cart.svg';
 import { ReactComponent as MypageIcon } from '../svg/util/user.svg';
 import { ReactComponent as LoginIcon } from '../svg/util/login.svg';
@@ -55,8 +55,8 @@ const Cart = ({ icon, hasBadge=0, badgePosition }) => (
           position: 'absolute',
           fontSize: '11px',
           fontWeight: 500,
-          top: '-8px',
-          right: '-9px',
+          top: '-5px',
+          right: '-5px',
           backgroundColor: 'rgb(33, 74, 238)',
           width: '18px',
           height: '18px',
