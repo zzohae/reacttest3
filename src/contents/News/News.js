@@ -15,13 +15,13 @@ export default function News() {
   const getComponent = (en) => {
     switch (en) {
       case 'notice':
-        return <Notice></Notice>;
+        return <Notice />;
       case 'online_event':
-        return <OnlineEvent></OnlineEvent>;
+        return <OnlineEvent />;
       case 'offline_event':
-        return <LocalEvent></LocalEvent>;
+        return <LocalEvent />;
       default:
-        return <Notice></Notice>;
+        return <Notice />;
     }
   };
 
