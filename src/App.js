@@ -11,6 +11,7 @@ import Ft from './layout/Ft';
 
 export default function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [keyword, setKeyword] = useState('');
 
   useEffect(() => {
     const updateScroll = () => {
@@ -27,10 +28,11 @@ export default function App() {
   return (
     <div className={`wrap ${scrollPosition < 200 ? "" : "scrolled"}`}>
       <Topad></Topad>
-      <Hd></Hd>
+      <Hd keyword={keyword} setKeyword={setKeyword}></Hd>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path="/products/:cn?" element={<Category cn=''></Category>} />
+        <Route path="/search" element={<Category keyword={keyword} setKeyword={setKeyword}></Category>} />
         <Route path="/products/detail/:id?" element={<Detail></Detail>} />
         <Route path="/news/:en" element={<News en='' />} />
         <Route path='*' element={<Notfound></Notfound>}></Route>

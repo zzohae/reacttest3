@@ -8,14 +8,14 @@ import { Btn } from '../ui/commonui';
 import { ReactComponent as Menuline } from '../svg/menu_line.svg'
 import Util from '../ui/Util';
 
-export default function Hd() {
+export default function Hd({ keyword, setKeyword }) {
 
 
   return (
     <header className='d-flex align-items-center'>
       <div className="hdtop container d-flex justify-content-between align-items-center">
         <h1 className='order-1 order-lg-0'><a href="/" className='d-flex justify-content-center align-items-center'><Logo width='150' height='53.708'></Logo></a></h1>
-        <Searchbox className='order-0 order-lg-1'></Searchbox>
+        <Searchbox className='order-0 order-lg-1' keyword={keyword} setKeyword={setKeyword}></Searchbox>
         <Util className='order-2'></Util>
         <Menuline width='28' height='28' className='mobileallmenu d-block d-lg-none order-3'></Menuline>
       </div>

@@ -1,68 +1,83 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import productData from "./db/product.json";
-import Product from "./ui/Product";
-import allcategory from "./db/allData.json";
+import React, { useState, useEffect } from 'react';
+import { useParams, useLocation, Link } from 'react-router-dom';
+import productData from './db/product.json';
+import Product from './ui/Product';
+import allcategory from './db/allData.json';
 
-export default function Category() {
+export default function Category({ keyword }) {
   const { cn } = useParams();
+  const location = useLocation();
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchKeyword, setSearchKeyword] = useState('');
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const keywordFromUrl = queryParams.get('keyword');
+    setSearchKeyword(keywordFromUrl || keyword);
+  }, [location.search, keyword]);
 
   useEffect(() => {
     setFilteredProducts(
-      cn
-        ? productData.filter((product) => product.category === cn)
-        : productData
+      productData.filter((product) => {
+        const matchesCategory = cn ? product.category === cn : true;
+        const matchesKeyword = searchKeyword
+          ? product.prodName.toLowerCase().includes(searchKeyword.toLowerCase())
+          : true;
+
+        return matchesCategory && matchesKeyword;
+      })
     );
-  }, [cn]);
+  }, [searchKeyword, cn]);
+
+  const getCategoryTitle = (cn) => {
+    return (
+      allcategory?.navdata?.category?.submenu?.find((v) => v.linkto === cn)
+        ?.title || '전체 상품'
+    );
+  };
+
+  const getSearchTitle = (keyword) => {
+    if (keyword) {
+      return `'${keyword}'의 검색결과`;
+    }
+    return getCategoryTitle(cn);
+  };
 
   return (
     <div className="d-flex flex-column align-items-center">
       <div className="container">
-        <div className=" ">
-          <h2 className="categorytitle">
-            {allcategory?.navdata?.category?.submenu?.find(
-              (v, i) => v.linkto === cn
-            )?.title || "전체 상품"}
-          </h2>
-          <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
-            <li className={`d-flex justify-content-center align-items-center ${cn ? "" : "active"}`}>
-              <Link to="/products">
-                전체 상품
-              </Link>
+        <h2 className="categorytitle">{getSearchTitle(searchKeyword)}</h2>
+
+        <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
+          <li className={`d-flex justify-content-center align-items-center ${!cn ? 'active' : ''}`}>
+            <Link to="/products">전체 상품</Link>
+          </li>
+          {allcategory.navdata.category.submenu.map((v) => (
+            <li
+              key={v.linkto}
+              className={`d-flex justify-content-center align-items-center ${cn === v.linkto ? 'active' : ''}`}
+            >
+              <Link to={`/products/${v.linkto}`}>{v.title}</Link>
             </li>
-            {allcategory.navdata["category"]["submenu"].map((v, i) => {
-              return (
-                <li className={`d-flex justify-content-center align-items-center ${cn === `${v.linkto}` ? 'active' : ''}`}>
-                  <Link
-                    to={`/products/${v.linkto}`}
-                    key={i}
-                  >
-                    {v.title}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-          <p className="totalQuan">총 {filteredProducts.length}건</p>
-          </div>
-          <div className="row align-items-center">
-            {filteredProducts.map((v) => {
-              return (
-                <Product
-                  rowclass='col-6 col-lg-4 col-xl-3'
-                  prdId={v.id}
-                  img={`/assets/img/product/${v.img}.jpg`}
-                  prodName={v.prodName}
-                  store={v.store}
-                  originprice={v.originprice}
-                  saleprice={v.saleprice}
-                  promobadge={v.promobadge}
-                />
-              );
-            })}
-          </div>
-        
+          ))}
+        </ul>
+
+        <p className="totalQuan">총 {filteredProducts.length}건</p>
+        <div className="row align-items-center">
+          {filteredProducts.map((product) => (
+            <Product
+              key={product.id}
+              rowclass="col-6 col-lg-4 col-xl-3"
+              prdId={product.id}
+              img={`/assets/img/product/${product.img}.jpg`}
+              prodName={product.prodName}
+              store={product.store}
+              originprice={product.originprice}
+              saleprice={product.saleprice}
+              promobadge={product.promobadge}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
