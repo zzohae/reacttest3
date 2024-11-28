@@ -4,7 +4,7 @@ import productData from './db/product.json';
 import Product from './ui/Product';
 import allcategory from './db/allData.json';
 
-export default function Category({ keyword }) {
+export default function Category({ keyword, incartNum, setIncartNum }) {
   const { cn } = useParams();
   const location = useLocation();
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -75,6 +75,8 @@ export default function Category({ keyword }) {
               originprice={product.originprice}
               saleprice={product.saleprice}
               promobadge={product.promobadge}
+              incartNum={incartNum}
+              setIncartNum={setIncartNum}
             />
           ))}
         </div>

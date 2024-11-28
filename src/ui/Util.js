@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as AlertIcon } from '../svg/util/noti.svg';
 import { ReactComponent as CartIcon } from '../svg/util/cart.svg';
@@ -37,7 +37,7 @@ const Button = ({ icon, hasBadge, onClick, badgePosition, label }) => (
 );
 
 
-const Cart = ({ icon, hasBadge=0, badgePosition }) => (
+const Cart = ({ icon, badgePosition, incartNum }) => (
   <Link to="/cart"
     className="icon"
     style={{
@@ -48,7 +48,7 @@ const Cart = ({ icon, hasBadge=0, badgePosition }) => (
     }}
   >
     {icon}
-    {hasBadge && (
+    {incartNum.length > 0 && (
       <span
         className="badge"
         style={{
@@ -70,12 +70,12 @@ const Cart = ({ icon, hasBadge=0, badgePosition }) => (
           boxSizing: 'unset',
           lineHeight: 1
         }}
-      >{hasBadge}</span>
+      >{incartNum.length}</span>
     )}
   </Link>
 );
 
-const Alert = ({ icon, hasBadge=0, badgePosition }) => (
+const Alert = ({ icon, badgePosition, incartNum }) => (
   <Link to="/alert"
     className="icon"
     style={{
@@ -86,7 +86,7 @@ const Alert = ({ icon, hasBadge=0, badgePosition }) => (
     }}
   >
     {icon}
-    {hasBadge && (
+    {incartNum && (
       <span
         className="badge"
         style={{
@@ -107,14 +107,14 @@ const Alert = ({ icon, hasBadge=0, badgePosition }) => (
           padding: 0,
           boxSizing: 'unset'
         }}
-      >{hasBadge}</span>
+      >{incartNum}</span>
     )}
   </Link>
 );
 
 
 // Util 컴포넌트
-const Util = () => {
+const Util = ({incartNum, className}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태
   const [hasAlerts, setHasAlerts] = useState(false);  // 알림 상태
   const [hasCartItems, setHasCartItems] = useState(false); // 장바구니 상태
@@ -145,7 +145,7 @@ const Util = () => {
   };
 
   return (
-    <div className="util d-none d-lg-flex align-items-center justify-content-end">
+    <div className={` ${className}`}>
       <Alert
         icon={<AlertIcon />}
         hasBadge={7}
@@ -155,7 +155,7 @@ const Util = () => {
 
       <Cart
         icon={<CartIcon />}
-        hasBadge={7}
+        incartNum={incartNum}
         label="장바구니"
       />
 
