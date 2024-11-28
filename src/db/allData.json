@@ -45,7 +45,7 @@
         "submenu": []
       },
       {
-        "linkto" : "news",
+        "linkto" : "news/notice",
         "title" : "소식",
         "submenu": [
           {

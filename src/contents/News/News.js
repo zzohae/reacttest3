@@ -9,7 +9,7 @@ export default function News() {
   const { en } = useParams();
 
   const submenu = allcategory.navdata.promotionmenu.find(
-    (menu) => menu.linkto === "news"
+    (menu) => menu.linkto === "news/notice"
   ).submenu;
 
   const getComponent = (en) => {
