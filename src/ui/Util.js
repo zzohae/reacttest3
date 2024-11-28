@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as AlertIcon } from '../svg/util/alert.svg';
 import { ReactComponent as CartIcon } from '../svg/util/cart.svg';
