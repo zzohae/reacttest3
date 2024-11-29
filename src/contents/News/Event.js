@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import EventCard from '../../ui/EventCard';  // EventCard 컴포넌트
 import events from '../../db/news/event.json';  // 이벤트 데이터
+import Movetool from '../../ui/Mtitle'
 
 const Event = () => {
   const [eventList, setEventList] = useState([]);
@@ -10,9 +11,9 @@ const Event = () => {
   }, []);
 
   return (
-    <div className="container">
-      <h2 className="categorytitle">이벤트</h2>
-      <div className="row gx-5">
+    <div>
+      <Movetool textColor='#214aee' h2size='34px'>온라인 이벤트</Movetool>
+      <div className="row gx-5 mt50">
         {eventList.map((event) => (
           <EventCard
             key={event.id}

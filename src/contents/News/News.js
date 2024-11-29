@@ -27,15 +27,17 @@ export default function News() {
 
   return (
     <div className='d-flex flex-column align-items-center'>
-      <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
-        {submenu.map((v, i) => (
-          <li className={`d-flex justify-content-center align-items-center ${en === `${v.linkto}` ? 'active' : ''}`} key={i}>
-            <Link to={`/news/${v.linkto}`}>{v.title}</Link>
-          </li>
-        ))}
-      </ul>
-      <div className="content">
-        {getComponent(en)}
+      <div className='container mycontainer'>
+        <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
+          {submenu.map((v, i) => (
+            <li className={`d-flex justify-content-center align-items-center ${en === `${v.linkto}` ? 'active' : ''}`} key={i}>
+              <Link to={`/news/${v.linkto}`}>{v.title}</Link>
+            </li>
+          ))}
+        </ul>
+        <div>
+          {getComponent(en)}
+        </div>
       </div>
     </div>
   );

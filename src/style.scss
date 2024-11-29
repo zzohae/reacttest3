@@ -54,6 +54,10 @@ h1, h2, h3, h4, h5, h6, p {
   font-weight: 500;
 }
 
+.mt50 {
+  margin-top: 50px;
+}
+
 
 ol, ul, li {
   list-style: none;
@@ -478,7 +482,6 @@ header {
   background-color: #bd822a;
 }
 .totalQuan {
-  height: 40px;
   margin-bottom: 30px;
   color: #888;
   font-size: 18px;
@@ -799,4 +802,104 @@ footer{
   border-radius: 100px;
   border: 2px solid #888;
   white-space: nowrap;
+}
+
+.noticelist {
+  .noticeitem {
+    display: flex;
+    height: 40px;
+    padding: 0 20px;
+    align-items: center;
+    gap: 30px;
+    align-self: stretch;
+    border-bottom: 1px solid #D2D2D2;
+    overflow: hidden;
+    color: #666;
+    font-size: 14px;
+    .postNum {
+      width: 100px;
+      text-align: center;
+    }
+    span {
+      height: 24px;
+      line-height: 24px;
+      padding: 0 10px;
+      border-radius: 3px;
+      background: #FFEA7D;
+      white-space: nowrap;
+      visibility: hidden;
+    }
+    h3 {
+      display: block;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      text-align: left;
+      text-overflow: ellipsis;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      box-orient: vertical;
+      line-clamp: 1;
+      width: 100%;
+      a {
+        display: inline-block;
+        padding: 5px 20px;
+      }
+    }
+    .createdAt {
+      width: 150px;
+      text-align: center;
+    }
+    .view {
+      width: 100px;
+      text-align: center;
+    }
+    &.active {
+      span {
+        visibility: visible;
+      }
+      h3 {
+        color: #214AEE;
+        font-weight: 700;
+      }
+      h3.normalTitle {
+        color: #666;
+        font-weight: 500;
+      }
+    }
+  }
+  .noticeHd {
+    border-bottom: none;
+    height: 60px;
+    align-items: center;
+    background-color: #eee;
+  }
+}
+.myPagination {
+  margin-top: 50px;
+  button {
+    display: flex;
+    height: 40px;
+    padding: 0 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 100px;
+    border: none;
+    color: #214AEE;
+    font-size: 18px;
+    font-weight: 400;
+    background: none;
+    &.active {
+      background-color: #214AEE;
+      color: #fff;
+      font-weight: 700;
+    }
+    &:disabled {
+      background: none;
+      opacity: .5;
+    }
+  }
 }
