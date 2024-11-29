@@ -63,12 +63,12 @@
         ]
       },
       {
-        "linkto" : "aboutus",
+        "linkto" : "aboutus/aboutinfo",
         "title" : "청량리종합시장",
         "submenu": [
           {
-            "linkto": "",
-            "title": "시장 소개"
+            "linkto": "aboutinfo",
+            "title": "청량리종합시장"
           },
           {
             "linkto": "store_info",
