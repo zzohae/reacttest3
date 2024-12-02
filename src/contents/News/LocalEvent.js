@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function LocalEvent() {
+function LocalEvent() {
   return (
     <div>
       
     </div>
   )
 }
+
+export default LocalEvent
+
+
