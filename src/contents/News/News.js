@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import OnlineEvent from './Event';
 import Notice from './Notice';
 import LocalEvent from './LocalEvent';
+import CardNews from './CardNews'
 import allcategory from '../../db/allData.json';
 
 export default function News() {
@@ -20,7 +21,10 @@ export default function News() {
         return <OnlineEvent />;
       case 'offline_event':
         return <LocalEvent />;
+      case 'cardnews':
+        return <CardNews />;
       default:
+
         return <Notice />;
     }
   };
