@@ -22,7 +22,7 @@ export default function AboutUs() {
     }
   };
 
-  return (
+  return (     
     <div className="d-flex flex-column align-items-center mt-5">
       <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
         {submenu &&

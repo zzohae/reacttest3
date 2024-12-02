@@ -26,3 +26,4 @@ yarn-error.log*
 .psd
 .ai
 .pdf
+.env

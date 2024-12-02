@@ -115,3 +115,15 @@ export const StoreTag = styled.div`
       : '#666'
     };
 `
+
+export const YellowTag = styled.span`
+    display: inline-flex;
+    height: 1.625rem;
+    padding: 0.375rem 0.625rem;
+    align-items: center;
+    gap: 0.625rem;
+    background-color: #FFEA7D;
+    color: #333;
+    border-radius: 3px;
+    white-space: nowrap;
+`;
