@@ -18,9 +18,9 @@ export default function News() {
     switch (en) {
       case 'notice':
         return <Notice />;
-      case 'event':
+      case 'online_event':
         return <Event />;
-      case 'localevent':
+      case 'offline_event':
         return <LocalEvent />;
       case 'cardnews':
         return <CardNews />;
