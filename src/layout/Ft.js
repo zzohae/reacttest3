@@ -13,7 +13,7 @@ export default function Ft() {
     <footer className='d-flex align-items-center justify-content-center'>
       <div className="container px-2 px-md-0">
       <div className='fttop container  d-flex justify-content-between align-items-start row gx-0 mb-3'>
-            <h1 className='order-1 order-lg-0 col-6 col-md-4 col-lg-2 mb-4'><a href="/"><Logo width='150' height='53.708' className='logo-white'></Logo></a></h1>
+            <h2 className='order-1 order-lg-0 col-6 col-md-4 col-lg-2 mb-4'><a href="/"><Logo width='150' height='53.708' className='logo-white'></Logo></a></h2>
             <div className='col-auto mb-4'>
                 <h3 className='fs-h3' >회사 정보</h3>
                 <dl>
@@ -44,7 +44,7 @@ export default function Ft() {
                   <ul>
                     {ftData.support.map((v, i) => (
                       <li key={i} className='fs-h5'>
-                      <Link to={v.linkto}>{v.label} <Linksvg /></Link>
+                      <Link to={v.linkto} className='cslink'>{v.label} <Linksvg /></Link>
                       </li>
                     ))}
                 </ul>

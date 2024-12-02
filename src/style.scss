@@ -13,11 +13,6 @@ html, body {
   height: 100vh;
 }
 
-
-.container {
-  padding: 0;
-  margin: 0;
-}
 .mycontainer {
   padding: 50px 0 0;
 }
@@ -141,11 +136,11 @@ svg {
         gap: 50px;
       }
       @media (max-width: 1699px) {
-        padding-right: 0;
+        padding-right: calc(1.5rem* .5);
         width: inherit;
       }
       @media (max-width: 991px) {
-        padding-right: 0;
+        padding-right: calc(1.5rem* .5);
         width: 100%;
         height: 60px;
         gap: unset;
@@ -901,5 +896,11 @@ footer{
       background: none;
       opacity: .5;
     }
+  }
+}
+
+.cslink {
+  &:hover {
+    text-decoration: underline;
   }
 }
