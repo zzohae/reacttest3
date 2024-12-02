@@ -3,7 +3,7 @@ import SwiperBanner from "../contents/SwiperBanner";
 import Boardlist from "./Boardlist";
 import allData from "../db/allData.json";
 
-export default function Home({ bgcolor, textcolor, vh }) {
+export default function Home({ bgcolor, textcolor }) {
   const pagination1 = {
     clickable: true,
     renderBullet: function(index, className) {
@@ -11,14 +11,14 @@ export default function Home({ bgcolor, textcolor, vh }) {
     },
   };
   return (
-    <div style={{ background: bgcolor, color: textcolor, height: vh }}>
+    <div style={{ background: bgcolor, color: textcolor }}>
       <SwiperBanner
       datakey={allData.mainRWDbanner}
       viewslides={1}
       pagination={pagination1}
       hasrwd={true}
       ></SwiperBanner>
-      <Boardlist datakey={allData.mainPagetitle}></Boardlist>
+      <Boardlist></Boardlist>
     </div>
   );
 }
