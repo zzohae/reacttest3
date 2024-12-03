@@ -87,14 +87,17 @@ export const Starwrap = styled.div.withConfig({
 
 
 export const StoreTag = styled.div`
-  display: flex;
-  height: 1.625rem;
-  padding: 0.375rem 0.625rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
-  font-size: 0.875rem;
-  border-radius: 100px;
+    display: flex;
+    height: 1.625rem;
+    padding: 0 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.75rem;
+    border-radius: 100px;
+    background-color: #F4F4F4;
+    color: #888;
+    line-height: 1;
 
   background-color: ${(props)=>
     props.type ===  'location'

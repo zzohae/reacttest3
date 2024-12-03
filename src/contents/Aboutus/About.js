@@ -23,22 +23,21 @@ export default function AboutUs() {
   };
 
   return (     
-    <div className="d-flex flex-column align-items-center mt-5">
-      <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
-        {submenu &&
-          submenu.map((item, index) => (
-            <li
-              key={index}
-              className={`d-flex justify-content-center align-items-center ${
-                en === item.linkto ? 'active' : ''
-              }`}
-            >
-              <Link to={`/aboutus/${item.linkto}`}>{item.title}</Link>
-            </li>
-          ))}
-      </ul>
+    <div className="d-flex flex-column align-items-center">
+      <div className="container mycontainer">
+        <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
+          {submenu &&
+            submenu.map((item, index) => (
+              <li key={index}
+                className={`d-flex justify-content-center align-items-center ${
+                  en === item.linkto ? 'active' : ''}`}>
+                <Link to={`/aboutus/${item.linkto}`}>{item.title}</Link>
+              </li>
+            ))}
+        </ul>
 
-      <div className="content">{getComponent(en)}</div>
+        <div className="content">{getComponent(en)}</div>
+      </div>
     </div>
   );
 }

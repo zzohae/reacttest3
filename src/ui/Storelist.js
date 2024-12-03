@@ -1,40 +1,31 @@
 import React from 'react';
 import { StoreTag } from './commonui';
 import { ReactComponent as Callnum } from '../svg/util/phone.svg';
-import storeDB from '../db/storeData.json';
 
-export default function Storelist() {
+export default function Storelist({ stores }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      {storeDB.map((store, index) => (
-        <div
-          key={index}
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%' }}>
+      {stores.map((store, index) => (
+        <div key={index}
           className="d-flex gap-3 mb-4"
-          style={{ width: '30vw' }}>
-
-<div
-  className="img d-flex align-items-center justify-content-center"
-  style={{
-    width: '200px',
-    height: '200px',
-    borderRadius: '10px',
-    color: '#fff',
-    flexShrink: 0,
-  }}
->
-<img
-  src={store.storeimg}
-  alt="매장 이미지"
-  style={{
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    borderRadius: '10px',
-  }}
-/>
-
-</div>
-
+          style={{ width: '100%' }}>
+          <div className="img d-flex align-items-center justify-content-center"
+            style={{
+              width: '150px',
+              height: '150px',
+              borderRadius: '10px',
+              color: '#fff',
+              flexShrink: 0,
+            }}>
+            <img src={store.storeimg}
+              alt="매장 이미지"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: '10px',
+              }}/>
+          </div>
 
           <div className="info-box w-100 d-flex flex-column" style={{ flexGrow: 1, gap: '0.625rem' }}>
             {/* 상호명, 위치 */}

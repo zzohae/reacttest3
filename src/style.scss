@@ -451,31 +451,39 @@ header {
   margin-bottom: 30px;
   border-bottom: 2px solid #214AEE;
   gap: 10px;
-
   li {
     border: 2px solid #ccc;
     border-radius: 30px;
     min-width: 85px;
     height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0 1.25rem;
+    color: #333;
+    font-weight: 500;
     a {
-      display: inline-block;
+      display: flex;
       width: 100%;
       height: 100%;
-      line-height: 36px;
-      padding: 0 1.25rem;
+      align-items: center;
+      justify-content: center;
+      line-height: normal;
       text-align: center;
-      color: #333;
-      font-weight: 500;
+      color: inherit;
     }
     &.active {
       background-color: #214AEE;
       border-color: #214AEE;
+      color: #fff;
       a {
         color: #fff;
       }
     }
   }
 }
+
 .tempimg {
   width: 572px;
   height: 572px;
@@ -909,6 +917,32 @@ footer {
     &:disabled {
       background: none;
       opacity: .5;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #214AEE; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1A3DCB;
+}
+
+
+.storeinfo{
+  input {
+    border: none;
+    width: 100%;
+    &:focus, &:focus-visible {
+      outline: none;
     }
   }
 }

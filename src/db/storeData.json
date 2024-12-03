@@ -5,19 +5,21 @@
         "number": "02-965-7374",
         "opentime": "10:30~22:30",
         "items": "활어 전문점, 물회, 전어, 대방어",
-        "Payment": ["온누리상품권", "제로페이", "카카오페이", "카드결제", "현금"],
+        "Payment": ["온누리상품권", "제로페이", "카카오페이", "카드", "현금"],
         "isOpen": true,
-        "storeimg": "/assets/img/store/store_A-1.jpg"
+        "storeimg": "/assets/img/store/store_A-1.jpg",
+        "category": "수산물"
     },
     {
         "title": "참새방앗간",
         "location": "가-2호",
         "number": "010-4100-5441",
         "opentime": "11:00~22:00",
-        "items": "생선구이 · 전",
-        "Payment": ["온누리상품권", "제로페이", "카드결제", "현금"],
+        "items": "전 · 생선구이",
+        "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": false,
-        "storeimg": "/assets/img/store/store_A-2.jpg"
+        "storeimg": "/assets/img/store/store_A-2.jpg",
+        "category": "수산물"
     },
     {
         "title": "재일 해물",
@@ -25,9 +27,10 @@
         "number": "02-967-0072",
         "opentime": "06:00~19:00",
         "items": "해산물 · 생선",
-        "Payment": ["온누리상품권", "제로페이", "카드결제", "현금"],
+        "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
-        "storeimg": "/assets/img/store/store_A-3.jpg"
+        "storeimg": "/assets/img/store/store_A-3.jpg",
+        "category": "수산물"
     },
     {
         "title": "서울상회",
@@ -37,7 +40,8 @@
         "items": "농산물, 채소",
         "Payment": ["온누리상품권", "현금"],
         "isOpen": false,
-        "storeimg": "/assets/img/store/store_A-5.jpg"
+        "storeimg": "/assets/img/store/store_A-5.jpg",
+        "category": "농산물"
     },
     {
         "title": "인천상회",
@@ -45,9 +49,10 @@
         "number": "02-964-0927",
         "opentime": "09:00~19:00",
         "items": "수산물",
-        "Payment": ["온누리상품권", "카드결제", "현금"],
+        "Payment": ["온누리상품권", "카드", "현금"],
         "isOpen": true,
-        "storeimg": "/assets/img/store/store_A-7.jpg"
+        "storeimg": "/assets/img/store/store_A-7.jpg",
+        "category": "수산물"
     },
     {
         "title": "바다수산",
@@ -55,9 +60,10 @@
         "number": "010-8633-4953",
         "opentime": "10:00~21:00",
         "items": "활어, 해산물",
-        "Payment": ["온누리상품권", "제로페이", "카드결제", "현금"],
+        "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
-        "storeimg": "/assets/img/store/store_A-8.jpg"
+        "storeimg": "/assets/img/store/store_A-8.jpg",
+        "category": "수산물"
     },
     {
         "title": "봉평 상회",
@@ -67,7 +73,8 @@
         "items": "야채",
         "Payment": ["온누리상품권", "현금"],
         "isOpen": false,
-        "storeimg": "/assets/img/store/store_A-9.jpg"
+        "storeimg": "/assets/img/store/store_A-9.jpg",
+        "category": "농산물"
     },
     {
         "title": "명진 약초",
@@ -75,9 +82,10 @@
         "number": "010-5229-3372",
         "opentime": "08:00~20:00",
         "items": "건강식품, 홍삼, 칡즙, 녹용 등",
-        "Payment": ["카드결제", "현금"],
+        "Payment": ["카드", "현금"],
         "isOpen": true,
-        "storeimg": "/assets/img/store/store_A-10.jpg"
+        "storeimg": "/assets/img/store/store_A-10.jpg",
+        "category": "기타"
     },
     {
         "title": "강고집 한과",
@@ -85,9 +93,10 @@
         "number": "02-957-6221",
         "opentime": "09:00~19:00",
         "items": "한과, 수제강정",
-        "Payment": ["온누리상품권", "제로페이", "카드결제", "현금"],
+        "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
-        "storeimg": "/assets/img/store/store_A-12.jpg"
+        "storeimg": "/assets/img/store/store_A-12.jpg",
+        "category": "기타"
     },
     {
         "title": "유덕 족발",
@@ -95,9 +104,10 @@
         "number": "010-3685-4417",
         "opentime": "06:00~20:30",
         "items": "장족, 머리고기, 꼬리, 양념편육, 미니족",
-        "Payment": ["온누리상품권", "제로페이", "카드결제", "현금"],
+        "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
-        "storeimg": "/assets/img/store/store_A-15.jpg"
+        "storeimg": "/assets/img/store/store_A-15.jpg",
+        "category": "육류"
     },
     {
         "title": "만나 상회",
@@ -107,7 +117,8 @@
         "items": "건고추, 개량메주, 깨, 참기름, 엿기름",
         "Payment": ["현금"],
         "isOpen": false,
-        "storeimg": "/assets/img/store/store_A-19.jpg"
+        "storeimg": "/assets/img/store/store_A-19.jpg",
+        "category": "농산물"
     },
     {
         "title": "황금 족발",
@@ -115,9 +126,10 @@
         "number": "010-3649-1169",
         "opentime": "08:00~20:00",
         "items": "돼지 족발",
-        "Payment": ["온누리상품권", "제로페이", "카드결제", "현금"],
+        "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
-        "storeimg": "/assets/img/store/store_A-21.jpg"
+        "storeimg": "/assets/img/store/store_A-21.jpg",
+        "category": "육류"
     },
     {
         "title": "신일상회",
@@ -125,9 +137,10 @@
         "number": "02-962-0856",
         "opentime": "05:30~20:00",
         "items": "닭, 오리, 닭발, 가슴살",
-        "Payment": ["온누리상품권", "제로페이", "카드결제", "현금"],
+        "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
-        "storeimg": "/assets/img/store/store_A-22.jpg"
+        "storeimg": "/assets/img/store/store_A-22.jpg",
+        "category": "육류"
     },
     {
         "title": "대림농산",
@@ -135,9 +148,10 @@
         "number": "02-963-8518",
         "opentime": "06:30~20:00",
         "items": "고추, 참깨, 들깨, 고추가루, 참기름, 들기름",
-        "Payment": ["온누리상품권", "제로페이", "카드결제", "현금"],
+        "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": false,
-        "storeimg": "/assets/img/store/store_A-23.jpg"
+        "storeimg": "/assets/img/store/store_A-23.jpg",
+        "category": "농산물"
     },
     {
         "title": "무늬만 건달",
@@ -145,8 +159,9 @@
         "number": "010-6291-4601",
         "opentime": "12:00~21:00",
         "items": "매운 닭발, 돼지 연탄불고기",
-        "Payment": ["온누리상품권", "제로페이", "카드결제", "현금"],
+        "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
-        "storeimg": "/assets/img/store/store_B-28.jpg"
+        "storeimg": "/assets/img/store/store_B-28.jpg",
+        "category": "육류"
     }
 ]

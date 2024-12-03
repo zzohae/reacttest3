@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { YellowTag } from "../../ui/commonui";
+import InfoHistory from './InfoHistory';
+import Movetool from '../../ui/Mtitle'
+
 
 export default function AboutInfo() {
   const images = [
@@ -29,12 +32,12 @@ export default function AboutInfo() {
 
   return (
     <div className="container">
-          <div className="container-fluid">
-            <div className="row gx-3">
+            <Movetool textColor='#214aee' h2size='34px'>청량리종합시장</Movetool>
+            <div className="row gx-3 mt-3">
               <div className="col-12 col-xl-7" style={{ height: "29.625rem", overflow: "hidden" }}>
                 <img
                   src={selectedImage}
-                  alt="청량리전통시장 이미지"
+                  alt="청량리종합시장 이미지"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -112,7 +115,7 @@ export default function AboutInfo() {
                               left: 0,
                               width: "100%",
                               height: "100%",
-                              backgroundColor: "rgba(0, 0, 0, 0.3)",
+                              backgroundColor: "rgba(0, 0, 0, 0.5)",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "center",
@@ -127,14 +130,10 @@ export default function AboutInfo() {
                 </div>
 
           </div>
-        </div> {/* 상단 */}
-
-
-        <div>
-          듀아아
         </div>
-
-      </div>
+        <div>
+          <InfoHistory />
+        </div>
     </div>
   );
 }
