@@ -59,6 +59,10 @@
           {
             "linkto": "offline_event",
             "title": "지역 행사"
+          },
+          {
+            "linkto": "cardnews",
+            "title": "카드뉴스"
           }
         ]
       },
