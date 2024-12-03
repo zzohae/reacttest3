@@ -1,3 +1,4 @@
+import { propTypes } from 'react-bootstrap/esm/Image';
 import styled from 'styled-components';
 
 export const Btn = styled.button.withConfig({
@@ -83,3 +84,49 @@ export const Starwrap = styled.div.withConfig({
     background-size: 22px 16px;
     margin: -2.5px;
 `
+
+
+export const StoreTag = styled.div`
+    display: flex;
+    height: 1.625rem;
+    padding: 0 0.625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.75rem;
+    border-radius: 100px;
+    background-color: #F4F4F4;
+    color: #888;
+    line-height: 1;
+
+  background-color: ${(props)=>
+    props.type ===  'location'
+    ? '#FFEA7D'
+    : props.type === 'open'
+    ? '#214AEE' 
+    : props.type === 'close'
+    ? '#F4F4F4'
+    : '#214AEE'};
+
+    color: ${(props)=>
+      props.type === 'location'
+      ? '#666'
+      : props.type === 'open'
+      ? '#fff'
+      : props.type === 'close'
+      ? '#888'
+      : '#666'
+    };
+`
+
+export const YellowTag = styled.span`
+    display: inline-flex;
+    height: 1.625rem;
+    padding: 0.375rem 0.625rem;
+    align-items: center;
+    gap: 0.625rem;
+    background-color: #FFEA7D;
+    color: #333;
+    border-radius: 3px;
+    white-space: nowrap;
+`;

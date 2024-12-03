@@ -8,6 +8,8 @@ import Detail from './Detail';
 import Topad from './contents/Topad';
 import News from './contents/News/News';
 import Ft from './layout/Ft';
+import Comptest from './contents/Copmtest';
+import AboutUs from './contents/Aboutus/About';
 
 export default function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -37,6 +39,8 @@ export default function App() {
         <Route path="/products/detail/:id?" element={<Detail></Detail>} />
         <Route path="/news/:en" element={<News en='' />} />
         <Route path='*' element={<Notfound></Notfound>}></Route>
+        <Route path="/aboutus/:en" element={<AboutUs />} />
+        <Route path="/comptest" element={<Comptest />} />
       </Routes>
       <Ft></Ft>
     </div>
