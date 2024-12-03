@@ -8,7 +8,7 @@
         "Payment": ["온누리상품권", "제로페이", "카카오페이", "카드", "현금"],
         "isOpen": true,
         "storeimg": "/assets/img/store/store_A-1.jpg",
-        "category": "수산물"
+        "category": "seafood"
     },
     {
         "title": "참새방앗간",
@@ -19,7 +19,7 @@
         "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": false,
         "storeimg": "/assets/img/store/store_A-2.jpg",
-        "category": "수산물"
+        "category": "seafood"
     },
     {
         "title": "재일 해물",
@@ -30,7 +30,7 @@
         "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
         "storeimg": "/assets/img/store/store_A-3.jpg",
-        "category": "수산물"
+        "category": "seafood"
     },
     {
         "title": "서울상회",
@@ -41,18 +41,18 @@
         "Payment": ["온누리상품권", "현금"],
         "isOpen": false,
         "storeimg": "/assets/img/store/store_A-5.jpg",
-        "category": "농산물"
+        "category": "produce"
     },
     {
         "title": "인천상회",
         "location": "가-7호",
         "number": "02-964-0927",
         "opentime": "09:00~19:00",
-        "items": "수산물",
+        "items": "해산물",
         "Payment": ["온누리상품권", "카드", "현금"],
         "isOpen": true,
         "storeimg": "/assets/img/store/store_A-7.jpg",
-        "category": "수산물"
+        "category": "seafood"
     },
     {
         "title": "바다수산",
@@ -63,7 +63,7 @@
         "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
         "storeimg": "/assets/img/store/store_A-8.jpg",
-        "category": "수산물"
+        "category": "seafood"
     },
     {
         "title": "봉평 상회",
@@ -74,7 +74,7 @@
         "Payment": ["온누리상품권", "현금"],
         "isOpen": false,
         "storeimg": "/assets/img/store/store_A-9.jpg",
-        "category": "농산물"
+        "category": "produce"
     },
     {
         "title": "명진 약초",
@@ -85,7 +85,7 @@
         "Payment": ["카드", "현금"],
         "isOpen": true,
         "storeimg": "/assets/img/store/store_A-10.jpg",
-        "category": "기타"
+        "category": "another"
     },
     {
         "title": "강고집 한과",
@@ -96,7 +96,7 @@
         "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
         "storeimg": "/assets/img/store/store_A-12.jpg",
-        "category": "기타"
+        "category": "another"
     },
     {
         "title": "유덕 족발",
@@ -107,7 +107,7 @@
         "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
         "storeimg": "/assets/img/store/store_A-15.jpg",
-        "category": "육류"
+        "category":"meat"
     },
     {
         "title": "만나 상회",
@@ -118,7 +118,7 @@
         "Payment": ["현금"],
         "isOpen": false,
         "storeimg": "/assets/img/store/store_A-19.jpg",
-        "category": "농산물"
+        "category": "produce"
     },
     {
         "title": "황금 족발",
@@ -129,7 +129,7 @@
         "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
         "storeimg": "/assets/img/store/store_A-21.jpg",
-        "category": "육류"
+        "category":"meat"
     },
     {
         "title": "신일상회",
@@ -140,7 +140,7 @@
         "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
         "storeimg": "/assets/img/store/store_A-22.jpg",
-        "category": "육류"
+        "category":"meat"
     },
     {
         "title": "대림농산",
@@ -151,7 +151,7 @@
         "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": false,
         "storeimg": "/assets/img/store/store_A-23.jpg",
-        "category": "농산물"
+        "category": "produce"
     },
     {
         "title": "무늬만 건달",
@@ -162,6 +162,6 @@
         "Payment": ["온누리상품권", "제로페이", "카드", "현금"],
         "isOpen": true,
         "storeimg": "/assets/img/store/store_B-28.jpg",
-        "category": "육류"
+        "category":"meat"
     }
 ]
