@@ -53,6 +53,10 @@ h1, h2, h3, h4, h5, h6, p {
   margin-top: 50px;
 }
 
+.mb50 {
+  margin-bottom: 50px;
+}
+
 
 ol, ul, li {
   list-style: none;
@@ -90,22 +94,12 @@ svg {
   border: none !important;
 }
 
-.top-ad {
-  width: 100%;
-  background-color: #214aee;
-  padding: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  @media (max-width: 991px) {
-    display: none;
-  }
-  p {
-    margin: 0;
-  }
-}
 .scrolled {
+  .top-ad {
+    display: none;
+    height: 0;
+  }
   header {
     min-height: 65px;
     flex-direction: row-reverse;
@@ -233,9 +227,9 @@ svg {
   }
 }
 header {
-  transition: height .5s ease-in-out;
+  transition: min-height .5s ease-in-out;
   flex-direction: column;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -372,11 +366,31 @@ header {
     transform: translateY(-2px);
   }
 }
+.top-ad {
+  width: 100%;
+  background-color: #214aee;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 991px) {
+    display: none;
+  }
+  p {
+    margin: 0;
+  }
+}
+.whitespace {
+  height: 202px;
+}
+
 .prodimg {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
   margin-bottom: 10px;
+  border-radius: 0.3125rem;
 }
 .prodInfo {
   .productName {
@@ -408,9 +422,6 @@ header {
   font-weight: 700;
   margin: 50px 0;
   text-align: center;
-}
-.product {
-  margin-bottom: 100px;
 }
 .notyet {
   h2 {
@@ -951,7 +962,7 @@ footer {
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
@@ -978,6 +989,9 @@ footer {
 .mdspickcont {
   align-self: flex-start;
   width: 100%;
+  .swiper-slide img {
+    border-radius: 0.3125rem;
+  }
   .swiper-slide-next {
     opacity: .5;
     filter: blur(3px);
@@ -997,4 +1011,41 @@ footer {
 .boardlist {
   margin-top: 150px;
   gap: 150px;
+}
+
+.mapbanner {
+  position: relative;
+  height: 400px;
+  img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .maptext {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 10;
+    h6 {
+      color: #666;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    p {
+      color: #888;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 130%;
+    }
+  }
+}
+.livecomCont {
+  gap: 20px;
+  .prodimg {
+    aspect-ratio: 1.4;
+  }
 }

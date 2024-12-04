@@ -22,6 +22,7 @@ export default function Best() {
             store={v.store}
             originprice={v.originprice}
             saleprice={v.saleprice}
+            mB='0px'
           />
         ))}
       </div>

@@ -64,7 +64,7 @@ export const TagStyle = styled.div`
   color: ${(props) => (props.type === 'new' ? '#214AEE' : 'white')};
   font-size: 0.75rem;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 0.1875rem;
   line-height: normal;
 `;
 

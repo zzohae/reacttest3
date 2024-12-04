@@ -5,7 +5,6 @@ import { Routes, Route } from "react-router-dom";
 import Notfound from './Notfound';
 import Category from './Category';
 import Detail from './Detail';
-import Topad from './contents/Topad';
 import News from './contents/News/News';
 import Ft from './layout/Ft';
 import Comptest from './contents/Copmtest';
@@ -30,7 +29,6 @@ export default function App() {
 
   return (
     <div className={`wrap ${scrollPosition < 200 ? "" : "scrolled"}`}>
-      <Topad></Topad>
       <Hd keyword={keyword} setKeyword={setKeyword} incartNum={incartNum}></Hd>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
