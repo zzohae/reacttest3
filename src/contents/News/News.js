@@ -32,6 +32,16 @@ export default function News() {
   return (
     <div className='d-flex flex-column align-items-center'>
       <div className='container mycontainer'>
+
+        <div className='mybanner'>
+          <img
+            src="/assets/img/banner/sub_banner_02.jpg"
+            alt="배너 이미지"
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </div>
+
+
         <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
           {submenu.map((v, i) => (
             <li className={`d-flex justify-content-center align-items-center ${en === `${v.linkto}` ? 'active' : ''}`} key={i}>
