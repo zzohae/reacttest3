@@ -9,6 +9,8 @@ import Topad from './contents/Topad';
 import News from './contents/News/News';
 import CouponPage from './contents/CouponPage';
 import Ft from './layout/Ft';
+import Comptest from './contents/Copmtest';
+import AboutUs from './contents/Aboutus/About';
 
 export default function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -39,6 +41,8 @@ export default function App() {
         <Route path="/news/:en" element={<News en='' />} />
         <Route path="/ecoupon" element={<CouponPage />} />
         <Route path='*' element={<Notfound></Notfound>}></Route>
+        <Route path="/aboutus/:en" element={<AboutUs />} />
+        <Route path="/comptest" element={<Comptest />} />
       </Routes>
       <Ft></Ft>
     </div>

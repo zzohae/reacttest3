@@ -67,12 +67,12 @@
         ]
       },
       {
-        "linkto" : "aboutus",
+        "linkto" : "aboutus/aboutinfo",
         "title" : "청량리종합시장",
         "submenu": [
           {
-            "linkto": "",
-            "title": "시장 소개"
+            "linkto": "aboutinfo",
+            "title": "청량리종합시장"
           },
           {
             "linkto": "store_info",
@@ -128,6 +128,22 @@
       { "src" : "main_banner_05_sm.jpg", "alt" : "밀키트 주간 구독" },
       { "src" : "main_banner_06_sm.jpg", "alt" : "해외 배송비 무료" },
       { "src" : "main_banner_07_sm.jpg", "alt" : "SNS 레시피 이벤트" }
+    ]
+  },
+  "mdpbanner" : {
+    "bannerData": [
+      { "src" : "mdp_banner_01.jpg", "alt" : "찐빵" },
+      { "src" : "mdp_banner_02.jpg", "alt" : "야끼만두" },
+      { "src" : "mdp_banner_03.jpg", "alt" : "가래떡" },
+      { "src" : "mdp_banner_04.jpg", "alt" : "육개장" },
+      { "src" : "mdp_banner_01.jpg", "alt" : "찐빵" },
+      { "src" : "mdp_banner_02.jpg", "alt" : "야끼만두" },
+      { "src" : "mdp_banner_03.jpg", "alt" : "가래떡" },
+      { "src" : "mdp_banner_04.jpg", "alt" : "육개장" },
+      { "src" : "mdp_banner_01.jpg", "alt" : "찐빵" },
+      { "src" : "mdp_banner_02.jpg", "alt" : "야끼만두" },
+      { "src" : "mdp_banner_03.jpg", "alt" : "가래떡" },
+      { "src" : "mdp_banner_04.jpg", "alt" : "육개장" }
     ]
   },
   "mainPagetitle" : [

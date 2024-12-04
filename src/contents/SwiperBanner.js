@@ -1,56 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-export default function SwiperBanner({ datakey, viewslides, pagination, hasrwd =false }) {
-
+export default function SwiperBanner({ datakey, viewslides, pagination, currentIndex, onSlideChange, swiperRef, spacebtw = 0, hasrwd = false, disableAutoplay = false }) {
   const { bannerData, bannerDataMd, bannerDataSm } = datakey;
 
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [responsiveData, setResponsiveData] = useState(bannerData);
+
+  const autoplay = !disableAutoplay && {
+    delay: 3000,
+    disableOnInteraction: false,
+  };
 
   useEffect(() => {
     const handleResize = () => {
-      setScreenWidth(window.innerWidth);
+      let newData;
+      if (window.innerWidth < 576) {
+        newData = bannerDataSm;
+      } else if (window.innerWidth < 992) {
+        newData = bannerDataMd;
+      } else {
+        newData = bannerData;
+      }
+      if (!hasrwd) newData = bannerData;
+      setResponsiveData(newData);
     };
 
+    handleResize();
     window.addEventListener('resize', handleResize);
-
-    if (screenWidth < 576) {
-      setResponsiveData(bannerDataSm);
-    } else if (screenWidth < 992) {
-      setResponsiveData(bannerDataMd);
-    } else {
-      setResponsiveData(bannerData);
-    }
-
-    if (!hasrwd) {
-      setResponsiveData(bannerData);
-    }
-
     return () => window.removeEventListener('resize', handleResize);
-  }, [screenWidth, bannerData, bannerDataMd, bannerDataSm, hasrwd]);
+  }, [bannerData, bannerDataMd, bannerDataSm, hasrwd]);
 
   return (
     <Swiper
       modules={[Autoplay, Pagination, Navigation]}
-      spaceBetween={0}
+      spaceBetween={spacebtw}
       slidesPerView={viewslides}
       loop={true}
-      autoplay={{
-        delay: 3000,
-        disableOnInteraction: false,
-      }}
+      autoplay={autoplay}
       pagination={pagination}
+      onSlideChange={onSlideChange}
+      ref={swiperRef}
     >
-      { responsiveData.map((v, i) => (
+      {responsiveData.map((v, i) => (
         <SwiperSlide key={i} style={{ width: 'fit-content' }}>
           <img src={`/assets/img/banner/${v.src}`} alt={v.alt} />
         </SwiperSlide>
-      ))   
-    
-    }
+      ))}
     </Swiper>
   );
 }

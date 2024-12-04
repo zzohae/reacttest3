@@ -12,12 +12,14 @@ export default function Home({ bgcolor, textcolor }) {
   };
   return (
     <div style={{ background: bgcolor, color: textcolor }}>
-      <SwiperBanner
-      datakey={allData.mainRWDbanner}
-      viewslides={1}
-      pagination={pagination1}
-      hasrwd={true}
-      ></SwiperBanner>
+      <div className="mainvisual">
+        <SwiperBanner
+        datakey={allData.mainRWDbanner}
+        viewslides={1}
+        pagination={pagination1}
+        hasrwd={true}
+        ></SwiperBanner>
+      </div>
       <Boardlist></Boardlist>
     </div>
   );
