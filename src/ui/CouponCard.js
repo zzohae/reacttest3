@@ -27,7 +27,12 @@ const CouponCard = ({ title, description, imgSrc, link, buttonText, mtitle, coup
             {imgSrc.map((src, index) => (
               <Col key={index} className={getColClass(imgSrc.length)}>
                 <img src={src} alt={`Coupon ${index + 1}`} className="img-fluid" />
-                <Button variant="primary" href={link} className="w-100 mt-2">
+                <Button
+                  variant="primary"
+                  href={link}
+                  className="w-100 mt-2"
+                  style={{ backgroundColor: "#214AEE", borderColor: "#214AEE" }}
+                >
                   {buttonText}
                 </Button>
               </Col>

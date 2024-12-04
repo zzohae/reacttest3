@@ -13,7 +13,7 @@
               "/assets/img/cardnews/cardnews_03.jpg"
             ],
             "link": "/link1",
-            "buttonText": "받기",
+            "buttonText": "쿠폰받기↓",
             "mtitle": {
               "title": "쿠폰 이벤트 1"
             },
@@ -44,7 +44,7 @@
               "/assets/img/cardnews/cardnews_02.jpg"
             ],
             "link": "/link2",
-            "buttonText": "받기",
+            "buttonText": "쿠폰받기↓",
             "mtitle": {
               "title": "쿠폰 이벤트 2"
             },
@@ -74,7 +74,7 @@
               "/assets/img/cardnews/cardnews_01.jpg"
             ],
             "link": "/link3",
-            "buttonText": "받기",
+            "buttonText": "쿠폰받기↓",
             "mtitle": {
               "title": "쿠폰 이벤트 3"
             },
