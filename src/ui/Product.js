@@ -34,7 +34,7 @@ const discount = parseInt((originprice - saleprice) / originprice * 100);
           <dt className='productName'>{prodName}</dt>
           <dd className='seller'>{store}</dd>
           <dd className='price'><strong className='dcPercent'>{discount}%</strong><span className='origin'>{formatNum(originprice)}원</span><em className='saleprice d-block d-md-inline d-lg-block d-xl-inline'>{formatNum(saleprice)}<span>원</span></em></dd>
-          <p>000명 구매중</p>
+          <p>000개 구매중</p>
         </dl>
         <InCartBtn
         svgcolor="#D2D2D2"
