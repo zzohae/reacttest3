@@ -8,9 +8,9 @@
             "title": "쿠폰 1",
             "description": "설명 1",
             "imgSrc": [
-              "/assets/img/cardnews/cardnews_01.jpg",
-              "/assets/img/cardnews/cardnews_02.jpg",
-              "/assets/img/cardnews/cardnews_03.jpg"
+              "/assets/img/coupon/coupon_01.jpg",
+              "/assets/img/coupon/coupon_01.jpg",
+              "/assets/img/coupon/coupon_01.jpg"
             ],
             "link": "/link1",
             "buttonText": "쿠폰받기↓",
@@ -40,8 +40,8 @@
             "title": "쿠폰 2",
             "description": "설명 2",
             "imgSrc": [
-              "/assets/img/cardnews/cardnews_01.jpg",
-              "/assets/img/cardnews/cardnews_02.jpg"
+              "/assets/img/coupon/coupon_01.jpg",
+              "/assets/img/coupon/coupon_01.jpg"
             ],
             "link": "/link2",
             "buttonText": "쿠폰받기↓",
@@ -71,7 +71,7 @@
             "title": "쿠폰 3",
             "description": "설명 3",
             "imgSrc": [
-              "/assets/img/cardnews/cardnews_01.jpg"
+              "/assets/img/coupon/coupon_01.jpg"
             ],
             "link": "/link3",
             "buttonText": "쿠폰받기↓",
