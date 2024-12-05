@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import CouponCard from "../ui/CouponCard";
 import couponData from "../db/couponData.json";
+import './Coupon.scss';
+
 
 const CouponPage = () => {
   const couponDataList = couponData.navdata.promotionmenu.find(
@@ -13,7 +15,6 @@ const CouponPage = () => {
       <Row>
         {couponDataList.map((coupon, index) => (
           <Col key={index} xs={12} md={12} lg={12}>
-            {/* 원하는 colSize 값을 전달 */}
             <CouponCard {...coupon} colSize="col-4" />
           </Col>
         ))}

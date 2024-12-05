@@ -1,0 +1,26 @@
+.mytab {
+  padding-top: 50px;
+}
+
+.pagination {
+  padding: 50px 0;
+}
+
+.event-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.event-row {
+  border: 1px solid #d2d2d2;
+  height: 9.26vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.event-row span {
+  color: #888;
+}
