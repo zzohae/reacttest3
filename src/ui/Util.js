@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as AlertIcon } from '../svg/util/alert.svg';
 import { ReactComponent as CartIcon } from '../svg/util/cart.svg';
 import { ReactComponent as MypageIcon } from '../svg/util/user.svg';
@@ -118,6 +118,8 @@ const Util = ({incartNum, className}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태
   const [hasAlerts, setHasAlerts] = useState(false);  // 알림 상태
   const [hasCartItems, setHasCartItems] = useState(false); // 장바구니 상태
+  const navigate = useNavigate();
+
 
   // 로그인/로그아웃 토글
   const handleLoginClick = () => {
@@ -131,6 +133,7 @@ const Util = ({incartNum, className}) => {
       console.log('마이페이지로 이동');
     } else {
       console.log('로그인 페이지로 이동');
+      navigate('/signup');
     }
   };
 

@@ -12,6 +12,7 @@ export default function Home({ bgcolor, textcolor }) {
   };
   return (
     <div style={{ background: bgcolor, color: textcolor }}>
+      <div className="whitespace"></div>
       <div className="mainvisual">
         <SwiperBanner
         datakey={allData.mainRWDbanner}

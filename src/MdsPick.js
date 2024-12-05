@@ -24,7 +24,7 @@ export default function MdsPick() {
   return (
     <div className="container mdspickcont d-flex flex-row align-items-stretch justify-content-start">
       <div className="mdsTitle">
-        <Movetool textColor="#214aee" h2size="34px">
+        <Movetool textColor="#214aee" h2size="34px" nomargin={true}>
           {allData.mainPagetitle[0].title}
         </Movetool>
         <p>

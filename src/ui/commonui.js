@@ -1,4 +1,3 @@
-import { propTypes } from 'react-bootstrap/esm/Image';
 import styled from 'styled-components';
 
 export const Btn = styled.button.withConfig({
@@ -52,9 +51,13 @@ export const InCartBtn = styled.button.withConfig({
 
 
 export const TagStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5rem;
   margin-left: 0.5rem;
   left: ${(props) => (props.index || 0) * 60}px;
-  padding: 0.3rem 0.6rem;
+  padding: 0 0.6rem;
   background-color: ${(props) =>
     props.type === 'hot'
       ? '#FF4500'
@@ -64,8 +67,8 @@ export const TagStyle = styled.div`
   color: ${(props) => (props.type === 'new' ? '#214AEE' : 'white')};
   font-size: 0.75rem;
   font-weight: bold;
-  border-radius: 5px;
-  line-height: normal;
+  border-radius: 0.1875rem;
+  line-height: 1;
 `;
 
 const starSvg = `

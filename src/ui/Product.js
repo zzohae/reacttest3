@@ -4,7 +4,7 @@ import { InCartBtn } from './commonui';
 import { TagStyle } from './commonui';
 import Utilicon from './svg';
 
-export default function Product({rowclass, prdId, img, prodName, store, originprice, saleprice, incartNum, setIncartNum, promobadge = [] }) {
+export default function Product({rowclass, prdId, img, prodName, store, originprice, saleprice, incartNum, setIncartNum, promobadge = [], mB = '100px' }) {
   const formatNum = (num) => {
     return num.toLocaleString();
   };
@@ -14,7 +14,7 @@ saleprice = parseInt(saleprice);
 const discount = parseInt((originprice - saleprice) / originprice * 100);
 
   return (
-    <div className={`product ${rowclass} position-relative`}>
+    <div className={`product ${rowclass} position-relative`} style={{marginBottom: mB}}>
       <Link to={`/products/detail/${prdId}`}>
       <div className='position-absolute d-flex mt-2'>
       {promobadge && promobadge.includes("new") && (
