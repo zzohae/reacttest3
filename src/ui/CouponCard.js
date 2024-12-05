@@ -1,71 +1,118 @@
-import React, { useState } from "react";
-import { Card, Button, Row, Col } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Card, Button, Row, Col, Modal } from "react-bootstrap";
 import Mtitle from "./Mtitle";
 
-const CouponCard = ({ title, description, imgSrc, link, buttonText, mtitle, couponDetails }) => {
+const CouponCard = ({
+  title,
+  description,
+  imgSrc,
+  buttonText,
+  mtitle,
+  couponDetails,
+  colSize = "col-3",
+}) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [popupVisible, setPopupVisible] = useState(false);
 
-  const getColClass = (count) =>
-    count === 1 ? "col-12" : count === 2 ? "col-6" : count === 3 ? "col-4" : "col-12";
+
+  const toggleVisibility = () => setIsVisible((prev) => !prev);
+  const openPopup = () => setPopupVisible(true);
+  const closePopup = () => setPopupVisible(false);
 
   return (
     <>
-      {mtitle ? (
-        <div style={{ padding: "50px 0" }}>
-          <Mtitle textColor="#214AEE">
-            {mtitle.title}
-          </Mtitle>
+      {mtitle && (
+        <div style={{ paddingTop: "3.125em" }}>
+          <Mtitle textColor="#214AEE">{mtitle.title}</Mtitle>
         </div>
-      ) : null}
+      )}
 
       <Card className="shadow-sm">
         <Card.Body>
-          <Card.Title className="fw-bold text-truncate">{title}</Card.Title>
-          <Card.Text className="text-muted">{description}</Card.Text>
+          <Card.Title className="card-title">
+            {title}
+          </Card.Title>
+          <Card.Text className="card-text" style={{ display: "inline-block" }}>
+            {description}
+          </Card.Text>
 
-          <Row>
-            {imgSrc.map((src, index) => (
-              <Col key={index} className={getColClass(imgSrc.length)}>
-                <img src={src} alt={`Coupon ${index + 1}`} className="img-fluid" />
-                <Button
-                  variant="primary"
-                  href={link}
-                  className="w-100 mt-2"
-                  style={{ backgroundColor: "#214AEE", borderColor: "#214AEE" }}
-                >
-                  {buttonText}
-                </Button>
-              </Col>
-            ))}
-          </Row>
+        {/* 이미지 및 버튼 그룹 */}
+        <Row className="d-flex justify-content-center flex-wrap">
+          {imgSrc.map((src, index) => (
+            <Col
+              key={index}
+              className={`text-center ${colSize}`}
+              style={{ marginBottom: "1.25rem" }}
+            >
+              <img
+                src={src}
+                alt={`Coupon ${index + 1}`}
+                className="img-fluid w-100"
+              />
+              <Button
+                variant="primary"
+                className="button-common"
+                onClick={openPopup}
+              >
+                {buttonText}
+              </Button>
+            </Col>
+          ))}
+        </Row>
 
-          <Button
-            variant="link"
-            onClick={() => setIsVisible(!isVisible)}
-            className="p-0 text-decoration-none"
-          >
-            {isVisible ? "쿠폰 안내 숨기기" : "쿠폰 안내 보기"}
-          </Button>
+        {/* 쿠폰 안내 보기 버튼 */}
+        <Button
+          variant="link"
+          onClick={toggleVisibility}
+          className={`button-toggle ${isVisible ? "active" : ""}`}
+        >
+          {isVisible ? "쿠폰 안내 숨기기" : "쿠폰 안내 보기"}
+          <i className="bi bi-chevron-right"></i>
+        </Button>
 
-          {isVisible ? (
-            <div className="box-notice mt-3">
-              <div className="box-notice__fence">
-                <h5 className="box-notice__title">쿠폰에 대한 안내</h5>
-                <div className="box-notice__content">
-                  <ul className="list-bullet">
-                    {couponDetails.map((item, index) => (
-                      <li className="list-bullet__item" key={index}>
-                        <span className="title">{item.title}</span>
-                        <span className="data">{item.data}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+        {/* 쿠폰 안내 내용 */}
+        {isVisible && (
+          <div className="box-notice mt-3">
+            <hr className="my-3" />
+            <div className="box-notice__fence">
+              <h5 className="box-notice__title">
+                쿠폰에 대한 안내
+              </h5>
+              <ul className="list-bullet">
+                {couponDetails.map((item, index) => (
+                  <li className="list-bullet__item" key={index}>
+                    <span className="title">{item.title}</span>
+                    <span className="data">{item.data}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          ) : null}
-        </Card.Body>
-      </Card>
+          </div>
+        )}
+      </Card.Body>
+    </Card >
+
+      {/* 팝업 모달 */ }
+      < Modal show = { popupVisible } onHide = { closePopup } centered >
+        <Modal.Header closeButton>
+          <Modal.Title className="modal-title">
+            쿠폰 받기 완료
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="modal-body">
+          쿠폰이 정상적으로 발급되었습니다!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={closePopup}
+            className="btn-secondary"
+          >
+            닫기
+          </Button>
+        </Modal.Footer>
+      </Modal >
+
     </>
   );
 };
