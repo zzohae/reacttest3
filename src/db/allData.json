@@ -130,22 +130,42 @@
       { "src" : "main_banner_07_sm.jpg", "alt" : "SNS 레시피 이벤트" }
     ]
   },
+  "mdpbanner" : {
+    "bannerData": [
+      { "src" : "mdp_banner_01.jpg", "alt" : "찐빵" },
+      { "src" : "mdp_banner_02.jpg", "alt" : "야끼만두" },
+      { "src" : "mdp_banner_03.jpg", "alt" : "가래떡" },
+      { "src" : "mdp_banner_04.jpg", "alt" : "육개장" },
+      { "src" : "mdp_banner_01.jpg", "alt" : "찐빵" },
+      { "src" : "mdp_banner_02.jpg", "alt" : "야끼만두" },
+      { "src" : "mdp_banner_03.jpg", "alt" : "가래떡" },
+      { "src" : "mdp_banner_04.jpg", "alt" : "육개장" },
+      { "src" : "mdp_banner_01.jpg", "alt" : "찐빵" },
+      { "src" : "mdp_banner_02.jpg", "alt" : "야끼만두" },
+      { "src" : "mdp_banner_03.jpg", "alt" : "가래떡" },
+      { "src" : "mdp_banner_04.jpg", "alt" : "육개장" }
+    ]
+  },
   "mainPagetitle" : [
     {
       "linkto": "",
-      "title": "MD's Pick!"
+      "title": "이번 달 청량 추천!",
+      "emoji":"thumsup"
     },
     {
       "linkto": "",
-      "title": "지금 많이 찾는 BEST"
+      "title": "지금 가장 인기있는 상품",
+      "emoji":"cart"
     },
     {
       "linkto": "",
-      "title": "Live Commerce"
+      "title": "실시간 쇼핑! 라이브커머스",
+      "emoji":"movie"
     },
     {
       "linkto": "",
-      "title": "구매자분들의 솔직 리뷰✨"
+      "title": "솔직한 리뷰, 믿을 수 있는 상품",
+      "emoji":"sparkle"
     }
   ],
     "companyInfo": [

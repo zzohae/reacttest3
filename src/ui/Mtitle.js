@@ -1,12 +1,11 @@
 import React from 'react'
 
-export default function Movetool({ textColor, children, h2size }) {
+export default function Movetool({ textColor, children, h2size, nomargin }) {
   return (
-<div style={{display: 'flex'}}>    
-      <i className="bi bi-circle-fill" style={{ color: textColor, fontSize: '0.75rem'}}></i>   
-      <h2 style={{ fontSize: h2size, fontWeight: 'bold', margin: '15px 0 0' }}>
+<div className={`d-flex flex-column ${nomargin ? '' : 'mb50'}`}>
+      <i className="bi bi-circle-fill" style={{ color: textColor, fontSize: '0.75rem'}}></i>
+      <h2 className='maintitle' style={{ fontSize: h2size, fontWeight: 'bold' }}>
         {children}
-        <i className="bi bi-chevron-right" style={{ color: textColor, marginLeft: '8px', fontSize: '2rem' }}></i>
       </h2>
 </div>
   )

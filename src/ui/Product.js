@@ -4,7 +4,7 @@ import { InCartBtn } from './commonui';
 import { TagStyle } from './commonui';
 import Utilicon from './svg';
 
-export default function Product({rowclass, prdId, img, prodName, store, originprice, saleprice, incartNum, setIncartNum, promobadge = [] }) {
+export default function Product({rowclass, prdId, img, prodName, store, originprice, saleprice, incartNum, setIncartNum, promobadge = [], mB = '100px' }) {
   const formatNum = (num) => {
     return num.toLocaleString();
   };
@@ -14,7 +14,7 @@ saleprice = parseInt(saleprice);
 const discount = parseInt((originprice - saleprice) / originprice * 100);
 
   return (
-    <div className={`product ${rowclass} position-relative`}>
+    <div className={`product ${rowclass} position-relative`} style={{marginBottom: mB}}>
       <Link to={`/products/detail/${prdId}`}>
       <div className='position-absolute d-flex mt-2'>
       {promobadge && promobadge.includes("new") && (
@@ -34,7 +34,7 @@ const discount = parseInt((originprice - saleprice) / originprice * 100);
           <dt className='productName'>{prodName}</dt>
           <dd className='seller'>{store}</dd>
           <dd className='price'><strong className='dcPercent'>{discount}%</strong><span className='origin'>{formatNum(originprice)}원</span><em className='saleprice d-block d-md-inline d-lg-block d-xl-inline'>{formatNum(saleprice)}<span>원</span></em></dd>
-          <p>000명 구매중</p>
+          <p>000개 구매중</p>
         </dl>
         <InCartBtn
         svgcolor="#D2D2D2"

@@ -2,7 +2,7 @@ import React from 'react';
 
 const EventCard = ({ imgSrc, title, period, isExpired }) => {
   return (
-    <div className="col-6 col-lg-4 mb-4 d-flex flex-column">
+    <div className="col-6 col-lg-4 d-flex flex-column">
 
       <img src={imgSrc} alt={title} className="event-img"/>
       <div className='event-row d-flex'>
