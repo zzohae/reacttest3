@@ -11,10 +11,20 @@ const MapsAPI = ({ center, containerStyle, markers, mapRef }) => {
     }
   }, []);
 
+  // 마커 사이즈를 단순 객체로 설정하여 조정(로드때문에)
+  const handleMarkerIcon = () => {
+    return {
+      width: 32,
+      height: 32
+    };
+  };
+  
+
   return (
     <LoadScript
       googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
-      onLoad={() => setIsGoogleLoaded(true)}>
+      onLoad={() => setIsGoogleLoaded(true)} // Google Maps 로드 완료 시 상태 업데이트
+    >
       {isGoogleLoaded && (
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -22,7 +32,6 @@ const MapsAPI = ({ center, containerStyle, markers, mapRef }) => {
           zoom={18}
           onLoad={(map) => {
             mapRef.current = map; // 지도 참조 저장
-            console.log("Google Map Loaded:", map);
           }}>
           {markers.map((marker, index) => (
             <div key={index}>
@@ -30,12 +39,13 @@ const MapsAPI = ({ center, containerStyle, markers, mapRef }) => {
                 position={marker.position}
                 icon={{
                   url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#214AEE" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#214AEE" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                       <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
                     </svg>
                   `)}`,
-                  scaledSize: new window.google.maps.Size(32, 32),
+                  scaledSize: handleMarkerIcon(),
                 }}/>
+
               <OverlayView
                 position={marker.position}
                 mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
@@ -51,7 +61,7 @@ const MapsAPI = ({ center, containerStyle, markers, mapRef }) => {
                     position: "absolute",
                     transform: "translateY(-200%) translateX(-50%)",
                   }}>
-                  <h4 style={{ color: "#214AEE", fontSize: "14px" }}>{marker.title}</h4>
+                  <h4 style={{ color: "#214AEE", fontSize: "16px" }}>{marker.title}</h4>
                 </div>
               </OverlayView>
             </div>

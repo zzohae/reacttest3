@@ -477,10 +477,10 @@ header {
 .mytab {
   padding-bottom: 30px;
   margin-bottom: 30px;
-  border-bottom: 2px solid #214AEE;
+  border-bottom: 1px solid #214AEE;
   gap: 10px;
   li {
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 30px;
     min-width: 85px;
     height: 40px;
@@ -575,20 +575,25 @@ footer {
   padding: 2.725rem 0;
   flex-direction: column;
   justify-content: center;
-  background-color: #214aee;
-  color: #fff;
+  background-color: #fff;
+  color: #aaa;
 
   div {
     h4 {
-      margin-bottom: 1.25rem;
+      margin-bottom: 0.625rem;
+      font-weight: bold;
     }
     &:nth-child(3) {
-      h4 {
-        margin-bottom: .6rem;
+      dl{
+        h4 {margin-bottom: 0;}
       }
       span {
         margin-top: 5px;
       }
+    }
+    dl{
+      // dt{color: red;}
+      // dd{color: yellowgreen;}
     }
   }
 
@@ -602,7 +607,8 @@ footer {
     transition: 0.3s ease-out;
 
     &:hover {
-      opacity: 0.7;
+      // opacity: 0.7;
+      color: #214aee;
     }
   }
 
@@ -610,8 +616,8 @@ footer {
       text-decoration: underline;
   }
 }
-.logo-white {
-  fill: #fff !important;
+.logo-color {
+  fill: #aaa !important;
 }
 .ftinfo {
   display: flex;
@@ -620,6 +626,9 @@ footer {
 }
 .ftinfo-bold {
   font-weight: bold;
+}
+.ftbottom{
+  p{font-weight: 300;}
 }
 
 
@@ -635,7 +644,7 @@ footer {
   &.active {
     color: #333;
     font-weight: 700;
-    border-bottom: 3px solid #214AEE;
+    border-bottom: 1px solid #214AEE;
   }
 }
 
@@ -681,7 +690,7 @@ footer {
   gap: 10px;
   flex-shrink: 0;
   border-radius: 100px;
-  border: 3px solid #214AEE;
+  border: 1px solid #214AEE;
   background: #FFF;
 }
 
@@ -1229,10 +1238,10 @@ footer {
 
 .storelistBox {
   .storebox {
-    border-bottom: 1px solid #D2D2D2;  // 기본적으로 모든 div에 border-bottom 적용
+    border-bottom: 1px solid #D2D2D2;
 
     &:last-child {
-      border-bottom: none;  // 마지막 div의 border-bottom 없애기
+      border-bottom: none;
     }
   }
 }

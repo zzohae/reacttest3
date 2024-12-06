@@ -56,7 +56,6 @@ export default function StoreInfo() {
     const newLat = store.lat || 37.581127;
     const newLng = store.lng || 127.043834;
   
-    // 기존 마커들 중 기본 마커를 제외한 나머지 마커는 제거
     setMarkers([
       {
         position: { lat: 37.581127, lng: 127.043834 }, // 기본 마커
@@ -83,66 +82,53 @@ export default function StoreInfo() {
   
 
   return (
-    <div className='container storeinfo' style={{ paddingBottom: '150px' }}>
+    <div className='container storeinfo' style={{ padding: '0 0 150px 0' }}>
       <Movetool textColor='#214aee' h2size='34px'>매장 소개</Movetool>
 
       {/* 검색 및 탭 */}
-      <div className="row w-100 mt-3">
-        <div className="col-5 pt-3">
+      <div className="row w-100 mt-3 gx-2">
+        <div className="col-5 ps-0 pe-4">
           <Searchbox
             keyword={searchKeyword}
             setKeyword={setSearchKeyword}
-            className='order-0 order-lg-1 mb-2'
-          />
+            className='order-0 order-lg-1 mb-2'/>
 
           <div className="mytab" style={{ borderBottom: '0', padding: '0', marginBottom: '0' }}>
             <ul className="mt-2 mb-4 d-flex list-unstyled">
-              <li
-                className={`me-2 px-3 py-2 ${activeTab === "all" ? "active" : ""}`}
+              <li className={`me-2 px-3 py-2 ${activeTab === "all" ? "active" : ""}`}
                 onClick={() => setActiveTab("all")}
-                style={{ cursor: "pointer" }}
-              >
+                style={{ cursor: "pointer" }}>
                 전체
               </li>
-              <li
-                className={`me-2 px-3 py-2 ${activeTab === "produce" ? "active" : ""}`}
+              <li className={`me-2 px-3 py-2 ${activeTab === "produce" ? "active" : ""}`}
                 onClick={() => setActiveTab("produce")}
-                style={{ cursor: "pointer" }}
-              >
+                style={{ cursor: "pointer" }}>
                 농산물
               </li>
-              <li
-                className={`me-2 px-3 py-2 ${activeTab === "seafood" ? "active" : ""}`}
+              <li className={`me-2 px-3 py-2 ${activeTab === "seafood" ? "active" : ""}`}
                 onClick={() => setActiveTab("seafood")}
-                style={{ cursor: "pointer" }}
-              >
+                style={{ cursor: "pointer" }}>
                 수산물
               </li>
-              <li
-                className={`me-2 px-3 py-2 ${activeTab === "meat" ? "active" : ""}`}
+              <li className={`me-2 px-3 py-2 ${activeTab === "meat" ? "active" : ""}`}
                 onClick={() => setActiveTab("meat")}
-                style={{ cursor: "pointer" }}
-              >
+                style={{ cursor: "pointer" }}>
                 육류
               </li>
-              <li
-                className={`px-3 py-2 ${activeTab === "another" ? "active" : ""}`}
+              <li className={`px-3 py-2 ${activeTab === "another" ? "active" : ""}`}
                 onClick={() => setActiveTab("another")}
-                style={{ cursor: "pointer" }}
-              >
+                style={{ cursor: "pointer" }}>
                 기타
               </li>
             </ul>
           </div>
 
-          <div
-            style={{
+          <div style={{
               height: '500px',
               overflowY: 'auto',
               paddingRight: '0.8rem',
               scrollbarGutter: 'stable',
-            }}
-          >
+            }}>
             <Storelist
               stores={searchedStores}
               onStoreClick={handleStoreClick}
@@ -159,8 +145,7 @@ export default function StoreInfo() {
             center={{ lat: 37.581127, lng: 127.043834 }}
             containerStyle={{ width: '100%', height: '100%' }}
             markers={markers}
-            mapRef={mapRef} // 지도 참조 전달
-          />
+            mapRef={mapRef}/>
         </div>
       </div>
     </div>

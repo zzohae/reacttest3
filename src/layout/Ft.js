@@ -10,10 +10,10 @@ import { Btn } from '../ui/commonui';
 
 export default function Ft() {
   return (
-    <footer className='d-flex align-items-center justify-content-center'>
+    <footer className='d-flex align-items-center justify-content-center' style={{borderTop: '1px solid #d2d2d2'}}>
       <div className="container px-2 px-md-0">
       <div className='fttop container  d-flex justify-content-between align-items-start row gx-0 mb-3'>
-            <h2 className='order-1 order-lg-0 col-6 col-md-4 col-lg-2 mb-4 d-none d-lg-block'><a href="/"><Logo width='150' height='53.708' className='logo-white'></Logo></a></h2>
+            <h2 className='order-1 order-lg-0 col-6 col-md-4 col-lg-2 mb-4 d-none d-lg-block'><a href="/"><Logo width='120' height='auto' className='logo-color'></Logo></a></h2>
             <div className='col-auto d-none d-lg-block mb-4'>
                 <h4 className='fs-h4' >회사 정보</h4>
                 <dl>
@@ -28,8 +28,8 @@ export default function Ft() {
 
               <div className='col-6 col-md-4 col-lg-2 mb-4'>
                 <h4 className='fs-h4'>고객센터</h4>
-                <h4 className="fs-h4">02-962-7100</h4>
                 <dl>
+                <h4 className="fs-h4">02-962-7100</h4>
                   {ftData.agent.map((v, i) => (
                     <div className="ftinfo" key={i}>
                       <dt className="ftinfo-bold fs-h6">{v.label}</dt>
@@ -44,7 +44,7 @@ export default function Ft() {
                   <ul>
                     {ftData.support.map((v, i) => (
                       <li key={i} className='fs-h6'>
-                      <Link to={v.linkto} className='cslink'>{v.label} <Linksvg /></Link>
+                      <Link to={v.linkto} className='cslink'>{v.label} <Linksvg style={{ stroke: "#aaa" }} /></Link>
                       </li>
                     ))}
                 </ul>
@@ -60,16 +60,14 @@ export default function Ft() {
 
               <Btn version='v3' className='sitemap'>사이트맵</Btn>
             </div>
-
         </div>
 
         <div className='ftbottom container  d-flex justify-content-between align-items-end p-0'>
-              <p className="copyright opacity-50">ⓒ 2022 청량리종합시장상인연동조합. ALL RIGHTS RESERVED.</p>
+              <p className="copyright fs-h6">ⓒ 2024 그린컴퓨터아트학원 신도림 KDT 3기 team 청량마켓. ALL RIGHTS RESERVED.</p>
               <Btn version='v3' className='sitemap d-none d-lg-flex'>상품 문의하기</Btn>
         </div>
 
       </div>
-
     </footer>
   )
 }

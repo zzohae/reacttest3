@@ -24,7 +24,7 @@ export default function AboutUs() {
 
   return (     
     <div className="d-flex flex-column align-items-center">
-      <div className="container mycontainer">
+      <div className="container ">
         <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
           {submenu &&
             submenu.map((item, index) => (

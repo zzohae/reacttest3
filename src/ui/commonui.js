@@ -8,14 +8,14 @@ export const Btn = styled.button.withConfig({
   align-items: center;
   gap: ${(props) => (props.version ?? 'v1') === 'v2' ? '4px' : '0'};
   background-color: ${(props) =>
-    props.version === 'v1' ? '#ffffff' : '#214AEE'};
-  color: ${(props) => props.version === 'v1' ? '#214AEE' : '#fff'};
+  props.version === 'v1' ? '#ffffff' : (props.version === 'v3' ? '#fff' : '#214AEE')};
+  color: ${(props) => props.version === 'v1' ? '#214AEE' : (props.version === 'v3' ? '#aaa' : '#fff')};
   padding: 0 30px;
   height: ${(props) =>
     props.page === 'detail' ? '60px' : props.version === 'v2' ? '45px' : '40px'};
-  border: 3px solid;
+  border: 1px solid;
   border-color: ${(props) =>
-    props.version === 'v2' ? '#FFEA7D' : props.version === 'v3' ? '#fff' : '#214AEE'};
+    props.version === 'v2' ? '#FFEA7D' : (props.version === 'v3' ? '#aaa' : '#214AEE')};
   word-break: keep-all;
   white-space: nowrap;
   border-radius: ${(props) => props.page === 'detail' ? '5px' : '30px'};
@@ -26,9 +26,10 @@ export const Btn = styled.button.withConfig({
 
   &:hover {
     background-color: ${(props) =>
-      props.version === 'v2' ? '#FFEA7D' : props.version === 'v3' ? '#fff' : '#214AEE'};
-    color: ${(props) => props.version === 'v1' ? '#fff' : '#214AEE'};
+      props.version === 'v2' ? '#FFEA7D' : props.version === 'v3' ? '#214AEE' : '#214AEE'};
+    color: ${(props) => props.version === 'v1' ? '#fff' : 'v3' ? '#fff' : '#214AEE'};
     font-weight: 700;
+    border-color: ${(props) => props.version === 'v3' ? '#214AEE' : '#214AEE'};
   }
 `;
 
