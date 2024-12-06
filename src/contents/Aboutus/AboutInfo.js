@@ -42,6 +42,7 @@ export default function AboutInfo() {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
+                    borderRadius: "8px"
                   }}
                 />
             </div>
@@ -106,6 +107,7 @@ export default function AboutInfo() {
                             width: "100%",
                             height: "100%",
                             objectFit: "cover",
+                            borderRadius: "5px"
                           }}/>
 
                         {selectedImage === image && (
@@ -122,6 +124,7 @@ export default function AboutInfo() {
                               color: "#fff",
                               fontWeight: "bold",
                               fontSize: "0.875rem",
+                              borderRadius: "5px"
                             }}>
                           </div>
                         )}
