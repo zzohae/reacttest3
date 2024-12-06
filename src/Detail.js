@@ -1,73 +1,105 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import productData from "./db/product.json";
-import reviewData from "./db/reviews.json"
+import { supabase } from "./api/dbconnect";
 import QuantityCounter from "./QuantityCounter";
 import { Btn } from "./ui/commonui";
-import Product from './ui/Product';
-import Bestreview from './Bestreview';
+import Product from "./ui/Product";
+import Bestreview from "./Bestreview";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 
 export default function Detail() {
   const formatNum = (num) => {
     return num.toLocaleString();
   };
+
   const { id } = useParams();
-  const targetProduct = productData?.find((product) => product.id === id)
 
-  targetProduct.originprice = parseInt(targetProduct.originprice);
-  targetProduct.saleprice = parseInt(targetProduct.saleprice);
-  const discount = parseInt((targetProduct.originprice - targetProduct.saleprice) / targetProduct.originprice * 100);
-
-  const relatedProducts = productData.slice(0, 5);
-  
+  const [targetProduct, setTargetProduct] = useState(null);
+  const [relatedProducts, setRelatedProducts] = useState([]);
   const [targetReviews, setTargetReviews] = useState([]);
   const [bestReviews, setBestReviews] = useState([]);
-
-  useEffect(() => {
-    setTargetReviews(reviewData.filter((pid) => pid.productID === id));
-  
-    const sortedReviews = reviewData
-      .filter((pid) => pid.productID === id)
-      .sort((a, b) => b.likes - a.likes);
-  
-    setBestReviews(sortedReviews.slice(0, 3));
-  }, [id, reviewData]);
-
-  const [activeTab, setActiveTab] = useState('detail');
+  const [activeTab, setActiveTab] = useState("detail");
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const fetchProductData = async () => {
+    const { data: products } = await supabase
+      .from("productData")
+      .select("*")
+      .eq("id", id);
+  
+    if (products.length > 0) {
+      const product = products[0];
+      setTargetProduct(product);
+  
+      if (product.saleprice === null) {
+        product.saleprice = product.originprice;
+      }
+  
+      const { data: related } = await supabase
+      .from("productData")
+      .select("*")
+      .eq("category", product.category)
+      .order("id", { ascending: true })
+      .limit(10);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const filteredRelated = related
+        .filter((item) => item.id !== product.id)
+  
+      setRelatedProducts(filteredRelated);
+    }
+  };
+
+
+  const fetchReviewData = async () => {
+    try {
+      const { data: reviews } = await supabase
+        .from("reviewData")
+        .select("*")
+        .eq("productID", id);
+
+      setTargetReviews(reviews);
+
+      const sortedReviews = reviews.sort((a, b) => b.likes - a.likes);
+      setBestReviews(sortedReviews.slice(0, 3));
+    } catch (error) {
+      console.error("리뷰 데이터 로딩 오류:", error);
     }
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['detail', 'review', 'question', 'purchase'];
-      for (let i = 0; i < sections.length; i++) {
-        const section = document.getElementById(sections[i]);
-        if (section && section.getBoundingClientRect().top <= window.innerHeight / 2) {
-          setActiveTab(sections[i]);
-        }
-      }
-    };
+    fetchProductData();
+    fetchReviewData();
+  }, [id]);
 
-    window.addEventListener('scroll', handleScroll);
+  const calculateAverageRating = () => {
+    if (targetReviews.length === 0) return 0;
+    const totalRating = targetReviews.reduce((sum, review) => sum + review.rating, 0);
+    return (totalRating / targetReviews.length).toFixed(1);
+  };
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
 
+  if (!targetProduct) {
+    return <div>상품을 불러오는 중입니다...</div>;
+  }
+
+  const discount = parseInt(
+    ((targetProduct.originprice - targetProduct.saleprice) /
+      targetProduct.originprice) *
+      100
+  );
   return (
-    <div className="d-flex flex-column align-items-center">
+    <div className="d-flex flex-column align-items-center detailcont">
       <div className="container mycontainer">
         <div className="row">
           <div
@@ -83,48 +115,114 @@ export default function Detail() {
             </div>
             <div className="col-12 col-lg-6">
               <ul className="detailInfo">
-                <li>{targetProduct.store}</li>
-                <li>{targetProduct.prodName}</li>
-                <li className="d-flex align-items-end gap-1">
-                  <strong className="dcPercent detail">{discount}%</strong>
-                  <span className="origin detail">
-                    {formatNum(targetProduct.originprice)}원
+                <li className="d-flex flex-column align-items-start">
+                  <div>
+                    {targetProduct.store}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 10 18"
+                      fill="none"
+                    >
+                      <path
+                        d="M1 17L9 9L1 1"
+                        stroke="#aaa"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                  <h3>{targetProduct.prodName}</h3>
+                </li>
+                <li>
+                  <span className="average-rating">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="17"
+                      viewBox="0 0 17 17"
+                      fill="none"
+                    >
+                      <path
+                        d="M7.32317 1.3234C7.73583 0.487255 8.92817 0.487246 9.34083 1.3234L11.3058 5.30484L15.6996 5.94329C16.6223 6.07737 16.9908 7.21136 16.3231 7.8622L13.1437 10.9613L13.8942 15.3374C14.0518 16.2564 13.0873 16.9572 12.2619 16.5233L8.332 14.4572L4.4021 16.5233C3.57678 16.9572 2.61216 16.2564 2.76978 15.3374L3.52033 10.9613L0.340967 7.8622C-0.326741 7.21136 0.0417087 6.07737 0.964459 5.94329L5.35823 5.30484L7.32317 1.3234Z"
+                        fill="#FF4A11"
+                      />
+                    </svg>
+                    ({calculateAverageRating()})
                   </span>
-                  <em className="saleprice detail d-block d-md-inline d-lg-block d-xl-inline">
-                    {formatNum(targetProduct.saleprice)}
-                    <span>원</span>
-                  </em>
+                  <Link
+                    className="totalReview"
+                    to="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActiveTab("review");
+                      scrollToSection("review");
+                    }}
+                  >
+                    후기 {targetReviews.length}건
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 10 18"
+                      fill="none"
+                    >
+                      <path
+                        d="M1 17L9 9L1 1"
+                        stroke="#aaa"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
                 </li>
-                <li>{targetProduct.simpleExp}</li>
-                <li>별이다섯개~</li>
-                <li>
-                  <span className="me-2">판매 단위</span>
-                  {targetProduct.sellUnit}
+                <li className="d-flex flex-column align-items-start">
+                {discount > 0 && (
+                    <div className="origin detail">
+                      {formatNum(targetProduct.originprice)}원
+                    </div>
+                  )}
+                  <div className="d-flex gap-1">
+                    {discount > 0 && (
+                    <strong className="dcPercent detail">{discount}%</strong>
+                    )}
+                    <em className="saleprice detail d-block d-md-inline d-lg-block d-xl-inline">
+                      {formatNum(targetProduct.saleprice)}
+                      <span>원</span>
+                    </em>
+                    <button>쿠폰받기</button>
+                  </div>
                 </li>
-                <li>
-                  <span className="me-2">중량 · 용량</span>
-                  {targetProduct.volume}
-                </li>
+                <div className="minorinfo d-flex flex-column">
+                  <dl>
+                    <dt>판매 단위</dt>
+                    <dd>{targetProduct.sellUnit}</dd>
+                  </dl>
+                  <dl>
+                    <dt>중량 · 용량</dt>
+                    <dd>{targetProduct.volume}</dd>
+                  </dl>
+                  <dl>
+                    <dt>포장 타입</dt>
+                    <dd>임시</dd>
+                  </dl>
+                </div>
               </ul>
-              <Link>회원가입쿠폰버튼~~</Link>
-              <form action="">
+              <form action="" className="d-flex flex-column">
                 <select name="" id="">
                   <option value="">우리시장 빠른배송</option>
                   <option value="">일반배송</option>
                 </select>
-                <div
-                  className="d-flex flex-column"
-                  style={{ backgroundColor: "#F3F3F3", borderRadius:'5px' }}
-                >
+                <div className="d-flex flex-column decision">
                   <p className="w-100">
-                    {targetProduct.prodName}({targetProduct.volume})
+                    {targetProduct.prodName} ({targetProduct.volume})
                   </p>
                   <QuantityCounter
                     stock={targetProduct.stock}
                     saleprice={targetProduct.saleprice}
+                    originprice={targetProduct.originprice}
                   />
                 </div>
-                <div className="d-flex" style={{ gap: "20px" }}>
+                <div className="d-flex submitBtn">
                   <Btn
                     version="v1"
                     page="detail"
@@ -133,25 +231,22 @@ export default function Detail() {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="28"
-                      height="30"
-                      viewBox="0 0 28 30"
+                      width="24"
+                      height="27"
+                      viewBox="0 0 24 27"
                       fill="none"
                     >
                       <path
-                        d="M17.75 0C20.4424 0 22.625 2.18261 22.625 4.875C22.625 5.84183 22.3436 6.74292 21.8581 7.50081L25.625 7.5C26.6606 7.5 27.5 8.33946 27.5 9.375V14.625C27.5 15.5316 26.8565 16.2879 26.0014 16.4622L26 25.125C26 27.7245 23.9653 29.8488 21.4016 29.9923L21.125 30H6.875C4.27545 30 2.15112 27.9653 2.00771 25.4016L2 25.125L2.00008 16.4625C1.14421 16.2888 0.5 15.5322 0.5 14.625V9.375C0.5 8.33946 1.33946 7.5 2.375 7.5L6.14189 7.50081C5.65645 6.74292 5.375 5.84183 5.375 4.875C5.375 2.18261 7.5576 0 10.25 0C11.7583 0 13.1066 0.68499 14.0009 1.76086C14.8934 0.68499 16.2417 0 17.75 0ZM12.875 16.4985H4.25V25.125C4.25 26.5023 5.31067 27.6318 6.65971 27.7413L6.875 27.75H12.875V16.4985ZM23.75 16.4985H15.125V27.75H21.125C22.5023 27.75 23.6318 26.6893 23.7413 25.3402L23.75 25.125V16.4985ZM12.875 9.75H2.75V14.25L12.875 14.2485V9.75ZM25.25 14.25V9.75H15.125V14.2485L25.25 14.25ZM17.75 2.25C16.3003 2.25 15.125 3.42525 15.125 4.875V7.4985H17.786L17.9653 7.4913C19.3144 7.38179 20.375 6.25225 20.375 4.875C20.375 3.42525 19.1998 2.25 17.75 2.25ZM10.25 2.25C8.80025 2.25 7.625 3.42525 7.625 4.875C7.625 6.25225 8.68567 7.38179 10.0347 7.4913L10.214 7.4985H12.875V4.875L12.8663 4.65971C12.7568 3.31067 11.6273 2.25 10.25 2.25Z"
+                        d="M15.1944 0.897949C17.4879 0.897949 19.3472 2.75721 19.3472 5.05073C19.3472 5.87432 19.1075 6.64192 18.6939 7.28753L21.9028 7.28684C22.785 7.28684 23.5 8.00193 23.5 8.88406V13.3563C23.5 14.1286 22.9518 14.7728 22.2234 14.9213L22.2222 22.3007C22.2222 24.5151 20.4889 26.3247 18.3051 26.447L18.0694 26.4535H5.93056C3.71613 26.4535 1.90651 24.7202 1.78435 22.5364L1.77778 22.3007L1.77784 14.9216C1.04877 14.7736 0.5 14.1291 0.5 13.3563V8.88406C0.5 8.00193 1.2151 7.28684 2.09722 7.28684L5.30605 7.28753C4.89253 6.64192 4.65278 5.87432 4.65278 5.05073C4.65278 2.75721 6.51203 0.897949 8.80556 0.897949C10.0904 0.897949 11.239 1.48146 12.0008 2.39795C12.761 1.48146 13.9096 0.897949 15.1944 0.897949ZM11.0417 14.9522H3.69444V22.3007C3.69444 23.474 4.59797 24.4362 5.74716 24.5294L5.93056 24.5368H11.0417V14.9522ZM20.3056 14.9522H12.9583V24.5368H18.0694C19.2427 24.5368 20.2049 23.6333 20.2981 22.4841L20.3056 22.3007V14.9522ZM11.0417 9.20351H2.41667V13.0368L11.0417 13.0356V9.20351ZM21.5833 13.0368V9.20351H12.9583V13.0356L21.5833 13.0368ZM15.1944 2.81462C13.9595 2.81462 12.9583 3.81576 12.9583 5.05073V7.28556H15.2251L15.3778 7.27943C16.527 7.18614 17.4306 6.22394 17.4306 5.05073C17.4306 3.81576 16.4294 2.81462 15.1944 2.81462ZM8.80556 2.81462C7.57058 2.81462 6.56944 3.81576 6.56944 5.05073C6.56944 6.22394 7.47297 7.18614 8.62216 7.27943L8.77489 7.28556H11.0417V5.05073L11.0343 4.86733C10.941 3.71815 9.97881 2.81462 8.80556 2.81462Z"
                         fill="#666666"
                       />
                     </svg>
                   </Btn>
-                  <div
-                    className="d-flex"
-                    style={{ gap: "28px", objectFit: "cover" }}
-                  >
+                  <div className="d-flex">
                     <Btn version="v1" page="detail" className="border-lighter">
                       장바구니
                     </Btn>
-                    <Btn version="v3" page="detail" className="border-none">
+                    <Btn version="v3" page="detail">
                       구매하기
                     </Btn>
                   </div>
@@ -159,11 +254,31 @@ export default function Detail() {
               </form>
             </div>
           </div>
-          <div
-            className="d-flex col-12 justify-content-between gap-2"
-            style={{ paddingTop: "60px", overflowX: "overlay" }}
-          >
-            {relatedProducts.map((p, index) => (
+          <div className="d-flex col-12 justify-content-between gap-2 relatedProd">
+          <Swiper
+          modules={[Autoplay]}
+          spaceBetween={10}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: true,
+          }}
+          draggable={true}
+          loop={false}
+          slidesPerView={2.5}
+          slidesPerGroup={1}
+          breakpoints={{
+            576: {
+              slidesPerView: 3.5,
+              loop: false,
+            },
+            992: {
+              slidesPerView: 5,
+              loop: true,
+            },
+          }}
+        >
+          {relatedProducts.map((p, index) => (
+            <SwiperSlide key={index}>
               <Product
                 key={index}
                 rowclass=""
@@ -174,14 +289,14 @@ export default function Detail() {
                 store={p.store}
                 originprice={p.originprice}
                 saleprice={p.saleprice}
+                mB="60px"
               />
-            ))}
+            </SwiperSlide>
+          ))}
+        </Swiper>
           </div>
           <div>
-            <ul
-              className="d-flex align-items-end sticky-top bg-white"
-              style={{ top: "65px", zIndex: "100" }}
-            >
+            <ul className="d-flex align-items-end sticky-top bg-white stickynavbar">
               <li className="col-3">
                 <Link
                   to="#"
@@ -190,6 +305,7 @@ export default function Detail() {
                   }`}
                   onClick={(e) => {
                     e.preventDefault();
+                    setActiveTab("detail");
                     scrollToSection("detail");
                   }}
                 >
@@ -204,6 +320,7 @@ export default function Detail() {
                   }`}
                   onClick={(e) => {
                     e.preventDefault();
+                    setActiveTab("review");
                     scrollToSection("review");
                   }}
                 >
@@ -218,6 +335,7 @@ export default function Detail() {
                   }`}
                   onClick={(e) => {
                     e.preventDefault();
+                    setActiveTab("question");
                     scrollToSection("question");
                   }}
                 >
@@ -232,6 +350,7 @@ export default function Detail() {
                   }`}
                   onClick={(e) => {
                     e.preventDefault();
+                    setActiveTab("purchase");
                     scrollToSection("purchase");
                   }}
                 >
@@ -301,21 +420,21 @@ export default function Detail() {
                 style={{ height: "auto", paddingTop: "160px" }}
               >
                 <h3>상품 후기</h3>
-                <div className='d-flex align-items-center flex-column flex-md-row' style={{gap:'20px'}}>
-                  {
-                    bestReviews.map((r,i)=>{
-
-                      return(
-                        <Bestreview
-                          key={i}
-                          star={r.rating}
-                          userID={`${r.userID.slice(0, 3)}****`}
-                          reviewContent={r.reviewContent}
-                          createdAt={r.createdAt}
-                        ></Bestreview>
-                      )
-                    })
-                  }
+                <div
+                  className="d-flex align-items-center flex-column flex-md-row"
+                  style={{ gap: "20px", overflowX: 'scroll' }}
+                >
+                  {bestReviews.map((r, i) => {
+                    return (
+                      <Bestreview
+                        key={i}
+                        star={r.rating}
+                        userID={`${r.username.slice(0, 3)}****`}
+                        reviewContent={r.reviewContent}
+                        createdAt={r.createdAt}
+                      ></Bestreview>
+                    );
+                  })}
                 </div>
               </div>
               <div
@@ -332,21 +451,31 @@ export default function Detail() {
                 style={{ height: "1000px", paddingTop: "160px" }}
               >
                 <h3>배송 정보</h3>
-                <dl className='d-flex flex-wrap'>
+                <dl className="d-flex flex-wrap">
                   <div className="d-flex col-12 col-lg-6">
                     <dt className="text-center col-4">배송 방법</dt>
                     <dd className="w-100">신선/냉장/냉동</dd>
                   </div>
                   <div className="d-flex col-12 col-lg-6">
                     <dt className="text-center col-4">배송 지역</dt>
-                    <dd className="w-100">전국 지역 (단, 일부 산간벽지 및 도서 지역은 추가 요금이 발생할 수 있습니다.)</dd>
+                    <dd className="w-100">
+                      전국 지역 (단, 일부 산간벽지 및 도서 지역은 추가 요금이
+                      발생할 수 있습니다.)
+                    </dd>
                   </div>
-                  <div className='d-flex col-12'>
+                  <div className="d-flex col-12">
                     <dt className="text-center col-4 col-lg-2">배송 안내</dt>
-                    <dd className='w-100'>
+                    <dd className="w-100">
                       <ul>
-                        <li>산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 하는 경우가 있습니다.</li>
-                        <li>고객님께서 주문하신 상품은 입금 확인 후 배송해 드립니다. (다만, 상품종류에 따라서 상품의 배송이 다소 지연될 수 있습니다.)</li>
+                        <li>
+                          산간벽지나 도서지방은 별도의 추가금액을 지불하셔야
+                          하는 경우가 있습니다.
+                        </li>
+                        <li>
+                          고객님께서 주문하신 상품은 입금 확인 후 배송해
+                          드립니다. (다만, 상품종류에 따라서 상품의 배송이 다소
+                          지연될 수 있습니다.)
+                        </li>
                       </ul>
                     </dd>
                   </div>

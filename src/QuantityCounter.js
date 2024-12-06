@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
-export default function QuantityCounter({ stock, saleprice }) {
+export default function QuantityCounter({ stock, saleprice, originprice }) {
   const [quantity, setQuantity] = useState(1);
+
+  const validSaleprice = saleprice !== null ? saleprice : originprice;
 
   const increment = (e) => {
     e.preventDefault();
@@ -17,32 +19,47 @@ export default function QuantityCounter({ stock, saleprice }) {
     }
   };
 
-  const totalPrice = saleprice * quantity;
+  const totalOriginPrice = originprice * quantity;
+  const totalPrice = validSaleprice * quantity;
 
   return (
-    <div className="quantity-counter d-flex align-items-center gap-3">
-      <button
-        className={`btn ${quantity === 1 ? 'disabled' : ''}`}
-        onClick={decrement}
-        disabled={quantity === 1}
-        type="button"  // type="button"을 명시하여 submit되지 않도록 설정
-      >
-        -
-      </button>
+    <div className="quantityCont d-flex align-items-center justify-content-between">
+      <div className="quantity-counter d-flex align-items-center justify-content-between">
+        <button
+          className={`btn ${quantity === 1 ? "disabled" : ""}`}
+          onClick={decrement}
+          disabled={quantity === 1}
+          type="button"
+        >
+          -
+        </button>
 
-      <span className="quantity-display">{quantity}</span>
+        <span className="quantity-display">{quantity}</span>
 
-      <button
-        className={`btn ${quantity === stock ? 'disabled' : ''}`}
-        onClick={increment}
-        disabled={quantity === stock}
-        type="button"  // type="button"을 명시하여 submit되지 않도록 설정
-      >
-        +
-      </button>
+        <button
+          className={`btn ${quantity === stock ? "disabled" : ""}`}
+          onClick={increment}
+          disabled={quantity === stock}
+          type="button"
+        >
+          +
+        </button>
+      </div>
 
-      <div className="total-price">
-        {totalPrice.toLocaleString()} 원
+      <div className="d-flex align-items-end total-price">
+        {validSaleprice !== originprice ? (
+          <>
+            <p className="original-price">
+              {totalOriginPrice.toLocaleString()}원
+            </p>
+            <p className="sale-price">
+              {totalPrice.toLocaleString()}
+              <span>원</span>
+            </p>
+          </>
+        ) : (
+          <p className='sale-price'>{totalOriginPrice.toLocaleString()}<span>원</span></p>
+        )}
       </div>
     </div>
   );

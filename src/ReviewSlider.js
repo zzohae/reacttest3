@@ -24,7 +24,6 @@ export default function ReviewSlider() {
         .in('productID', productData.map(product => product.id))
         .order('likes', { ascending: false });
 
-      // 제품과 관련된 리뷰 필터링 및 평균 별점 계산
       const shownReviews = {};
       const ratings = {};
 

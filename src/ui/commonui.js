@@ -22,7 +22,7 @@ export const Btn = styled.button.withConfig({
   font-size: 1.125rem;
   font-weight: ${(props) => props.version === 'v2' ? '700' : '500'};
   cursor: pointer;
-  transition: color 0.5s, border-color 0.5s, background-color 0.5s;
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s;
 
   &:hover {
     background-color: ${(props) =>
