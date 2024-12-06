@@ -3,6 +3,7 @@ import MdsPick from '../MdsPick'
 import Best from '../layout/Best'
 import Mapbanner from '../Mapbanner'
 import Livecom from '../Livecom'
+import ReviewSlider from '../ReviewSlider'
 
 
 export default function Boardlist() {
@@ -12,6 +13,7 @@ export default function Boardlist() {
       <Best></Best>
       <Mapbanner></Mapbanner>
       <Livecom></Livecom>
+      <ReviewSlider></ReviewSlider>
     </div>
   )
 }

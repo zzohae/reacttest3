@@ -22,21 +22,21 @@ export default function MdsPick() {
   
 
   return (
-    <div className="container mdspickcont d-flex flex-row align-items-stretch justify-content-start">
+    <div className="container mdspickcont d-flex flex-column flex-lg-row align-items-start align-items-lg-stretch justify-content-start">
       <div className="mdsTitle">
         <Movetool textColor="#214aee" h2size="34px" nomargin={true}>
           {allData.mainPagetitle[0].title}
         </Movetool>
-        <p>
+        <p className="d-none d-lg-block">
           내 손 안의 전통시장, <br />
           청량마켓몰만의 특별한 경험
         </p>
-        <div className="tagwrap">
+        <div className="tagwrap d-none d-lg-flex">
           <p className="tagitem">#시즌메뉴</p>
           <p className="tagitem">#구독할인</p>
           <p className="tagitem">#무료배송</p>
         </div>
-        <div>
+        <div className="d-none d-lg-block">
           <button onClick={() => goToSlide(-1)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ export default function MdsPick() {
           </button>
         </div>
       </div>
-      <div style={{ width: "615px" }}>
+      <div className="mdswiper">
         <SwiperBanner
           datakey={allData.mdpbanner}
           viewslides={1}

@@ -8,7 +8,7 @@ export default function Best() {
   const bestProducts = products.slice(0, 3);
 
   return (
-    <div className='container d-flex flex-row align-items-start justify-content-center'>
+    <div className='container d-flex flex-row align-items-start justify-content-center bestprod'>
       <div className='row'>
         <Movetool textColor='#214aee' h2size='34px'>{allData.mainPagetitle[1].title}</Movetool>
         {bestProducts.map((v, index) => (

@@ -149,19 +149,23 @@
   "mainPagetitle" : [
     {
       "linkto": "",
-      "title": "MD's Pick!"
+      "title": "이번 달 청량 추천!",
+      "emoji":"thumsup"
     },
     {
       "linkto": "",
-      "title": "지금 많이 찾는 BEST"
+      "title": "지금 가장 인기있는 상품",
+      "emoji":"cart"
     },
     {
       "linkto": "",
-      "title": "Live Commerce"
+      "title": "실시간 쇼핑! 라이브커머스",
+      "emoji":"movie"
     },
     {
       "linkto": "",
-      "title": "구매자분들의 솔직 리뷰✨"
+      "title": "솔직한 리뷰, 믿을 수 있는 상품",
+      "emoji":"sparkle"
     }
   ],
     "companyInfo": [
