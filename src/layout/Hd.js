@@ -15,7 +15,7 @@ export default function Hd({ keyword, setKeyword, incartNum }) {
     <header className='d-flex align-items-center justify-content-center'>
       <Topad></Topad>
       <div className="hdtop container d-flex justify-content-between align-items-center">
-        <h1 className='order-1 order-lg-0'><a href="/" className='d-flex justify-content-center align-items-center'><Logo width='150' height='53.708'></Logo></a></h1>
+        <h1 className='order-1 order-lg-0'><a href="/" className='d-flex justify-content-center align-items-center'><Logo width='120' height='auto'></Logo></a></h1>
         <Searchbox className='order-0 order-lg-1' keyword={keyword} setKeyword={setKeyword}></Searchbox>
         <Util className='order-2 util d-none d-lg-flex align-items-center justify-content-end' incartNum={incartNum}></Util>
         <Menuline width='28' height='28' className='mobileallmenu d-block d-lg-none order-3'></Menuline>

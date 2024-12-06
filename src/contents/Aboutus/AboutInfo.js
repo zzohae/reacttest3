@@ -31,7 +31,7 @@ export default function AboutInfo() {
     }, []);
 
   return (
-    <div className="container">
+    <div className="container p-0">
             <Movetool textColor='#214aee' h2size='34px'>청량리종합시장</Movetool>
             <div className="row gx-3 mt-3">
               <div className="col-12 col-xl-7" style={{ height: "29.625rem", overflow: "hidden" }}>
@@ -42,6 +42,7 @@ export default function AboutInfo() {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
+                    borderRadius: "8px"
                   }}
                 />
             </div>
@@ -106,6 +107,7 @@ export default function AboutInfo() {
                             width: "100%",
                             height: "100%",
                             objectFit: "cover",
+                            borderRadius: "5px"
                           }}/>
 
                         {selectedImage === image && (
@@ -122,6 +124,7 @@ export default function AboutInfo() {
                               color: "#fff",
                               fontWeight: "bold",
                               fontSize: "0.875rem",
+                              borderRadius: "5px"
                             }}>
                           </div>
                         )}

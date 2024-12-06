@@ -1,15 +1,23 @@
 import React from 'react';
-import { StoreTag } from './commonui';
-import { ReactComponent as Callnum } from '../svg/util/phone.svg';
+import { StoreTag } from '../../ui/commonui';
+import { ReactComponent as Callnum } from '../../svg/util/phone.svg';
 
-export default function Storelist({ stores }) {
+export default function Storelist({ stores, onStoreClick, storeRefs  }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%' }}>
+    <div className='storelistBox'
+    style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%' }}>
       {stores.map((store, index) => (
-        <div key={index}
-          className="d-flex gap-3 mb-4"
-          style={{ width: '100%' }}>
-          <div className="img d-flex align-items-center justify-content-center"
+        <div
+          key={index}
+          ref={(el) => (storeRefs.current[store.title] = el)}
+          className="storebox d-flex gap-3 pb-3 mt-2"
+          style={{
+            width: '100%',
+            cursor: 'pointer', 
+          }}
+          onClick={() => onStoreClick(store)} >
+          <div
+            className="img d-flex align-items-center justify-content-center"
             style={{
               width: '150px',
               height: '150px',
@@ -17,7 +25,8 @@ export default function Storelist({ stores }) {
               color: '#fff',
               flexShrink: 0,
             }}>
-            <img src={store.storeimg}
+            <img
+              src={store.storeimg}
               alt="매장 이미지"
               style={{
                 width: '100%',
