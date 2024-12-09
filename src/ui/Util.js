@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ReactComponent as AlertIcon } from '../svg/util/alert.svg';
 import { ReactComponent as CartIcon } from '../svg/util/cart.svg';
 import { ReactComponent as MypageIcon } from '../svg/util/user.svg';
 import { ReactComponent as LoginIcon } from '../svg/util/login.svg';
 import { ReactComponent as LogoutIcon } from '../svg/util/logout.svg';
+import { supabase } from '../api/dbconnect';
 
 const Button = ({ icon, hasBadge, onClick, badgePosition, label }) => (
   <button
     className="icon"
     onClick={onClick}
     style={{
-      position: 'relative', // 부모 버튼을 상대 위치로 설정
-      display: 'inline-flex', // 내부 아이콘과 배지 정렬 지원
+      position: 'relative',
+      display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
     }}
@@ -26,10 +27,10 @@ const Button = ({ icon, hasBadge, onClick, badgePosition, label }) => (
           top: badgePosition?.top || 0,
           right: badgePosition?.right || 0,
           backgroundColor: '#214AEE',
-          width: '5px', // 배지의 너비
-          height: '5px', // 배지의 높이
-          borderRadius: '50%', // 완전한 원형
-          zIndex: 1, // 배지가 아이콘 위에 표시되도록 설정
+          width: '5px',
+          height: '5px',
+          borderRadius: '50%',
+          zIndex: 1,
         }}
       />
     )}
@@ -41,8 +42,8 @@ const Cart = ({ icon, badgePosition, incartNum }) => (
   <Link to="/cart"
     className="icon"
     style={{
-      position: 'relative', // 부모 버튼을 상대 위치로 설정
-      display: 'inline-flex', // 내부 아이콘과 배지 정렬 지원
+      position: 'relative',
+      display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
     }}
@@ -79,8 +80,8 @@ const Alert = ({ icon, badgePosition, incartNum }) => (
   <Link to="/alert"
     className="icon"
     style={{
-      position: 'relative', // 부모 버튼을 상대 위치로 설정
-      display: 'inline-flex', // 내부 아이콘과 배지 정렬 지원
+      position: 'relative',
+      display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
     }}
@@ -115,25 +116,52 @@ const Alert = ({ icon, badgePosition, incartNum }) => (
 
 // Util 컴포넌트
 const Util = ({incartNum, className}) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태
-  const [hasAlerts, setHasAlerts] = useState(false);  // 알림 상태
-  const [hasCartItems, setHasCartItems] = useState(false); // 장바구니 상태
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [hasAlerts, setHasAlerts] = useState(false);
+  const [hasCartItems, setHasCartItems] = useState(false);
   const navigate = useNavigate();
 
 
-  // 로그인/로그아웃 토글
-  const handleLoginClick = () => {
-    setIsLoggedIn(!isLoggedIn);
-    alert(isLoggedIn ? '로그아웃 되었습니다.' : '로그인 되었습니다.');
+  // 로그인/로그아웃
+  useEffect(() => {
+    const session = localStorage.getItem('session');
+    if (session) {
+      setIsLoggedIn(true);
+    }
+    console.log(session);
+  }, []);
+
+  const handleLoginClick = async () => {
+  
+    if (isLoggedIn) {
+      try {
+        const { error } = await supabase.auth.signOut();
+        if (error) {
+          alert('로그아웃 실패');
+          return;
+        }
+  
+        localStorage.removeItem('user');
+        localStorage.removeItem('session');
+        setIsLoggedIn(false);
+  
+        alert('로그아웃 되었습니다.');
+      } catch (err) {
+        console.error('로그아웃 중 에러 발생:', err);
+        alert('로그아웃 중 오류가 발생했습니다.');
+      }
+    } else {
+      navigate('/login');
+    }
   };
+  
 
   // 마이페이지/로그인 페이지 이동
   const handleMypageClick = () => {
     if (isLoggedIn) {
-      console.log('마이페이지로 이동');
+      navigate('/mypage');
     } else {
-      console.log('로그인 페이지로 이동');
-      navigate('/signup');
+      navigate('/login');
     }
   };
 

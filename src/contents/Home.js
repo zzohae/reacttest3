@@ -2,6 +2,7 @@ import React from "react";
 import SwiperBanner from "../contents/SwiperBanner";
 import Boardlist from "./Boardlist";
 import allData from "../db/allData.json";
+import Topad from "./Topad";
 
 export default function Home({ bgcolor, textcolor }) {
   const pagination1 = {
@@ -20,6 +21,7 @@ export default function Home({ bgcolor, textcolor }) {
         hasrwd={true}
         ></SwiperBanner>
       </div>
+      <Topad className='d-sm-none'></Topad>
       <Boardlist></Boardlist>
     </div>
   );

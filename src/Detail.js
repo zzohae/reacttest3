@@ -226,7 +226,6 @@ export default function Detail() {
                   <Btn
                     version="v1"
                     page="detail"
-                    className="border-lighter"
                     style={{ padding: "0", width: "60px" }}
                   >
                     <svg
@@ -243,10 +242,10 @@ export default function Detail() {
                     </svg>
                   </Btn>
                   <div className="d-flex">
-                    <Btn version="v1" page="detail" className="border-lighter">
+                    <Btn version="v1" page="detail">
                       장바구니
                     </Btn>
-                    <Btn version="v3" page="detail">
+                    <Btn version="v2" page="detail">
                       구매하기
                     </Btn>
                   </div>
