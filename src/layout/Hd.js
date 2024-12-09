@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import allData from '../db/allData.json'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../svg/logo_wide.svg';
@@ -6,10 +6,16 @@ import Searchbox from '../ui/Searchbox';
 import { ReactComponent as Delivericon } from '../svg/truck.svg'
 import { Btn } from '../ui/commonui';
 import { ReactComponent as Menuline } from '../svg/menu_line.svg'
+import Mbtab from './Mbtab';
 import Util from '../ui/Util';
 import Topad from '../contents/Topad';
 
 export default function Hd({ keyword, setKeyword, incartNum }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // 메뉴 열림 상태 추가
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev); // 메뉴 열기/닫기 토글
+  };
 
   return (
     <header className='d-flex align-items-center justify-content-center'>
@@ -18,7 +24,12 @@ export default function Hd({ keyword, setKeyword, incartNum }) {
         <h1 className='order-1 order-lg-0'><a href="/" className='d-flex justify-content-center align-items-center'><Logo width='120' height='auto'></Logo></a></h1>
         <Searchbox className='order-0 order-lg-1' keyword={keyword} setKeyword={setKeyword}></Searchbox>
         <Util className='order-2 util d-none d-lg-flex align-items-center justify-content-end' incartNum={incartNum}></Util>
-        <Menuline width='28' height='28' className='mobileallmenu d-block d-lg-none order-3'></Menuline>
+        <Menuline
+          width='28'
+          height='28'
+          className={`mobileallmenu ${isMenuOpen ? 'd-none' : 'd-block'} d-lg-none order-3`}
+          onClick={toggleMenu} // 모바일 카테고리 탭을 위한 클릭 이벤트
+        ></Menuline>
       </div>
       <div className="hdbtm container">
         <nav className="gnb d-none d-lg-flex justify-content-between align-items-center">
@@ -38,7 +49,7 @@ export default function Hd({ keyword, setKeyword, incartNum }) {
             </div>
             <ul className=' allmenu'>
             {
-              allData.navdata.promotionmenu.map((v, i)=>{
+              allData.navdata.promotionmenu.map((v, i)=> {
                   return(
                     <li className='menu d-flex' key={i}>
                         <Link  to={v.linkto}>{v.title}</Link>
@@ -55,6 +66,9 @@ export default function Hd({ keyword, setKeyword, incartNum }) {
           </div>
         </nav> 
       </div>
+
+      {/* Mbtab 컴포넌트: 모바일 메뉴 */}
+      <Mbtab isOpen={isMenuOpen} toggleMenu={toggleMenu} />
     </header>
   )
 }
