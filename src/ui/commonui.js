@@ -3,49 +3,87 @@ import styled from 'styled-components';
 export const Btn = styled.button.withConfig({
   shouldForwardProp: (prop) => !['version', 'page'].includes(prop),
 })`
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: ${(props) => (props.version ?? 'v1') === 'v2' ? '4px' : '0'};
-  background-color: ${(props) =>
-  props.version === 'v1' ? '#ffffff' : (props.version === 'v3' ? '#fff' : '#214AEE')};
-  color: ${(props) => props.version === 'v1' ? '#214AEE' : (props.version === 'v3' ? '#aaa' : '#fff')};
-  padding: 0 30px;
-  height: ${(props) =>
-    props.page === 'detail' ? '60px' : props.version === 'v2' ? '45px' : '40px'};
-  border: 1px solid;
-  border-color: ${(props) =>
-    props.version === 'v2' ? '#FFEA7D' : (props.version === 'v3' ? '#aaa' : '#214AEE')};
+  border-radius: 100px;
+  border: 1px solid transparent;  
   word-break: keep-all;
   white-space: nowrap;
-  border-radius: ${(props) => props.page === 'detail' ? '5px' : '30px'};
-  font-size: 1.125rem;
-  font-weight: ${(props) => props.version === 'v2' ? '700' : '500'};
+  padding: 0 20px;
+  height: 40px;
   cursor: pointer;
-  transition: color 0.5s, border-color 0.5s, background-color 0.5s;
+  transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+  
+  ${(props) => props.version === 'v1' && `
+    background-color: #fff;
+    color: #214AEE;
+    border: 1px solid #214AEE;
+    
+    &:hover {
+      background-color: #214AEE;
+      color: #fff;
+    }
+  `}
 
-  &:hover {
-    background-color: ${(props) =>
-      props.version === 'v2' ? '#FFEA7D' : props.version === 'v3' ? '#214AEE' : '#214AEE'};
-    color: ${(props) => props.version === 'v1' ? '#fff' : 'v3' ? '#fff' : '#214AEE'};
-    font-weight: 700;
-    border-color: ${(props) => props.version === 'v3' ? '#214AEE' : '#214AEE'};
-  }
+  ${(props) => props.version === 'v2' && `
+    background-color: #214AEE;
+    color: #fff;
+    border: 1px solid #214AEE;
+    
+    &:hover {
+      background-color: #fff;
+      color: #214AEE;
+    }
+  `}
+
+  ${(props) => props.version === 'v3' && `
+    background-color: #fff;
+    color: #aaa;
+    border: 1px solid #aaa;
+    
+    &:hover {
+      background-color: #214AEE;
+      color: #fff;
+      border-color: #214AEE;
+    }
+  `}
+
+  ${(props) => props.disabled && `
+    background-color: #aaa;
+    color: #fff;
+    border: 1px solid #aaa;
+  `}
+
+  ${(props) => props.page === 'detail' && `
+    height: 60px;
+    border-radius: 0.3125rem;
+  `}
+
+  ${(props) => props.page === 'mainbest' && `
+    border-radius: 0.3125rem;
+    width: calc(100% - 40px - 10px);
+  `}
 `;
 
 
+
 export const InCartBtn = styled.button.withConfig({
-  shouldForwardProp: (prop) => !['svgcolor'].includes(prop),
+  shouldForwardProp: (prop) => !['svgcolor', 'page'].includes(prop),
 })`
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
-  width: 3.125rem;
+  width: ${(props) => (props.page === 'mainbest' ? '40px' : '3.125rem')};
   max-width: 50px;
-  height: 3.125rem;
+  height: ${(props) => (props.page === 'mainbest' ? '40px' : '3.125rem')};
   padding: 2px 5px 0px 2px;
-  border-radius: 30px;
+  border-radius: 0.3125rem;
   background: rgba(210, 210, 210, 0.30);
   color: ${(props) => props.svgcolor || '#214AEE'};
 `

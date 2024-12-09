@@ -11,6 +11,7 @@ import Ft from './layout/Ft';
 import Comptest from './contents/Copmtest';
 import AboutUs from './contents/Aboutus/About';
 import SignUp from './SignUp';
+import Login from './Login'
 
 export default function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -42,6 +43,7 @@ export default function App() {
         <Route path="/aboutus/:en" element={<AboutUs></AboutUs>} />
         <Route path="/comptest" element={<Comptest></Comptest>} />
         <Route path="/signup" element={<SignUp></SignUp>} />
+        <Route path="/login" element={<Login></Login>} />
         <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
       <Ft></Ft>
