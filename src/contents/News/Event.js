@@ -1,11 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EventCard from '../../ui/EventCard';
-import events from '../../db/news/event.json';
+import { supabase2 } from '../../api/dbconnect';
 import './Event.scss';
 
 const Event = () => {
+  const [events, setEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const eventsPerPage = 9;
+
+  // Supabase에서 이벤트 데이터를 가져오는 함수
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const { data, error } = await supabase2
+        .from('onEvents')
+        .select('id, img_number, title, start_date, end_date')
+        .order('start_date', { ascending: true });
+
+      if (error) {
+        console.error('Error fetching events:', error);
+      } else {
+        setEvents(data);
+      }
+    };
+
+    fetchEvents();
+  }, []);
 
   const totalPages = Math.ceil(events.length / eventsPerPage);
   const indexOfLastEvent = currentPage * eventsPerPage;
@@ -19,19 +38,34 @@ const Event = () => {
     }
   };
 
+  // 이벤트 종료 여부를 확인하는 함수
+  const isEventExpired = (endDate) => {
+    const currentDate = new Date();
+    const eventEndDate = new Date(endDate);
+    return currentDate > eventEndDate;
+  };
+
   return (
     <div className="container">
       <h2 className="categorytitle">이벤트</h2>
       <div className="row gx-5">
-        {currentEvents.map((event) => (
-          <EventCard
-            key={event.id}
-            imgSrc={`/assets/img/event/event_card_${event.imgNumber}.jpg`}
-            title={event.title}
-            period={event.period}
-            isExpired={event.isExpired}
-          />
-        ))}
+        {currentEvents.map((event) => {
+          const formattedStartDate = new Date(event.start_date).toLocaleDateString();
+          const formattedEndDate = new Date(event.end_date).toLocaleDateString();
+          const formattedPeriod = `${formattedStartDate} ~ ${formattedEndDate}`;
+
+          const expired = isEventExpired(event.end_date); // 종료 여부 계산
+
+          return (
+            <EventCard
+              key={event.id}
+              imgSrc={`/assets/img/event/event_card_${event.img_number}.jpg`}
+              title={event.title}
+              period={formattedPeriod}
+              isExpired={expired} // 종료 여부를 카드에 전달
+            />
+          );
+        })}
       </div>
 
       {/* Pagination */}
