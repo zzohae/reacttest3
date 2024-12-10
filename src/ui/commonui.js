@@ -76,6 +76,7 @@ export const InCartBtn = styled.button.withConfig({
   shouldForwardProp: (prop) => !['svgcolor', 'page'].includes(prop),
 })`
   display: flex;
+  flex: 0 0 auto;
   justify-content: center;
   align-items: center;
   border: none;

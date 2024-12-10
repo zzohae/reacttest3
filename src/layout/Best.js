@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import BestProduct from '../ui/BestProduct';
-import products from '../db/product.json';
 import allData from "../db/allData.json";
 import Movetool from '../ui/Mtitle'
 import { supabase } from '../api/dbconnect';
 
-export default function Best() {
+export default function Best({incartNum, setIncartNum}) {
   const [bestProducts, setBestProducts] = useState([]);
 
   useEffect(() => {
@@ -85,6 +84,8 @@ export default function Best() {
             saleprice={v.saleprice}
             mB='10px'
             rating={parseFloat(v.avgRating.toFixed(1))}
+            incartNum={incartNum}
+            setIncartNum={setIncartNum}
           />
         ))}
       </div>

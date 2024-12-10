@@ -1,11 +1,46 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Product from './ui/Product';
-import products from './db/product.json';
 import allData from "./db/allData.json";
 import Movetool from './ui/Mtitle'
+import { supabase } from './api/dbconnect';
 
 export default function Livecom() {
-  const liveProducts = products.slice(0, 4);
+  const [liveProducts, setLiveProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchLiveProducts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('productData')
+          .select('*')
+          .eq('onLive', true);
+
+        if (error) {
+          throw error;
+        }
+
+        const productsWithDiscount = data.map((product) => {
+          const saleprice = product.saleprice !== null ? product.saleprice : product.originprice;
+          const discount = ((product.originprice - saleprice) / product.originprice) * 100;
+
+          return {
+            ...product,
+            saleprice,
+            discount,
+          };
+        });
+
+        const sortedProducts = productsWithDiscount.sort((a, b) => b.discount - a.discount);
+
+        setLiveProducts(sortedProducts.slice(0, 4));
+      } catch (error) {
+        console.error('Error fetching products:', error.message);
+      }
+    };
+
+    fetchLiveProducts();
+  }, []);
+
   return (
     <div className='container d-flex flex-column align-items-start justify-content-center livecomCont'>
       <Movetool textColor='#214aee' h2size='34px'>{allData.mainPagetitle[2].title}</Movetool>

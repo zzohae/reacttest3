@@ -5,7 +5,6 @@ import { ReactComponent as CartIcon } from '../svg/util/cart.svg';
 import { ReactComponent as MypageIcon } from '../svg/util/user.svg';
 import { ReactComponent as LoginIcon } from '../svg/util/login.svg';
 import { ReactComponent as LogoutIcon } from '../svg/util/logout.svg';
-import { supabase } from '../api/dbconnect';
 
 const Button = ({ icon, hasBadge, onClick, badgePosition, label }) => (
   <button
@@ -115,10 +114,8 @@ const Alert = ({ icon, badgePosition, incartNum }) => (
 
 
 // Util 컴포넌트
-const Util = ({incartNum, className}) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const Util = ({incartNum, className, isLoggedIn, setIsLoggedIn}) => {
   const [hasAlerts, setHasAlerts] = useState(false);
-  const [hasCartItems, setHasCartItems] = useState(false);
   const navigate = useNavigate();
 
 
@@ -128,33 +125,18 @@ const Util = ({incartNum, className}) => {
     if (session) {
       setIsLoggedIn(true);
     }
-    console.log(session);
-  }, []);
+  }, [setIsLoggedIn]);
 
-  const handleLoginClick = async () => {
-  
+  const handleLoginClick = () => {
     if (isLoggedIn) {
-      try {
-        const { error } = await supabase.auth.signOut();
-        if (error) {
-          alert('로그아웃 실패');
-          return;
-        }
-  
-        localStorage.removeItem('user');
-        localStorage.removeItem('session');
-        setIsLoggedIn(false);
-  
-        alert('로그아웃 되었습니다.');
-      } catch (err) {
-        console.error('로그아웃 중 에러 발생:', err);
-        alert('로그아웃 중 오류가 발생했습니다.');
-      }
+      localStorage.removeItem('session');
+      setIsLoggedIn(false);
+      alert('성공적으로 로그아웃 되었습니다.');
+      navigate('/');
     } else {
       navigate('/login');
     }
   };
-  
 
   // 마이페이지/로그인 페이지 이동
   const handleMypageClick = () => {
@@ -168,11 +150,6 @@ const Util = ({incartNum, className}) => {
   // 알림 상태 토글
   const handleAlertToggle = () => {
     setHasAlerts(!hasAlerts);
-  };
-
-  // 장바구니 상태 토글
-  const handleCartToggle = () => {
-    setHasCartItems(!hasCartItems);
   };
 
   return (

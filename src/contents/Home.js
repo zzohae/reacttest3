@@ -4,7 +4,7 @@ import Boardlist from "./Boardlist";
 import allData from "../db/allData.json";
 import Topad from "./Topad";
 
-export default function Home({ bgcolor, textcolor }) {
+export default function Home({ bgcolor, textcolor, incartNum, setIncartNum }) {
   const pagination1 = {
     clickable: true,
     renderBullet: function(index, className) {
@@ -22,7 +22,7 @@ export default function Home({ bgcolor, textcolor }) {
         ></SwiperBanner>
       </div>
       <Topad className='d-sm-none'></Topad>
-      <Boardlist></Boardlist>
+      <Boardlist incartNum={incartNum} setIncartNum={setIncartNum}></Boardlist>
     </div>
   );
 }

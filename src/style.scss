@@ -408,6 +408,7 @@ header {
 }
 .prodInfo {
   line-height: 1.3;
+  min-height: 116px;
   .productName {
     color: #333;
     font-size: 18px;
@@ -619,6 +620,7 @@ header {
   font-weight: 400;
   margin-right: .25rem;
   text-decoration: line-through;
+  white-space: nowrap;
   &.detail {
     font-size: 22px;
   }

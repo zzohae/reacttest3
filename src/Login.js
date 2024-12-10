@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "./api/dbconnect";
+import { supabase } from "./api/dbconnect"; // supabase import 유지
 import { Btn } from "./ui/commonui";
 
-export default function Login() {
-  const [username, setUsername] = useState("");  // 사용자가 입력한 username (아이디)
-  const [password, setPassword] = useState("");  // 사용자가 입력한 password
+export default function Login({ isLoggedIn, setIsLoggedIn }) {
+  const [username, setUsername] = useState(""); 
+  const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("general");
-  const [errorMessage, setErrorMessage] = useState("");  // 오류 메시지
-  const [passwordError, setPasswordError] = useState(false);  // 비밀번호 오류 여부
+  const [errorMessage, setErrorMessage] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
   const navigate = useNavigate();
 
   const handleUserTypeChange = (e) => setUserType(e.target.value);
@@ -18,38 +18,43 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // user 테이블에서 username으로 해당 사용자의 이메일을 조회
-    const { data, error } = await supabase
-      .from("user")
-      .select("email")
-      .eq("username", username)  // 'username'을 기준으로 사용자 검색
-      .single();  // 단일 데이터만 가져옴
+    try {
+      const { data, error } = await supabase
+        .from("user")
+        .select("password")
+        .eq("username", username);
 
-    // 사용자 찾지 못한 경우 처리
-    if (error || !data) {
-      setErrorMessage("일치하는 회원 정보가 없습니다.");
-      setPasswordError(true);
-      return;
+      if (error || !data || data.length === 0) {
+        setErrorMessage("일치하는 회원 정보가 없습니다.");
+        setPasswordError(true);
+        return;
+      }
+
+      const user = data[0];
+
+      if (user.password !== password) {
+        setErrorMessage("아이디/비밀번호를 확인해 주세요.");
+        setPasswordError(true);
+        return;
+      }
+
+      setErrorMessage("");
+      setPasswordError(false);
+      alert("로그인 성공");
+
+      localStorage.setItem("isLoggedIn", true);
+      setIsLoggedIn(true);
+
+      navigate("/");
+    } catch (error) {
+      setErrorMessage("서버 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
     }
+  };
 
-    const email = data.email;  // 찾은 사용자의 이메일
-
-    // 이메일과 비밀번호로 Supabase 인증 시도
-    const { user, session, error: authError } = await supabase.auth.signInWithPassword({
-      email: email,  // 찾은 이메일
-      password: password,  // 사용자가 입력한 비밀번호
-    });
-
-    if (authError) {
-      setErrorMessage("로그인에 실패했습니다. 아이디/비밀번호를 확인해 주세요.");
-      setPasswordError(true);
-      return;
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleLogin(e);
     }
-
-    // 로그인 성공 시 상태 초기화 및 페이지 이동
-    setErrorMessage("");
-    alert("로그인 성공");
-    navigate("/"); // 홈 페이지로 리디렉션
   };
 
   return (
@@ -96,6 +101,7 @@ export default function Login() {
               onChange={handlePasswordChange}
               placeholder="비밀번호를 입력하세요"
               className={passwordError ? "warning" : ""}
+              onKeyDown={handleKeyDown}
             />
             {passwordError && <p className="warning-text">{errorMessage}</p>}
           </div>
