@@ -14,57 +14,6 @@ const CouponImage = ({ imgSrc }) => (
   </Row>
 );
 
-const ProbabilityCard = ({ isVisible, toggleVisibility, probabilityData }) => (
-  <Col
-    md={3}
-    className="d-flex flex-column justify-content-center"
-    style={{ minHeight: isVisible ? "200px" : "50px" }}
-  >
-    <Card
-      className="p-3 d-flex justify-content-center"
-      style={{
-        border: "2px solid #214aee",
-        borderRadius: "5px",
-        height: isVisible ? "100%" : "20%",
-        padding: isVisible ? "20px" : "10px",
-      }}
-    >
-      <Button
-        variant="link"
-        onClick={toggleVisibility}
-        className={`button-toggle ${isVisible ? "active" : ""}`}
-        style={{ color: "#214aee", fontWeight: "bold" }}
-      >
-        {isVisible ? "랜덤확률표" : "랜덤확률표"}
-        <i className="bi bi-chevron-right"></i>
-      </Button>
-
-      {isVisible && (
-        <ul className="custom-list mt-3">
-          {probabilityData.map((probability, index) => (
-            <li key={index}>
-              {/* Render text and percentage separately */}
-              <span>{probability.text}: {probability.percentage}%</span>
-            </li>
-          ))}
-        </ul>
-      )}
-    </Card>
-  </Col>
-);
-
-
-const CouponImageWithButton = ({ buttonText, openPopup }) => (
-  <Col md={3} className="d-flex flex-column align-items-center justify-content-center">
-    <img
-      src="/assets/img/coupon/randombox.jpg"
-      alt="Image"
-      className="img-fluid rounded"
-    />
-    <Button variant="primary" onClick={openPopup} className="button-common">{buttonText}</Button>
-  </Col>
-);
-
 const RandomCoupon = ({
   mtitle,
   title,
@@ -77,10 +26,8 @@ const RandomCoupon = ({
   const [modalImageAlt, setModalImageAlt] = useState("");
   const [isVisible, setIsVisible] = useState(false);
 
-  // 랜덤 이미지 alt 값을 선택하는 함수
   const getRandomImageAlt = () => imgSrc[Math.floor(Math.random() * imgSrc.length)].alt;
 
-  // 모달 열기
   const openPopup = () => {
     setModalImageAlt(getRandomImageAlt());
     setShowModal(true);
@@ -106,18 +53,56 @@ const RandomCoupon = ({
           <Card.Text style={{ display: "inline-block" }}>{description}</Card.Text>
 
           <Row className="justify-content-center d-flex align-items-stretch">
-            <Col md={3}>
+          <Col lg={4} md={12}>
               <CouponImage imgSrc={imgSrc} />
             </Col>
 
-            <ProbabilityCard
-              isVisible={isVisible}
-              toggleVisibility={toggleVisibility}
-              probabilityData={probabilityData}
-            />
-
-            <CouponImageWithButton buttonText={buttonText} openPopup={openPopup} />
+            <Col lg={3} md={12} className="box-column d-flex flex-column">
+              <img
+                src="/assets/img/coupon/randombox.jpg"
+                alt="Image"
+                className="image-random img-fluid mb-3"
+              />
+              <Button
+                variant="primary"
+                onClick={openPopup}
+                className="button-common"
+              >
+                {buttonText}
+              </Button>
+            </Col>
           </Row>
+
+
+          {/* 랜덤 확률표 */}
+          <div className="mt-4">
+            <Button
+              variant="link"
+              onClick={toggleVisibility}
+              className={`button-toggle ${isVisible ? "active" : ""}`}
+            >
+              {isVisible ? "랜덤확률표 숨기기" : "랜덤확률표 보기"}
+              <i className={`bi bi-chevron-${isVisible ? "up" : "down"}`}></i>
+            </Button>
+
+            {isVisible && (
+              <div className="box-notice mt-3">
+                <hr className="my-3" />
+                <div className="box-notice__fence">
+                  <h5 className="box-notice__title">쿠폰에 대한 안내</h5>
+                  <ul className="custom-list">
+                    {probabilityData.map((probability, index) => (
+                      <li key={index}>
+                        <span>
+                          {probability.text}: {probability.percentage}%
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
         </Card.Body>
       </Card>
 
