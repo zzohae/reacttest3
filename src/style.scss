@@ -6,7 +6,7 @@
 }
 
 html {
-  overflow-y: scroll;
+  overflow-y: scroll !important;
 }
 
 html, body {
@@ -80,6 +80,9 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 50px;
 }
 
+.mb150 {
+  margin-bottom: 150px;
+}
 
 ol, ul, li {
   list-style: none;
@@ -195,8 +198,8 @@ svg {
       .search-box {
         width: 50%;
         @media (max-width: 1699px) {
-          width: 500px;
-          max-width: 500px;
+          width: 400px;
+          max-width: 400px;
         }
       }
     }
@@ -667,10 +670,6 @@ footer {
         margin-top: 5px;
       }
     }
-    // dl{
-    //   dt{color: red;}
-    //   dd{color: yellowgreen;}
-    // }
   }
 
   @media (max-width: 991px) { 
@@ -1319,7 +1318,6 @@ footer {
   }
 }
 .mainreviewwrap {
-  margin-bottom: 150px;
   .swiper-slide {
     height: auto;
     gap: 20px;

@@ -55,7 +55,7 @@ export default function ReviewSlider() {
       <Movetool textColor='#214aee' h2size='34px'>
         {allData.mainPagetitle[3].title}
       </Movetool>
-      <div className='w-100 mainreviewwrap'>
+      <div className='w-100 mainreviewwrap mb150'>
         <Swiper
           modules={[Autoplay]}
           spaceBetween={10}

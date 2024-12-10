@@ -19,9 +19,8 @@ const CardNews = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="categorytitle">카드뉴스</h2>
-      <div className="row gx-5">
+    <div>
+      <div className="row gx-5 gy-5">
         {currentEvents.map((event) => (
           <EventCard
             key={event.id}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import EventCard from '../../ui/EventCard';
 import events from '../../db/news/event.json';
 import './Event.scss';
+import Movetool from '../../ui/Mtitle'
 
 const Event = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,9 +21,8 @@ const Event = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="categorytitle">이벤트</h2>
-      <div className="row gx-5">
+    <div>
+      <div className="row gx-5 gy-5">
         {currentEvents.map((event) => (
           <EventCard
             key={event.id}

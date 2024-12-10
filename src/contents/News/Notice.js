@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../../api/dbconnect';
 import { Link } from 'react-router-dom';
-import Movetool from '../../ui/Mtitle'
 
 export default function Notice() {
   const [notices, setNotices] = useState([]);
@@ -63,7 +62,6 @@ export default function Notice() {
 
   return (
     <div>
-      <Movetool textColor='#214aee'>공지사항</Movetool>
       <div className='mt50'>
       <p className='totalQuan'>총 {totalCount}개</p>
       <ul className='noticelist d-flex flex-column'>

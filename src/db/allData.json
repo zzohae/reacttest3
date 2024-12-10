@@ -103,8 +103,8 @@
   },
   "mainRWDbanner" : {
     "bannerData" : [
-      { "src" : "main_banner_01_lg.jpg", "alt" : "베스트 리뷰 이벤트" },
       { "src" : "main_banner_02_lg.jpg", "alt" : "카카오톡 선물하기" },
+      { "src" : "main_banner_01_lg.jpg", "alt" : "베스트 리뷰 이벤트" },
       { "src" : "main_banner_03_lg.jpg", "alt" : "캠핑 푸드 빅 세일" },
       { "src" : "main_banner_04_lg.jpg", "alt" : "라이브커머스 초특가" },
       { "src" : "main_banner_05_lg.jpg", "alt" : "밀키트 주간 구독" },
@@ -112,8 +112,8 @@
       { "src" : "main_banner_07_lg.jpg", "alt" : "SNS 레시피 이벤트" }
     ],
     "bannerDataMd" : [
-      { "src" : "main_banner_01_md.jpg", "alt" : "베스트 리뷰 이벤트" },
       { "src" : "main_banner_02_md.jpg", "alt" : "카카오톡 선물하기" },
+      { "src" : "main_banner_01_md.jpg", "alt" : "베스트 리뷰 이벤트" },
       { "src" : "main_banner_03_md.jpg", "alt" : "캠핑 푸드 빅 세일" },
       { "src" : "main_banner_04_md.jpg", "alt" : "라이브커머스 초특가" },
       { "src" : "main_banner_05_md.jpg", "alt" : "밀키트 주간 구독" },
@@ -121,8 +121,8 @@
       { "src" : "main_banner_07_md.jpg", "alt" : "SNS 레시피 이벤트" }
     ],
     "bannerDataSm" : [
-      { "src" : "main_banner_01_sm.jpg", "alt" : "베스트 리뷰 이벤트" },
       { "src" : "main_banner_02_sm.jpg", "alt" : "카카오톡 선물하기" },
+      { "src" : "main_banner_01_sm.jpg", "alt" : "베스트 리뷰 이벤트" },
       { "src" : "main_banner_03_sm.jpg", "alt" : "캠핑 푸드 빅 세일" },
       { "src" : "main_banner_04_sm.jpg", "alt" : "라이브커머스 초특가" },
       { "src" : "main_banner_05_sm.jpg", "alt" : "밀키트 주간 구독" },

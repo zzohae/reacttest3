@@ -5,6 +5,7 @@ import Notice from './Notice';
 import LocalEvent from './LocalEvent';
 import CardNews from './CardNews'
 import allcategory from '../../db/allData.json';
+import Movetool from '../../ui/Mtitle';
 
 export default function News() {
   const { en } = useParams();
@@ -12,6 +13,8 @@ export default function News() {
   const submenu = allcategory.navdata.promotionmenu.find(
     (menu) => menu.linkto === "news/notice"
   ).submenu;
+
+  const selectedMenu = submenu.find((item) => item.linkto === en);
 
   const getComponent = (en) => {
     switch (en) {
@@ -41,7 +44,6 @@ export default function News() {
           />
         </div>
 
-
         <ul className="d-flex flex-wrap justify-content-center justify-content-xl-start mytab">
           {submenu.map((v, i) => (
             <li className={`d-flex justify-content-center align-items-center ${en === `${v.linkto}` ? 'active' : ''}`} key={i}>
@@ -49,7 +51,10 @@ export default function News() {
             </li>
           ))}
         </ul>
-        <div>
+        <div className='mb150'>
+        {selectedMenu && (
+          <Movetool textColor='#214aee'>{selectedMenu.title}</Movetool>
+        )}
           {getComponent(en)}
         </div>
       </div>

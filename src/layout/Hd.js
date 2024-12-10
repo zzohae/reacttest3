@@ -36,7 +36,7 @@ export default function Hd({ keyword, setKeyword, incartNum, isLoggedIn, setIsLo
       <div className="hdbtm container">
         <nav className="gnb d-none d-lg-flex justify-content-between align-items-center">
             <div className='mainmenu position-relative'>
-              <Link to={allData.navdata.category.linkto} className='category d-flex justify-content-start align-items-center'><Menuline width='20' height='14' className='me-2'></Menuline>{allData.navdata.category.title}</Link>
+              <Link to={allData.navdata.category.linkto} className='category d-flex justify-content-start align-items-center'><Menuline width='25' height='18' className='me-2'></Menuline>{allData.navdata.category.title}</Link>
               <ul className='hovermenu'>
                   {
                     allData.navdata.category.submenu.map((v, i) => {

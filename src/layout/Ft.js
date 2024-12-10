@@ -13,7 +13,7 @@ export default function Ft() {
     <footer className='d-flex align-items-center justify-content-center' style={{borderTop: '1px solid #d2d2d2'}}>
       <div className="container px-2 px-md-0">
       <div className='fttop container  d-flex justify-content-between align-items-start row gx-0 mb-3'>
-            <h2 className='order-1 order-lg-0 col-6 col-md-4 col-lg-2 mb-4 d-none d-lg-block'><a href="/"><Logo width='120' height='60' className='logo-color'></Logo></a></h2>
+            <h2 className='order-1 order-lg-0 col-6 col-md-4 col-lg-2 mb-4 d-none d-lg-block'><Link to="/"><Logo width='120' height='60' className='logo-color'></Logo></Link></h2>
             <div className='col-auto d-none d-lg-block mb-4'>
                 <h4 className='fs-h4' >회사 정보</h4>
                 <dl>
