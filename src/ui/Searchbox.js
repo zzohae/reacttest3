@@ -32,7 +32,7 @@ export default function Searchbox({ keyword, setKeyword }) {
   };
 
   return (
-    <>
+    
       <div className='search-box d-none d-lg-flex'>
         <input
           type="text"
@@ -40,16 +40,9 @@ export default function Searchbox({ keyword, setKeyword }) {
           className='d-none d-lg-block'
           value={keyword}
           onChange={handleSearchChange}
-          onKeyDown={handleKeyDown}  // 엔터키 이벤트 처리
+          onKeyDown={handleKeyDown}
         />
         <Searchicon width='30' height='30' onClick={handleSearchClick} />
       </div>
-      <Searchicon 
-        width='30' 
-        height='30' 
-        className='d-block d-lg-none' 
-        onClick={handleSearchClick}
-      />
-    </>
   );
 }

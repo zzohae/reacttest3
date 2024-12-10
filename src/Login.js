@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "./api/dbconnect";
 import { Btn } from "./ui/commonui";
+import Movetool from './ui/Mtitle'
 
 export default function Login() {
   const [username, setUsername] = useState("");  // 사용자가 입력한 username (아이디)
@@ -55,16 +56,17 @@ export default function Login() {
   return (
     <div className="d-flex flex-column align-items-center">
       <div className="container mycontainer row justify-content-center">
-        <div className="col-4 p-0">
-          <h2>로그인</h2>
+        <div className="w-100 d-flex flex-column gap-3" style={{maxWidth: '427px'}}>
+        <Movetool nomargin='true' textColor='#214aee' h2size='34px'>로그인/회원가입</Movetool>
+
+        {/* (여기부터)라디오 스타일 컴포넌트 만들어서 입력하기 */}
           <div>
             <label>
               <input
                 type="radio"
                 value="general"
                 checked={userType === "general"}
-                onChange={handleUserTypeChange}
-              />
+                onChange={handleUserTypeChange}/>
               일반 회원
             </label>
             <label>
@@ -72,8 +74,7 @@ export default function Login() {
                 type="radio"
                 value="member"
                 checked={userType === "member"}
-                onChange={handleUserTypeChange}
-              />
+                onChange={handleUserTypeChange}/>
               판매자 회원
             </label>
           </div>
@@ -102,12 +103,15 @@ export default function Login() {
           {errorMessage && !passwordError && (
             <p className="error-text">{errorMessage}</p>
           )}
-          <Btn version="v1" onClick={() => navigate("/signup")}>
-            회원가입
-          </Btn>
-          <Btn version="v2" onClick={handleLogin}>
-            로그인
-          </Btn>
+          <div className="d-flex gap-2">
+            <Btn version="v1" onClick={() => navigate("/signup")} style={{borderRadius:'8px'}}>
+              회원가입
+            </Btn>
+            <Btn version="v2" onClick={handleLogin} style={{borderRadius:'8px'}}>
+              로그인
+            </Btn>
+          </div>
+
           <div>
             <a href="/find-username">아이디 찾기</a> |{" "}
             <a href="/find-password">비밀번호 찾기</a>

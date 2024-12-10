@@ -58,7 +58,7 @@ export default function Ft() {
                 <a className='linkIcon' href="##"><Insta /></a>
               </div>
 
-              <Btn version='v3' className='sitemap'>사이트맵</Btn>
+              <Btn version='v3' className='sitemap ms-auto'>사이트맵</Btn>
             </div>
         </div>
 
