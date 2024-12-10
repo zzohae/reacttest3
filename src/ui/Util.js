@@ -17,7 +17,7 @@ const Button = ({ icon, hasBadge, onClick, badgePosition, label }) => (
       justifyContent: 'center',
     }}
   >
-    {icon}
+    {React.cloneElement(icon, { style: { color: '#214AEE' } })}
     {hasBadge && (
       <span
         className="badge"
@@ -36,7 +36,6 @@ const Button = ({ icon, hasBadge, onClick, badgePosition, label }) => (
   </button>
 );
 
-
 const Cart = ({ icon, badgePosition, incartNum }) => (
   <Link to="/cart"
     className="icon"
@@ -47,7 +46,7 @@ const Cart = ({ icon, badgePosition, incartNum }) => (
       justifyContent: 'center',
     }}
   >
-    {icon}
+    {React.cloneElement(icon, { style: { color: '#214AEE' } })}
     {incartNum.length > 0 && (
       <span
         className="badge"
@@ -85,7 +84,7 @@ const Alert = ({ icon, badgePosition, incartNum }) => (
       justifyContent: 'center',
     }}
   >
-    {icon}
+    {React.cloneElement(icon, { style: { color: '#214AEE' } })}
     {incartNum && (
       <span
         className="badge"
@@ -111,6 +110,7 @@ const Alert = ({ icon, badgePosition, incartNum }) => (
     )}
   </Link>
 );
+
 
 
 // Util 컴포넌트

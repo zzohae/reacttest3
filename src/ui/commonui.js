@@ -121,7 +121,7 @@ export const Starwrap = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== 'rating'
 })`
     width: ${(props) => props.rating * 22}px;
-    height: 16px;
+    height: 17px;
     background: url('data:image/svg+xml;charset=UTF-8,${encodeURIComponent(starSvg)}');
     background-repeat: repeat-x;
     background-size: 22px 16px;
