@@ -41,29 +41,36 @@ h1, h2, h3, h4, h5, h6, p {
 
 
 .fs-h1 {
-  font-size: 2.125rem; /* 34px */
+  font-size: clamp(1.5rem, 5vw, 2.125rem);
+  /* 최소값 24px, 최대값 34px */
   font-weight: bold;
 }
 .fs-h2 {
-  font-size: 1.625rem; /* 26px */
+  font-size: clamp(1.25rem, 4.5vw, 1.625rem);
+  /* 최소값 20px, 최대값 26px */
   font-weight: bold;
 }
 .fs-h3 {
-  font-size: 1.375rem; /* 22px */
+  font-size: clamp(1.125rem, 4vw, 1.375rem);
+  /* 최소값 18px, 최대값 22px */
   font-weight: bold;
 }
 .fs-h4 {
-  font-size: 1.125rem; /* 18px */
+  font-size: clamp(1rem, 3.5vw, 1.125rem);
+  /* 최소값 16px, 최대값 18px */
   font-weight: 500;
 }
 .fs-h5 {
-  font-size: 1rem; /* 16px */
+  font-size: clamp(0.875rem, 3vw, 1rem);
+  /* 최소값 14px, 최대값 16px */
   font-weight: 500;
 }
 .fs-h6 {
-  font-size: 0.875rem; /* 14px */
+  font-size: clamp(0.75rem, 2.5vw, 0.875rem);
+  /* 최소값 12px, 최대값 14px */
   font-weight: 500;
 }
+
 
 .mt50 {
   margin-top: 50px;
@@ -129,9 +136,12 @@ svg {
     @media (max-width: 991px) {
       flex-direction: row;
       justify-content: center;
-      height: 60px;
+      height: 50px;
       min-height: unset;
       padding: 0;
+      .hdlogo{
+        border: #214AEE;
+      }
     }
     .hdtop {
       padding-right: calc((100vw - 1320px) / 2 + var(--bs-gutter-x)* .5);
@@ -1127,18 +1137,18 @@ footer {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #214AEE; 
+  background: #9EAEEE;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1A3DCB;
+  background: #214AEE;
 }
 
 .storeinfo{
@@ -1370,8 +1380,8 @@ footer {
   .maintitle:after{
     content: '';
     display: inline-block;
-    width: 34px;
-    height: 34px;
+    width: clamp(1.5rem, 5vw, 2.125rem); 
+    height: clamp(1.5rem, 5vw, 2.125rem);
     margin-left: 5px;
     transform: translateY(4px);
     background: url(../public/assets/img/maintitle/cart.png);

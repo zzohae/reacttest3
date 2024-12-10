@@ -63,7 +63,7 @@ export default function Notice() {
 
   return (
     <div>
-      <Movetool textColor='#214aee' h2size='34px'>공지사항</Movetool>
+      <Movetool textColor='#214aee'>공지사항</Movetool>
       <div className='mt50'>
       <p className='totalQuan'>총 {totalCount}개</p>
       <ul className='noticelist d-flex flex-column'>
