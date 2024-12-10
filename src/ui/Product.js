@@ -15,7 +15,7 @@ export default function Product({rowclass, prdId, img, prodName, store, originpr
 
   return (
     <div
-      className={`product ${rowclass} position-relative`}
+      className={`product ${rowclass} position-relative align-self-stretch`}
       style={{ marginBottom: mB }}
     >
       <Link to={`/products/detail/${prdId}`}>
@@ -33,22 +33,22 @@ export default function Product({rowclass, prdId, img, prodName, store, originpr
         <img className="prodimg" src={img} alt={prodName} />
       </Link>
       <div className="d-flex justify-content-between align-items-end">
-        <dl className="prodInfo d-flex flex-column align-items-start">
+        <dl className="prodInfo d-flex flex-column align-items-start justify-content-between">
           <dt className="productName">{prodName}</dt>
-          <dd className="seller">{store}</dd>
-          <dd className="price">
+          <dd className="seller mb-1">{store}</dd>
+          <dd className="price mt-auto">
             {discount > 0 && (
               <>
                 <strong className="dcPercent">{discount}%</strong>
                 <span className="origin">{formatNum(originprice)}원</span>
               </>
             )}
-            <em className="saleprice d-block d-md-inline d-lg-block d-xl-inline">
+            <em className="saleprice d-inline ">
               {formatNum(saleprice)}
               <span>원</span>
             </em>
           </dd>
-          <p>000개 구매중</p>
+          <p className='mt-1'>000개 구매중</p>
         </dl>
         <InCartBtn
           svgcolor="#D2D2D2"

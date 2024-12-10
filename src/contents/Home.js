@@ -2,8 +2,9 @@ import React from "react";
 import SwiperBanner from "../contents/SwiperBanner";
 import Boardlist from "./Boardlist";
 import allData from "../db/allData.json";
+import Topad from "./Topad";
 
-export default function Home({ bgcolor, textcolor }) {
+export default function Home({ bgcolor, textcolor, incartNum, setIncartNum }) {
   const pagination1 = {
     clickable: true,
     renderBullet: function(index, className) {
@@ -20,7 +21,8 @@ export default function Home({ bgcolor, textcolor }) {
         hasrwd={true}
         ></SwiperBanner>
       </div>
-      <Boardlist></Boardlist>
+      <Topad className='d-sm-none'></Topad>
+      <Boardlist incartNum={incartNum} setIncartNum={setIncartNum}></Boardlist>
     </div>
   );
 }

@@ -23,6 +23,12 @@ body {
   }
 }
 
+@media (min-width: 576px) and (max-width: 767px) {
+  .container, .container-sm {
+      max-width: 708px;
+  }
+}
+
 .mycontainer {
   padding-top: 50px;
 }
@@ -35,29 +41,36 @@ h1, h2, h3, h4, h5, h6, p {
 
 
 .fs-h1 {
-  font-size: 2.125rem; /* 34px */
+  font-size: clamp(1.5rem, 5vw, 2.125rem);
+  /* 최소값 24px, 최대값 34px */
   font-weight: bold;
 }
 .fs-h2 {
-  font-size: 1.625rem; /* 26px */
+  font-size: clamp(1.25rem, 4.5vw, 1.625rem);
+  /* 최소값 20px, 최대값 26px */
   font-weight: bold;
 }
 .fs-h3 {
-  font-size: 1.375rem; /* 22px */
+  font-size: clamp(1.125rem, 4vw, 1.375rem);
+  /* 최소값 18px, 최대값 22px */
   font-weight: bold;
 }
 .fs-h4 {
-  font-size: 1.125rem; /* 18px */
+  font-size: clamp(1rem, 3.5vw, 1.125rem);
+  /* 최소값 16px, 최대값 18px */
   font-weight: 500;
 }
 .fs-h5 {
-  font-size: 1rem; /* 16px */
+  font-size: clamp(0.875rem, 3vw, 1rem);
+  /* 최소값 14px, 최대값 16px */
   font-weight: 500;
 }
 .fs-h6 {
-  font-size: 0.875rem; /* 14px */
+  font-size: clamp(0.75rem, 2.5vw, 0.875rem);
+  /* 최소값 12px, 최대값 14px */
   font-weight: 500;
 }
+
 
 .mt50 {
   margin-top: 50px;
@@ -96,10 +109,6 @@ svg {
   color: #fff;
 }
 
-.border-lighter {
-  border-width: 1px !important;
-}
-
 .border-none {
   border: none !important;
 }
@@ -127,7 +136,7 @@ svg {
     @media (max-width: 991px) {
       flex-direction: row;
       justify-content: center;
-      height: 60px;
+      height: 50px;
       min-height: unset;
       padding: 0;
     }
@@ -256,6 +265,9 @@ header {
   }
   @media (max-width: 575px){
     height: 60px;
+    .top-ad {
+      display: none;
+    }
   }
   .hdtop {
     height: 100px;
@@ -389,10 +401,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media (max-width: 575px) {
-    display: none;
-  }
   p {
     margin: 0;
   }
@@ -406,6 +414,8 @@ header {
   border-radius: 0.3125rem;
 }
 .prodInfo {
+  line-height: 1.3;
+  min-height: 116px;
   .productName {
     color: #333;
     font-size: 18px;
@@ -617,6 +627,7 @@ header {
   font-weight: 400;
   margin-right: .25rem;
   text-decoration: line-through;
+  white-space: nowrap;
   &.detail {
     font-size: 22px;
   }
@@ -662,7 +673,7 @@ footer {
     // }
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: 991px) { 
     h1 {
       order: 4;
     }
@@ -741,14 +752,12 @@ footer {
         button:first-child {
           color: #666;
           width: 50%;
-          font-weight: 500;
           &:hover {
             color: #fff;
           }
         }
         button:nth-child(2) {
           width: 50%;
-          font-weight: 500;
           border: 1px solid #214AEE !important;
         }
       }
@@ -1127,18 +1136,18 @@ footer {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #214AEE; 
+  background: #9EAEEE;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1A3DCB;
+  background: #214AEE;
 }
 
 .storeinfo{
@@ -1176,11 +1185,22 @@ footer {
   }
   .mdswiper{
     width: 615px;
+    position: relative;
+    @media (max-width: 991px) {
+      &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: -100%;
+        background-color: #fff;
+      }
+    }
     @media (max-width: 575px) {
       width: 80vw;
       margin-left: -0.75rem;
       .swiper-slide img {
-        border-radius: 0;
+        border-radius: 0 0.3125rem 0.3125rem 0;
         width: 100%;
       }
     }
@@ -1211,7 +1231,7 @@ footer {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    @media (min-width: 576px) and (max-width: 941px){
+    @media (min-width: 576px) and (max-width: 899px){
       transform: translateX(-46%);
     }
   }
@@ -1331,6 +1351,8 @@ footer {
         width: 100%;
         img {
           border-radius: 0.3125rem;
+          width: 80px;
+          height: 80px;
         }
         p {
           width: 100%;
@@ -1357,11 +1379,48 @@ footer {
   .maintitle:after{
     content: '';
     display: inline-block;
-    width: 34px;
-    height: 34px;
+    width: clamp(1.5rem, 5vw, 2.125rem); 
+    height: clamp(1.5rem, 5vw, 2.125rem);
     margin-left: 5px;
     transform: translateY(4px);
     background: url(../public/assets/img/maintitle/cart.png);
+  }
+}
+
+.bestproduct {
+  gap: 12px;
+  &>a {
+    width: 100%;
+    @media (max-width: 767px) {
+      width: 50%;
+      min-width: 172px;
+    }
+  }
+  &>div {
+    width: 100%;
+    @media (max-width: 767px) {
+      width: 48%;
+    }
+    .mobilecart {
+      gap: 10px;
+    }
+  }
+  .prodimg {
+    margin: 0;
+  }
+  .price {
+    margin-top: 20px;
+  }
+  .ratingNum {
+    order: unset;
+    line-height: 1;
+    color: #FF4A11;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: -2px;
+  }
+  .prodInfo {
+    height: 100%;
   }
 }
 

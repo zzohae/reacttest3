@@ -11,11 +11,15 @@ import Ft from './layout/Ft';
 import Comptest from './contents/Copmtest';
 import AboutUs from './contents/Aboutus/About';
 import SignUp from './SignUp';
+import Login from './Login'
+import ScrolltoTop from './ScrolltoTop';
 
 export default function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [keyword, setKeyword] = useState('');
   const [incartNum, setIncartNum] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
   useEffect(() => {
     const updateScroll = () => {
@@ -31,9 +35,10 @@ export default function App() {
 
   return (
     <div className={`wrap ${scrollPosition < 200 ? "" : "scrolled"}`}>
-      <Hd keyword={keyword} setKeyword={setKeyword} incartNum={incartNum}></Hd>
+      <ScrolltoTop></ScrolltoTop>
+      <Hd keyword={keyword} setKeyword={setKeyword} incartNum={incartNum} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}></Hd>
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/' element={<Home incartNum={incartNum} setIncartNum={setIncartNum}></Home>}></Route>
         <Route path="/products/:cn?" element={<Category cn='' incartNum={incartNum} setIncartNum={setIncartNum}></Category>} />
         <Route path="/search" element={<Category keyword={keyword} setKeyword={setKeyword} incartNum={incartNum} setIncartNum={setIncartNum}></Category>} />
         <Route path="/products/detail/:id?" element={<Detail></Detail>} />
@@ -42,6 +47,7 @@ export default function App() {
         <Route path="/aboutus/:en" element={<AboutUs></AboutUs>} />
         <Route path="/comptest" element={<Comptest></Comptest>} />
         <Route path="/signup" element={<SignUp></SignUp>} />
+        <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}></Login>} />
         <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
       <Ft></Ft>

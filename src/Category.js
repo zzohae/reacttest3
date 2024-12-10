@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
-import productData from './db/product.json';
 import Product from './ui/Product';
 import allcategory from './db/allData.json';
+import { supabase } from './api/dbconnect';
+import { Btn } from './ui/commonui';
 
 export default function Category({ keyword, incartNum, setIncartNum }) {
   const { cn } = useParams();
   const location = useLocation();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchKeyword, setSearchKeyword] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
@@ -17,16 +20,46 @@ export default function Category({ keyword, incartNum, setIncartNum }) {
   }, [location.search, keyword]);
 
   useEffect(() => {
-    setFilteredProducts(
-      productData.filter((product) => {
-        const matchesCategory = cn ? product.category === cn : true;
-        const matchesKeyword = searchKeyword
-          ? product.prodName.toLowerCase().includes(searchKeyword.toLowerCase())
-          : true;
+    const fetchProducts = async () => {
+      setLoading(true);
+      setError('');
+      try {
+        const { data, error } = await supabase
+          .from('productData')
+          .select('*')
+          .order('id', { ascending: true });
 
-        return matchesCategory && matchesKeyword;
-      })
-    );
+        if (error) {
+          throw error;
+        }
+
+        const filtered = data.map((product) => {
+          const saleprice = product.saleprice !== null && !isNaN(parseInt(product.saleprice))
+            ? parseInt(product.saleprice)
+            : parseInt(product.originprice);
+
+          return {
+            ...product,
+            saleprice: saleprice,
+          };
+        }).filter((product) => {
+          const matchesCategory = cn ? product.category === cn : true;
+          const matchesKeyword = searchKeyword
+            ? product.prodName.toLowerCase().includes(searchKeyword.toLowerCase())
+            : true;
+
+          return matchesCategory && matchesKeyword;
+        });
+
+        setFilteredProducts(filtered);
+      } catch (err) {
+        setError('상품 데이터를 불러오는 데 실패했습니다.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
   }, [searchKeyword, cn]);
 
   const getCategoryTitle = (cn) => {
@@ -42,6 +75,14 @@ export default function Category({ keyword, incartNum, setIncartNum }) {
     }
     return getCategoryTitle(cn);
   };
+
+  if (loading) {
+    return <div className='vh-100 d-flex text-center align-items-center justify-content-center'>불러오는 중...</div>;
+  }
+
+  if (error) {
+    return <div className='vh-100 d-flex text-center align-items-center justify-content-center'>{error}</div>;
+  }
 
   return (
     <div className="d-flex flex-column align-items-center">
@@ -63,6 +104,14 @@ export default function Category({ keyword, incartNum, setIncartNum }) {
         </ul>
 
         <p className="totalQuan">총 {filteredProducts.length}건</p>
+        {filteredProducts.length === 0 ? (
+          <div className="text-center d-flex flex-column align-items-center justify-content-center gap-2 mt50 mb50 pb-5">
+            <p>상품이 없습니다.</p>
+            <p className='mb-2'>청량마켓몰은 여러분이 원하는 상품을 들여오기 위해 노력하겠습니다!</p>
+            <Btn version="v1">상품 문의하기</Btn>
+          </div>
+        ) : (
+          <>
         <div className="row align-items-center">
           {filteredProducts.map((product) => (
             <Product
@@ -80,6 +129,8 @@ export default function Category({ keyword, incartNum, setIncartNum }) {
             />
           ))}
         </div>
+        </>
+        )}
       </div>
     </div>
   );

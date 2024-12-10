@@ -6,11 +6,11 @@ import Livecom from '../Livecom'
 import ReviewSlider from '../ReviewSlider'
 
 
-export default function Boardlist() {
+export default function Boardlist( {incartNum, setIncartNum} ) {
   return (
     <div className='d-flex flex-column align-items-center overflow-hidden boardlist'>
       <MdsPick></MdsPick>
-      <Best></Best>
+      <Best incartNum={incartNum} setIncartNum={setIncartNum}></Best>
       <Mapbanner></Mapbanner>
       <Livecom></Livecom>
       <ReviewSlider></ReviewSlider>
