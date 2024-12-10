@@ -13,13 +13,20 @@ const CouponCard = ({
   const [isVisible, setIsVisible] = useState(false);
   const [popupVisible, setPopupVisible] = useState(false);
 
-  // colSize 계산 함수
   const getColSize = (imageCount) => {
-    if (!Array.isArray(imgSrc) || imageCount <= 0) return "col-2"; // 기본값 설정
+    const isMdOrBelow = window.innerWidth <= 991; // md 이하를 체크 (992px 이하)
+    
+    // md 이하에서는 col-4로 고정
+    if (isMdOrBelow) {
+      return "col-6";
+    }
+  
+    if (!Array.isArray(imgSrc) || imageCount <= 0) return "col-2";
     if (imageCount >= 1 && imageCount <= 3) return "col-4";
     if (imageCount === 4) return "col-2";
-    return "col-2"; // 기본값
+    return "col-2";
   };
+  
 
   const toggleVisibility = () => setIsVisible((prev) => !prev);
   const openPopup = () => setPopupVisible(true);
@@ -40,7 +47,7 @@ const CouponCard = ({
       <Card className="shadow-sm">
         <Card.Body>
           <Card.Title className="card-title">{title}</Card.Title>
-          <Card.Text className="card-text" style={{ display: "inline-block" }}>
+          <Card.Text className="card-text">
             {description}
           </Card.Text>
 

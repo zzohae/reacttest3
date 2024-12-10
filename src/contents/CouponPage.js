@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import CouponCard from "../ui/CouponCard";
-import RandomCoupon from "../ui/RandomCoupon"; // RandomCoupon 임포트
+import RandomCoupon from "../ui/RandomCoupon";
 import couponData from "../db/couponData.json";
 import './Coupon.scss';
 
