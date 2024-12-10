@@ -26,7 +26,7 @@ const Event = () => {
         {currentEvents.map((event) => (
           <EventCard
             key={event.id}
-            imgSrc={`/assets/img/event/event_card_0${event.imgNumber}.jpg`}
+            imgSrc={`/assets/img/event/event_card_${event.imgNumber}.jpg`}
             title={event.title}
             period={event.period}
             isExpired={event.isExpired}

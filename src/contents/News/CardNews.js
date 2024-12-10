@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { supabase2 } from '../../api/dbconnect';
 import EventCard from '../../ui/EventCard';
-import events from '../../db/news/cardNews.json';
 import './Event.scss';
 
 const CardNews = () => {
+  const [events, setEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const eventsPerPage = 9;
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const { data, error } = await supabase2
+          .from('cardNews')
+          .select('*');
+        if (error) throw error;
+        setEvents(data); 
+      } catch (error) {
+        console.error('Error fetching events:', error.message);
+      }
+    };
+    fetchEvents();
+  }, []);
 
   const totalPages = Math.ceil(events.length / eventsPerPage);
   const indexOfLastEvent = currentPage * eventsPerPage;
@@ -25,7 +41,7 @@ const CardNews = () => {
         {currentEvents.map((event) => (
           <EventCard
             key={event.id}
-            imgSrc={`/assets/img/cardnews/cardnews_0${event.imgNumber}.jpg`}
+            imgSrc={`/assets/img/cardnews/cardnews_${event.img_number}.jpg`}
             title={event.title}
             period={event.period}
             isExpired={event.isExpired}

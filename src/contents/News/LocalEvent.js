@@ -1,11 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EventCard from '../../ui/EventCard';
-import events from '../../db/news/localEvents.json';
+import { supabase2 } from '../../api/dbconnect';
 import './Event.scss';
 
-const LocalEvent = () => {
+const Event = () => {
+  const [events, setEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const eventsPerPage = 9;
+
+  // Supabase에서 이벤트 데이터를 가져오는 함수
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const { data, error } = await supabase2
+        .from('offEvents')
+        .select('id, img_number, title, start_date, end_date')
+        .order('start_date', { ascending: true });
+
+      if (error) {
+        console.error('Error fetching events:', error);
+      } else {
+        setEvents(data);
+      }
+    };
+
+    fetchEvents();
+  }, []);
 
   const totalPages = Math.ceil(events.length / eventsPerPage);
   const indexOfLastEvent = currentPage * eventsPerPage;
@@ -21,17 +40,22 @@ const LocalEvent = () => {
 
   return (
     <div className="container">
-      <h2 className="categorytitle">지역 행사</h2>
+      <h2 className="categorytitle">이벤트</h2>
       <div className="row gx-5">
-        {currentEvents.map((event) => (
-          <EventCard
-            key={event.id}
-            imgSrc={`/assets/img/localevent/localcard_0${event.imgNumber}.jpg`}
-            title={event.title}
-            period={event.period}
-            isExpired={event.isExpired}
-          />
-        ))}
+        {currentEvents.map((event) => {
+          const formattedStartDate = new Date(event.start_date).toLocaleDateString();
+          const formattedEndDate = new Date(event.end_date).toLocaleDateString();
+          const formattedPeriod = `${formattedStartDate} ~ ${formattedEndDate}`;
+
+          return (
+            <EventCard
+              key={event.id}
+              imgSrc={`/assets/img/event/event_card_${event.img_number}.jpg`}
+              title={event.title}
+              period={formattedPeriod}
+            />
+          );
+        })}
       </div>
 
       {/* Pagination */}
@@ -84,4 +108,4 @@ const LocalEvent = () => {
   );
 };
 
-export default LocalEvent;
+export default Event;
